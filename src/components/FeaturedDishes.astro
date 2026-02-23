@@ -1,0 +1,51 @@
+---
+import { type Locale, t } from "../i18n/utils";
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+
+const dishes = [
+  { name: i.featured.bangkokSoup, desc: i.featured.bangkokSoupDesc, img: "/promo/images/bangkok-soup-large.jpg", tag: "93%" },
+  { name: i.featured.padThai, desc: i.featured.padThaiDesc, img: "/promo/images/pad-thai.jpg", tag: "95%" },
+  { name: i.featured.imperialRolls, desc: i.featured.imperialRollsDesc, img: "/promo/images/imperial-rolls.jpg", tag: locale === "fr" ? "Favori" : "Fan Fav" },
+];
+---
+
+<section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
+  <!-- Subtle divider -->
+  <div class="divider-gold mx-auto mb-24 max-w-xs"></div>
+
+  <!-- Ambient -->
+  <div class="absolute left-0 bottom-0 h-[400px] w-[400px] rounded-full bg-krong-red/[0.03] blur-[120px]"></div>
+
+  <div class="mx-auto max-w-7xl">
+    <div class="reveal mb-16 text-center">
+      <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">{locale === "fr" ? "Les plus commandés" : "Most Ordered"}</span>
+      <h2 class="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">{i.featured.title}</h2>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
+      {dishes.map((d, idx) => (
+        <div class={`reveal reveal-delay-${idx + 1} group`}>
+          <div class="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-night-800/60 transition-all duration-500 hover:border-white/[0.12] hover:shadow-2xl">
+            <!-- Image -->
+            <div class="relative aspect-[4/3] overflow-hidden">
+              <img src={d.img} alt={d.name} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-night-900/80 via-transparent to-transparent"></div>
+              <!-- Tag -->
+              <div class="absolute right-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-bold text-golden-light backdrop-blur-md border border-golden/20">
+                {d.tag}
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-6">
+              <h3 class="font-display text-lg font-bold text-white">{d.name}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-white/35">{d.desc}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

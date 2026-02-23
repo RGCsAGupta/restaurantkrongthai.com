@@ -1,0 +1,118 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import ContactStrip from "../../components/ContactStrip.astro";
+import { t, localizedPath } from "../../i18n/utils";
+import { business } from "../../data/business";
+
+const locale = "en";
+const i = t(locale);
+const thankYouPath = localizedPath(locale, "thanks");
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${business.address.street}, ${business.address.city}, ${business.address.province} ${business.address.postal}`)}`;
+
+const inputClass = "w-full rounded-xl border border-white/10 bg-night-700/80 px-4 py-3.5 text-white placeholder-white/25 transition-all focus:border-golden/50 focus:outline-none focus:ring-2 focus:ring-golden/20";
+const labelClass = "mb-1.5 block text-sm font-semibold text-white/60";
+---
+
+<MarketingLayout title={i.meta.contactTitle} description={i.meta.contactDesc} locale={locale} canonicalPath="contact" currentPath="contact">
+  <!-- Hero-style header (shorter) -->
+  <section class="relative overflow-hidden bg-night-950 px-5 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-40">
+    <div class="absolute inset-0 bg-gradient-to-b from-night-800/30 to-night-950"></div>
+    <div class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-golden/[0.04] blur-[120px]"></div>
+    <div class="relative z-10 mx-auto max-w-3xl text-center">
+      <h1 class="font-display text-4xl font-bold text-white sm:text-5xl lg:text-6xl">{i.contactPage.heroTitle}</h1>
+      <p class="mx-auto mt-4 max-w-xl text-lg text-white/40">{i.contactPage.heroSubtitle}</p>
+    </div>
+  </section>
+
+  <!-- Info Cards -->
+  <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
+    <div class="mx-auto max-w-5xl">
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Phone -->
+        <div class="reveal reveal-delay-1 rounded-3xl border border-white/[0.06] bg-night-800/60 p-8 text-center">
+          <div class="mb-4 text-3xl">📞</div>
+          <h3 class="font-display text-lg font-bold text-white">{i.contactPage.phoneTitle}</h3>
+          <p class="mt-2 text-sm text-white/35">{i.contactPage.phoneDesc}</p>
+          <a href={`tel:${business.phone}`} class="mt-4 inline-block text-lg font-bold text-golden transition-colors hover:text-golden-light">{business.phoneDisplay}</a>
+        </div>
+        <!-- Location -->
+        <div class="reveal reveal-delay-2 rounded-3xl border border-white/[0.06] bg-night-800/60 p-8 text-center">
+          <div class="mb-4 text-3xl">📍</div>
+          <h3 class="font-display text-lg font-bold text-white">{i.contactPage.locationTitle}</h3>
+          <p class="mt-2 text-sm text-white/35">{business.address.street}</p>
+          <p class="text-sm text-white/35">{business.address.city}, {business.address.province} {business.address.postal}</p>
+          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-sm font-bold text-golden transition-colors hover:text-golden-light">{i.contact.directions}</a>
+        </div>
+        <!-- Hours -->
+        <div class="reveal reveal-delay-3 rounded-3xl border border-white/[0.06] bg-night-800/60 p-8 text-center">
+          <div class="mb-4 text-3xl">🕐</div>
+          <h3 class="font-display text-lg font-bold text-white">{i.contactPage.hoursTitle}</h3>
+          <div class="mt-3 space-y-1">
+            {Object.values(i.contact.hoursData).map((line) => (
+              <p class="text-xs text-white/35">{line}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities -->
+  <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
+    <div class="divider-gold mx-auto mb-24 max-w-xs"></div>
+    <div class="mx-auto max-w-4xl">
+      <div class="reveal mb-12 text-center">
+        <h2 class="font-display text-2xl font-bold text-white sm:text-3xl">{i.contactPage.amenitiesTitle}</h2>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {[i.contactPage.byob, i.contactPage.parking, i.contactPage.accessible, i.contactPage.location].map((text, idx) => (
+          <div class={`reveal reveal-delay-${idx + 1} flex items-center gap-4 rounded-2xl border border-white/[0.06] bg-night-800/40 px-6 py-4`}>
+            <span class="text-xl">{["🍷", "🚗", "♿", "🎭"][idx]}</span>
+            <span class="text-sm text-white/50">{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32" id="form">
+    <div class="divider-gold mx-auto mb-24 max-w-xs"></div>
+    <div class="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-golden/[0.03] blur-[120px]"></div>
+    <div class="reveal mx-auto max-w-2xl">
+      <div class="mb-10 text-center">
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Message</span>
+        <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl">{i.contactPage.formTitle}</h2>
+        <p class="mt-3 text-sm text-white/35">{i.contactPage.formSubtitle}</p>
+      </div>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action={thankYouPath} class="space-y-6 rounded-3xl border border-white/[0.08] bg-night-800/60 p-8 backdrop-blur-sm sm:p-10">
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="locale" value={locale} />
+        <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div>
+            <label for="name" class={labelClass}>{i.contactPage.formName}</label>
+            <input type="text" id="name" name="name" required class={inputClass} />
+          </div>
+          <div>
+            <label for="email" class={labelClass}>{i.contactPage.formEmail}</label>
+            <input type="email" id="email" name="email" required class={inputClass} />
+          </div>
+        </div>
+        <div>
+          <label for="phone" class={labelClass}>{i.contactPage.formPhone}</label>
+          <input type="tel" id="phone" name="phone" class={inputClass} />
+        </div>
+        <div>
+          <label for="message" class={labelClass}>{i.contactPage.formMessage}</label>
+          <textarea id="message" name="message" rows="4" required class={inputClass}></textarea>
+        </div>
+        <button type="submit" class="w-full rounded-full bg-krong-red px-6 py-4 text-lg font-bold text-white shadow-red transition-all duration-300 hover:shadow-xl hover:brightness-110 active:scale-[0.98]">
+          {i.contactPage.formSubmit}
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <ContactStrip locale={locale} />
+</MarketingLayout>

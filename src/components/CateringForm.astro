@@ -1,0 +1,96 @@
+---
+import { type Locale, t, localizedPath } from "../i18n/utils";
+import { business } from "../data/business";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const i = t(locale);
+const thankYouPath = localizedPath(locale, "thanks");
+
+const inputClass =
+  "w-full rounded-xl border border-white/10 bg-night-700/80 px-4 py-3.5 text-white placeholder-white/25 transition-all focus:border-golden/50 focus:outline-none focus:ring-2 focus:ring-golden/20";
+const labelClass = "mb-1.5 block text-sm font-semibold text-white/60";
+---
+
+<section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32" id="inquiry">
+  <!-- Ambient -->
+  <div class="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-golden/[0.03] blur-[120px]"></div>
+
+  <div class="reveal mx-auto max-w-2xl">
+    <div class="mb-10 text-center">
+      <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">{locale === "fr" ? "Demande" : "Inquiry"}</span>
+      <h2 class="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        {i.catering.formTitle}
+      </h2>
+    </div>
+
+    <form
+      name="catering-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action={thankYouPath}
+      class="space-y-6 rounded-3xl border border-white/[0.08] bg-night-800/60 p-8 backdrop-blur-sm sm:p-10"
+    >
+      <input type="hidden" name="form-name" value="catering-inquiry" />
+      <input type="hidden" name="locale" value={locale} />
+      <p class="hidden">
+        <label>
+          Don't fill this out: <input name="bot-field" />
+        </label>
+      </p>
+
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div>
+          <label for="name" class={labelClass}>{i.catering.formName}</label>
+          <input type="text" id="name" name="name" required class={inputClass} />
+        </div>
+        <div>
+          <label for="email" class={labelClass}>{i.catering.formEmail}</label>
+          <input type="email" id="email" name="email" required class={inputClass} />
+        </div>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div>
+          <label for="phone" class={labelClass}>{i.catering.formPhone}</label>
+          <input type="tel" id="phone" name="phone" class={inputClass} />
+        </div>
+        <div>
+          <label for="date" class={labelClass}>{i.catering.formDate}</label>
+          <input type="date" id="date" name="date" required class={inputClass} />
+        </div>
+      </div>
+
+      <div>
+        <label for="guests" class={labelClass}>{i.catering.formGuests}</label>
+        <input type="number" id="guests" name="guests" min="1" required class={inputClass} />
+      </div>
+
+      <div>
+        <label for="message" class={labelClass}>{i.catering.formMessage}</label>
+        <textarea id="message" name="message" rows="4" class={inputClass}></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full rounded-full bg-krong-red px-6 py-4 text-lg font-bold text-white shadow-red transition-all duration-300 hover:shadow-xl hover:brightness-110 active:scale-[0.98]"
+      >
+        {i.catering.formSubmit}
+      </button>
+
+      <p class="text-center text-xs text-white/25">
+        {i.catering.formDisclaimer}{" "}
+        <a
+          href={`tel:${business.phone}`}
+          class="font-semibold text-golden transition-colors hover:text-golden-light"
+        >
+          {business.phoneDisplay}
+        </a>
+      </p>
+    </form>
+  </div>
+</section>

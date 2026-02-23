@@ -1,0 +1,50 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import SocialProof from "../../components/SocialProof.astro";
+import ValueProps from "../../components/ValueProps.astro";
+import FeaturedDishes from "../../components/FeaturedDishes.astro";
+import ComboSpecial from "../../components/ComboSpecial.astro";
+import OrderCTA from "../../components/OrderCTA.astro";
+import ContactStrip from "../../components/ContactStrip.astro";
+import { t, localizedPath } from "../../i18n/utils";
+import { business } from "../../data/business";
+
+const locale = "en";
+const i = t(locale);
+---
+
+<MarketingLayout
+  title={i.meta.homeTitle}
+  description={i.meta.homeDesc}
+  locale={locale}
+>
+  <HeroSection
+    headline={i.hero.headline}
+    subheadline="🇹🇭 Thai • 🇻🇳 Vietnamese • 🇰🇭 Cambodian • ⭐ 4.2 Stars • BYOB Welcome"
+    imageSrc="/promo/images/bangkok-soup-large.jpg"
+    imageAlt="Signature Bangkok Soup at Krong Thai Restaurant"
+    badgeText="Only Cambodian Restaurant in the Region"
+    badgeSubtext="Gatineau-Ottawa's Exclusive"
+  >
+    <CTAButton href={business.orderingUrl} variant="primary" size="lg" external>
+      <span class="mr-2 text-2xl">🍜</span>
+      {i.hero.cta}
+    </CTAButton>
+    <CTAButton
+      href={localizedPath(locale, "catering")}
+      variant="outline"
+      size="lg"
+    >
+      {i.hero.ctaSecondary}
+    </CTAButton>
+  </HeroSection>
+
+  <SocialProof locale={locale} />
+  <ValueProps locale={locale} />
+  <FeaturedDishes locale={locale} />
+  <ComboSpecial locale={locale} />
+  <OrderCTA locale={locale} />
+  <ContactStrip locale={locale} />
+</MarketingLayout>

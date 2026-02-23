@@ -1,0 +1,31 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import { t, localizedPath } from "../../i18n/utils";
+
+const locale = "fr";
+const i = t(locale);
+---
+
+<MarketingLayout
+  title="Merci — Restaurant Krong Thai"
+  description="Votre demande a été reçue."
+  locale={locale}
+  canonicalPath="merci"
+  currentPath="thanks"
+>
+  <section class="flex min-h-[60vh] items-center justify-center px-5 py-20">
+    <div class="text-center">
+      <div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-green-500/20 bg-green-500/10 text-4xl">✅</div>
+      <h1 class="font-display text-4xl font-bold tracking-tight text-white">{i.thanks.title}</h1>
+      <p class="mx-auto mt-4 max-w-md text-lg text-white/40">
+        {i.thanks.message}
+      </p>
+      <div class="mt-8">
+        <CTAButton href={localizedPath(locale, "")} variant="primary">
+          {i.thanks.back}
+        </CTAButton>
+      </div>
+    </div>
+  </section>
+</MarketingLayout>

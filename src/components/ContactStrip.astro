@@ -1,0 +1,31 @@
+---
+import { business } from "../data/business";
+import { type Locale, t } from "../i18n/utils";
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${business.address.street}, ${business.address.city}, ${business.address.province} ${business.address.postal}`
+)}`;
+---
+
+<section class="reveal border-t border-white/[0.06] px-5 py-8 lg:px-8">
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 sm:flex-row">
+    <div class="flex items-center gap-4">
+      <div class="flex h-11 w-11 items-center justify-center rounded-full bg-krong-red/10 text-lg text-krong-red-glow">📍</div>
+      <div>
+        <p class="font-semibold text-white/80">{i.contact.address}</p>
+        <a href={`tel:${business.phone}`} class="text-sm font-semibold text-golden transition-colors hover:text-golden-light">{i.contact.phone}</a>
+      </div>
+    </div>
+    <a
+      href={mapsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-2.5 text-sm font-bold text-white/50 transition-all duration-300 hover:border-golden/30 hover:text-golden-light"
+    >
+      {i.contact.directions}
+    </a>
+  </div>
+</section>

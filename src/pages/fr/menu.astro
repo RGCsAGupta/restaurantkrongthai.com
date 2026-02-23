@@ -1,0 +1,70 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import OrderCTA from "../../components/OrderCTA.astro";
+import ContactStrip from "../../components/ContactStrip.astro";
+import { t } from "../../i18n/utils";
+import { menuCategories } from "../../data/menu";
+
+const locale = "fr";
+const i = t(locale);
+---
+
+<MarketingLayout title={i.meta.menuTitle} description={i.meta.menuDesc} locale={locale} canonicalPath="menu" currentPath="menu">
+  <HeroSection headline={i.menu.heroTitle} subheadline={i.menu.heroSubtitle} imageSrc="/promo/images/thai-fried-rice.jpg" imageAlt="Menu authentique Krong Thai" />
+
+  <div class="reveal border-b border-white/[0.04] bg-night-900 px-5 py-5">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-4 text-center">
+      <span class="rounded-full border border-krong-red/30 bg-krong-red/10 px-4 py-1.5 text-xs font-bold text-krong-red-glow">+10,95 $</span>
+      <span class="text-sm font-medium text-white/50">{i.menu.comboNote} — {i.menu.comboIncludes}</span>
+    </div>
+  </div>
+
+  {menuCategories.map((cat, catIdx) => (
+    <section class="relative overflow-hidden px-5 py-20 lg:px-8 lg:py-24">
+      {catIdx > 0 && <div class="divider-gold mx-auto mb-20 max-w-xs"></div>}
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal mb-12 text-center">
+          <span class="text-3xl">{cat.icon}</span>
+          <h2 class="mt-3 font-display text-2xl font-bold text-white sm:text-3xl">{cat.name[locale]}</h2>
+          {cat.priceNote && <p class="mt-2 text-sm text-white/30">{cat.priceNote[locale]}</p>}
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {cat.items.map((item, idx) => (
+            <div class={`reveal reveal-delay-${(idx % 4) + 1} group rounded-2xl border border-white/[0.06] bg-night-800/50 transition-all duration-500 hover:border-white/[0.12] ${item.img ? 'overflow-hidden' : 'p-5'}`}>
+              {item.img ? (
+                <>
+                  <div class="relative aspect-[16/10] overflow-hidden">
+                    <img src={item.img} alt={item.name[locale]} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-night-900/70 to-transparent"></div>
+                    <div class="absolute bottom-3 right-3 rounded-full bg-black/60 px-3 py-1 text-sm font-bold text-white backdrop-blur-sm">{item.price}</div>
+                    {item.popular && <div class="absolute top-3 left-3 rounded-full bg-golden/20 px-2.5 py-0.5 text-xs font-bold text-golden-light backdrop-blur-sm border border-golden/20">Populaire</div>}
+                    {item.chefSpecial && <div class="absolute top-3 right-3 rounded-full bg-krong-red/20 px-2.5 py-0.5 text-xs font-bold text-krong-red-glow backdrop-blur-sm border border-krong-red/20">Spécial du chef</div>}
+                  </div>
+                  <div class="p-4">
+                    <h3 class="font-display text-sm font-bold text-white">{item.name[locale]}</h3>
+                  </div>
+                </>
+              ) : (
+                <div class="flex items-center justify-between">
+                  <h3 class="font-display text-sm font-bold text-white">{item.name[locale]}</h3>
+                  <span class="text-sm font-bold text-white/50">{item.price}</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="px-5 py-12 lg:px-8">
+    <div class="reveal mx-auto max-w-2xl space-y-3 text-center">
+      <p class="text-sm text-white/30">{i.menu.proteinNote}</p>
+      <p class="text-sm text-white/30">{i.menu.spiceLevels}</p>
+    </div>
+  </section>
+
+  <OrderCTA locale={locale} />
+  <ContactStrip locale={locale} />
+</MarketingLayout>

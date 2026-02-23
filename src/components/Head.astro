@@ -1,0 +1,75 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  locale: "en" | "fr";
+  canonicalPath?: string;
+}
+
+const { title, description, locale, canonicalPath = "" } = Astro.props;
+const base = "https://krongthairestaurant.ca/promo";
+const canonical = `${base}/${locale}/${canonicalPath}`.replace(/\/$/, "") + "/";
+const alternateLang = locale === "en" ? "fr" : "en";
+
+const slugMap: Record<string, string> = {
+  catering: "traiteur",
+  specials: "speciaux",
+  thanks: "merci",
+};
+const reverseSlugMap = Object.fromEntries(
+  Object.entries(slugMap).map(([k, v]) => [v, k])
+);
+
+const altPath =
+  locale === "en"
+    ? slugMap[canonicalPath] ?? canonicalPath
+    : reverseSlugMap[canonicalPath] ?? canonicalPath;
+const alternate = `${base}/${alternateLang}/${altPath}`.replace(/\/$/, "") + "/";
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang={locale} href={canonical} />
+<link rel="alternate" hreflang={alternateLang} href={alternate} />
+<link rel="alternate" hreflang="x-default" href={`${base}/fr/`} />
+<meta name="theme-color" content="#0A0A0A" />
+<link rel="icon" type="image/svg+xml" href="/promo/images/logo.svg" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content={locale === "fr" ? "fr_CA" : "en_CA"} />
+<meta property="og:site_name" content="Krong Thai Restaurant" />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Krong Thai Restaurant",
+  "image": `${base}/images/hero.jpg`,
+  "url": "https://krongthairestaurant.ca",
+  "telephone": "+18192435000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "205 Rue Bellehumeur",
+    "addressLocality": "Gatineau",
+    "addressRegion": "QC",
+    "postalCode": "J8T 8H3",
+    "addressCountry": "CA"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 45.4765, "longitude": -75.7013 },
+  "servesCuisine": ["Thai", "Vietnamese", "Cambodian"],
+  "priceRange": "$$",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.2", "reviewCount": "220" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "15:00", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday", "Thursday"], "opens": "11:00", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "11:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "15:00", "closes": "21:00" }
+  ]
+})} />

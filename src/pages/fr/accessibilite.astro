@@ -1,0 +1,83 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import ContactStrip from "../../components/ContactStrip.astro";
+import { t } from "../../i18n/utils";
+import { business } from "../../data/business";
+
+const locale = "fr";
+const i = t(locale);
+---
+
+<MarketingLayout title={i.meta.accessibilityTitle} description={i.meta.accessibilityDesc} locale={locale} canonicalPath="accessibility" currentPath="accessibility">
+  <section class="relative overflow-hidden bg-night-950 px-5 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-40">
+    <div class="absolute inset-0 bg-gradient-to-b from-night-800/30 to-night-950"></div>
+    <div class="relative z-10 mx-auto max-w-3xl text-center">
+      <h1 class="font-display text-4xl font-bold text-white sm:text-5xl">{i.accessibilityPage.title}</h1>
+      <p class="mx-auto mt-4 max-w-xl text-sm text-white/30">{i.accessibilityPage.lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
+    <div class="mx-auto max-w-3xl">
+      <div class="reveal space-y-12 text-sm leading-relaxed text-white/50">
+
+        <div>
+          <h2 class="mb-4 font-display text-xl font-bold text-white">Notre engagement</h2>
+          <p>{business.name} s'engage à rendre son site web et son restaurant physique accessibles à tous, quelles que soient les capacités ou les technologies utilisées. Nous croyons que tous nos invités méritent une expérience inclusive et accueillante, que ce soit pour commander en ligne ou pour dîner chez nous.</p>
+        </div>
+
+        <div>
+          <h2 class="mb-4 font-display text-xl font-bold text-white">Accessibilité du site web</h2>
+          <p class="mb-3">Nous nous efforçons de respecter les Règles pour l'accessibilité des contenus Web (WCAG) 2.1 niveau AA. Nos efforts continus comprennent :</p>
+          <ul class="ml-5 list-disc space-y-2">
+            <li>Balisage HTML sémantique pour une navigation adéquate avec les lecteurs d'écran</li>
+            <li>Rapports de contraste de couleurs suffisants sur l'ensemble du site</li>
+            <li>Menus, formulaires et éléments interactifs navigables au clavier</li>
+            <li>Texte alternatif descriptif pour toutes les images significatives</li>
+            <li>Cibles tactiles respectant l'exigence minimale de 44x44px</li>
+            <li>Indicateurs de focus visibles pour les utilisateurs de clavier</li>
+            <li>Prise en charge du mode mouvement réduit pour les utilisateurs qui préfèrent un minimum d'animation</li>
+            <li>Lien « Passer au contenu » pour une navigation efficace</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-4 font-display text-xl font-bold text-white">Accessibilité du restaurant</h2>
+          <p class="mb-3">Notre emplacement au {business.address.street}, {business.address.city} offre :</p>
+          <ul class="ml-5 list-disc space-y-2">
+            <li>Entrée et salle à manger accessibles en fauteuil roulant</li>
+            <li>Installations sanitaires accessibles</li>
+            <li>Stationnement gratuit sur place avec places accessibles</li>
+            <li>Personnel attentif formé pour accueillir les invités ayant des besoins divers</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-4 font-display text-xl font-bold text-white">Technologies d'assistance</h2>
+          <p>Notre site web est conçu pour être compatible avec les technologies d'assistance, y compris les lecteurs d'écran (JAWS, NVDA, VoiceOver), les logiciels de reconnaissance vocale, les outils de grossissement d'écran et les dispositifs d'entrée alternatifs. Si vous rencontrez des problèmes en utilisant une technologie d'assistance sur notre site, veuillez nous en informer.</p>
+        </div>
+
+        <div>
+          <h2 class="mb-4 font-display text-xl font-bold text-white">Limitations connues</h2>
+          <p>Bien que nous nous efforcions d'assurer une accessibilité complète, certains contenus tiers (comme les cartes intégrées ou les liens vers les plateformes de livraison) peuvent ne pas être entièrement accessibles. Nous travaillons à identifier et corriger toute lacune et mettrons à jour cette page au fur et à mesure des améliorations.</p>
+        </div>
+
+        <div>
+          <h2 class="mb-4 font-display text-xl font-bold text-white">Rétroaction et contact</h2>
+          <p>Nous accueillons vos commentaires sur l'accessibilité de notre site web et de notre restaurant. Si vous rencontrez des obstacles ou avez des suggestions d'amélioration, veuillez nous contacter :</p>
+          <div class="mt-4 rounded-2xl border border-white/[0.06] bg-night-800/60 p-6">
+            <p class="font-bold text-white">{business.name}</p>
+            <p class="mt-1">{business.address.street}</p>
+            <p>{business.address.city}, {business.address.province} {business.address.postal}</p>
+            <p class="mt-2">Courriel : <a href={`mailto:${business.email}`} class="text-golden transition-colors hover:text-golden-light">{business.email}</a></p>
+            <p>Téléphone : <a href={`tel:${business.phone}`} class="text-golden transition-colors hover:text-golden-light">{business.phoneDisplay}</a></p>
+          </div>
+          <p class="mt-4">Nous nous efforçons de répondre aux commentaires sur l'accessibilité dans les 5 jours ouvrables et ferons des efforts raisonnables pour résoudre tout problème.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <ContactStrip locale={locale} />
+</MarketingLayout>

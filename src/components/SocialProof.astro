@@ -1,0 +1,31 @@
+---
+import { type Locale, t } from "../i18n/utils";
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+---
+
+<div class="reveal relative overflow-hidden border-b border-white/[0.04] bg-night-900 px-5 py-6">
+  <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-8 sm:gap-12">
+    <!-- Stars + Rating -->
+    <div class="flex items-center gap-3">
+      <div class="flex gap-0.5" aria-hidden="true">
+        {Array.from({ length: 5 }).map((_, idx) => (
+          <svg class:list={["h-4 w-4", idx < 4 ? "text-golden" : "text-golden/25"]} fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+      </div>
+      <span class="text-sm font-bold text-white">{i.social.rating}</span>
+      <span class="text-sm text-white/30">({i.social.reviewCount})</span>
+    </div>
+
+    <span class="hidden h-4 w-px bg-white/10 sm:block"></span>
+    <span class="text-sm font-semibold text-golden-light">{i.social.badge}</span>
+    <span class="hidden h-4 w-px bg-white/10 sm:block"></span>
+    <span class="text-sm font-medium text-white/40">{locale === "fr" ? "Seul cambodgien de la région" : "Only Cambodian in the region"}</span>
+    <span class="hidden h-4 w-px bg-white/10 sm:block"></span>
+    <span class="text-sm font-medium text-white/40">BYOB</span>
+  </div>
+</div>
