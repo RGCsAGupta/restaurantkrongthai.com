@@ -1,5 +1,6 @@
 ---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
 import ContactStrip from "../../components/ContactStrip.astro";
 import { t, localizedPath } from "../../i18n/utils";
 import { business } from "../../data/business";
@@ -14,14 +15,7 @@ const labelClass = "mb-1.5 block text-sm font-semibold text-white/60";
 ---
 
 <MarketingLayout title={i.meta.contactTitle} description={i.meta.contactDesc} locale={locale} canonicalPath="contact" currentPath="contact">
-  <section class="relative overflow-hidden bg-night-950 px-5 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-40">
-    <div class="absolute inset-0 bg-gradient-to-b from-night-800/30 to-night-950"></div>
-    <div class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-golden/[0.04] blur-[120px]"></div>
-    <div class="relative z-10 mx-auto max-w-3xl text-center">
-      <h1 class="font-display text-4xl font-bold text-white sm:text-5xl lg:text-6xl">{i.contactPage.heroTitle}</h1>
-      <p class="mx-auto mt-4 max-w-xl text-lg text-white/40">{i.contactPage.heroSubtitle}</p>
-    </div>
-  </section>
+  <HeroSection headline={i.contactPage.heroTitle} subheadline={i.contactPage.heroSubtitle} imageSrc="/promo/images/restaurant-interior.jpg" imageAlt="Intérieur du Restaurant Krong Thai" />
 
   <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
     <div class="mx-auto max-w-5xl">
