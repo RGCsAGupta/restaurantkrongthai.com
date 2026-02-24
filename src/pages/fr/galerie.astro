@@ -61,9 +61,9 @@ const photos = [
         <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Photos</span>
         <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl">{i.gallery.photosTitle}</h2>
       </div>
-      <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+      <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4" id="photo-grid">
         {photos.map((photo, idx) => (
-          <div class={`reveal reveal-delay-${(idx % 4) + 1} group overflow-hidden rounded-2xl border border-white/[0.06] ${photo.span || ''}`}>
+          <div class={`reveal reveal-delay-${(idx % 4) + 1} group cursor-pointer overflow-hidden rounded-2xl border border-white/[0.06] ${photo.span || ''}`} data-lightbox={idx}>
             <div class="relative h-full overflow-hidden">
               <img src={photo.src} alt={photo.alt} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               <div class="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/30"></div>
@@ -118,4 +118,71 @@ const photos = [
   </section>
 
   <ContactStrip locale={locale} />
+
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Visionneuse d'images">
+    <button id="lb-close" class="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white" aria-label="Fermer">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    <button id="lb-prev" class="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white" aria-label="Précédent">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+    </button>
+    <button id="lb-next" class="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white" aria-label="Suivant">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </button>
+    <img id="lb-img" class="max-h-[85vh] max-w-[90vw] rounded-xl object-contain" alt="" />
+    <div id="lb-caption" class="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-5 py-2 text-sm font-medium text-white/80 backdrop-blur-sm"></div>
+  </div>
+
+  <script define:vars={{ photos }}>
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCaption = document.getElementById('lb-caption');
+    let current = 0;
+
+    function open(idx) {
+      current = idx;
+      update();
+      lb.classList.remove('hidden');
+      lb.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    function update() {
+      lbImg.src = photos[current].src;
+      lbImg.alt = photos[current].alt;
+      lbCaption.textContent = `${photos[current].alt} — ${current + 1} / ${photos.length}`;
+    }
+
+    function next() { current = (current + 1) % photos.length; update(); }
+    function prev() { current = (current - 1 + photos.length) % photos.length; update(); }
+
+    document.querySelectorAll('[data-lightbox]').forEach(el => {
+      el.addEventListener('click', () => open(parseInt(el.dataset.lightbox)));
+    });
+
+    document.getElementById('lb-close').addEventListener('click', close);
+    document.getElementById('lb-prev').addEventListener('click', prev);
+    document.getElementById('lb-next').addEventListener('click', next);
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (lb.classList.contains('hidden')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+
+    let touchStartX = 0;
+    lb.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+    });
+  </script>
 </MarketingLayout>
