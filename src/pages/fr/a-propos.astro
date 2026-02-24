@@ -19,11 +19,21 @@ const timeline = [
 
   <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
     <div class="absolute left-0 top-0 h-[400px] w-[400px] rounded-full bg-golden/[0.03] blur-[120px]"></div>
-    <div class="mx-auto max-w-4xl">
-      <div class="reveal text-center">
-        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Depuis 2008</span>
-        <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">{i.about.storyTitle}</h2>
-        <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/40">{i.about.storyText}</p>
+    <div class="mx-auto max-w-5xl">
+      <div class="reveal grid items-center gap-12 md:grid-cols-2">
+        <div class="text-center md:text-left">
+          <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Depuis 2008</span>
+          <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">{i.about.storyTitle}</h2>
+          <p class="mt-6 max-w-2xl text-base leading-relaxed text-white/40">{i.about.storyText}</p>
+        </div>
+        <div class="relative">
+          <div class="overflow-hidden rounded-3xl border border-white/[0.06]">
+            <img src="/promo/images/chef-cooking.jpg" alt="Notre chef" class="aspect-[3/4] w-full object-cover" loading="lazy" />
+          </div>
+          <div class="absolute -bottom-4 -right-4 rounded-2xl border border-golden/20 bg-black/80 px-5 py-3 backdrop-blur-md">
+            <span class="text-sm font-bold text-golden-light">👨‍🍳 Recettes familiales depuis 2008</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -76,17 +86,28 @@ const timeline = [
 
   <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
     <div class="divider-gold mx-auto mb-24 max-w-xs"></div>
-    <div class="mx-auto max-w-4xl">
-      <div class="reveal mb-16 text-center">
-        <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">{i.about.whyTitle}</h2>
-      </div>
-      <div class="grid gap-6 md:grid-cols-3">
-        {[i.about.whyRecipes, i.about.whySpices, i.about.whyOnly].map((text, idx) => (
-          <div class={`reveal reveal-delay-${idx + 1} rounded-3xl border border-white/[0.06] bg-night-800/60 p-6 text-center`}>
-            <div class="mb-4 text-3xl">{["👨‍🍳", "🌶️", "🇰🇭"][idx]}</div>
-            <p class="text-sm leading-relaxed text-white/40">{text}</p>
+    <div class="mx-auto max-w-5xl">
+      <div class="reveal grid items-center gap-12 md:grid-cols-2">
+        <div class="relative order-2 md:order-1">
+          <div class="overflow-hidden rounded-3xl border border-white/[0.06]">
+            <img src="/promo/images/restaurant-dining.jpg" alt="Ambiance chaleureuse du restaurant" class="aspect-[4/3] w-full object-cover" loading="lazy" />
           </div>
-        ))}
+          <div class="absolute -bottom-4 -left-4 rounded-2xl border border-golden/20 bg-black/80 px-5 py-3 backdrop-blur-md">
+            <span class="text-sm font-bold text-golden-light">🍷 Apportez votre vin — sans frais</span>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Expérience</span>
+          <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl">{i.about.whyTitle}</h2>
+          <div class="mt-8 space-y-5">
+            {[i.about.whyRecipes, i.about.whySpices, i.about.whyOnly].map((text, idx) => (
+              <div class={`reveal reveal-delay-${idx + 1} flex items-start gap-4`}>
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-golden/15 bg-night-800/80 text-lg">{["👨‍🍳", "🌶️", "🇰🇭"][idx]}</div>
+                <p class="text-sm leading-relaxed text-white/40">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>

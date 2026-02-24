@@ -5,6 +5,7 @@ import OrderCTA from "../../components/OrderCTA.astro";
 import ContactStrip from "../../components/ContactStrip.astro";
 import { t } from "../../i18n/utils";
 import { menuCategories } from "../../data/menu";
+import { business } from "../../data/business";
 
 const locale = "en";
 const i = t(locale);
@@ -13,62 +14,144 @@ const i = t(locale);
 <MarketingLayout title={i.meta.menuTitle} description={i.meta.menuDesc} locale={locale} canonicalPath="menu" currentPath="menu">
   <HeroSection headline={i.menu.heroTitle} subheadline={i.menu.heroSubtitle} imageSrc="/promo/images/thai-fried-rice.jpg" imageAlt="Krong Thai authentic menu" />
 
+  <!-- Sticky Category Nav -->
+  <nav id="menu-nav" class="sticky top-[72px] z-30 border-b border-white/[0.04] bg-night-950/90 backdrop-blur-xl transition-shadow" aria-label="Menu categories">
+    <div class="mx-auto max-w-5xl overflow-x-auto scrollbar-hide">
+      <div class="flex items-center gap-1 px-4 py-3">
+        {menuCategories.map((cat) => (
+          <a href={`#${cat.id}`} class="menu-nav-link flex shrink-0 items-center gap-1.5 rounded-full border border-transparent px-3.5 py-1.5 text-xs font-medium text-white/40 transition-all hover:border-white/[0.08] hover:bg-white/[0.04] hover:text-white/70" data-section={cat.id}>
+            <span class="text-sm">{cat.icon}</span>
+            <span>{cat.name[locale]}</span>
+          </a>
+        ))}
+        <div class="ml-auto shrink-0 pl-4">
+          <a href={business.orderingUrl} class="flex items-center gap-1.5 rounded-full bg-krong-red px-4 py-1.5 text-xs font-bold text-white transition-all hover:brightness-110">
+            Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <!-- Combo Banner -->
-  <div class="reveal border-b border-white/[0.04] bg-night-900 px-5 py-5">
-    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-4 text-center">
-      <span class="rounded-full border border-krong-red/30 bg-krong-red/10 px-4 py-1.5 text-xs font-bold text-krong-red-glow">+$10.95</span>
-      <span class="text-sm font-medium text-white/50">{i.menu.comboNote} — {i.menu.comboIncludes}</span>
+  <div class="border-b border-white/[0.04] bg-night-900/60 px-5 py-4">
+    <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-3 text-center">
+      <span class="rounded-full border border-krong-red/30 bg-krong-red/10 px-3 py-1 text-[11px] font-bold text-krong-red-glow">+10.95</span>
+      <span class="text-xs font-medium text-white/40">{i.menu.comboNote} — {i.menu.comboIncludes}</span>
     </div>
   </div>
 
-  <!-- Menu Categories -->
-  {menuCategories.map((cat, catIdx) => (
-    <section class="relative overflow-hidden px-5 py-20 lg:px-8 lg:py-24">
-      {catIdx > 0 && <div class="divider-gold mx-auto mb-20 max-w-xs"></div>}
-      <div class="mx-auto max-w-7xl">
-        <div class="reveal mb-12 text-center">
-          <span class="text-3xl">{cat.icon}</span>
-          <h2 class="mt-3 font-display text-2xl font-bold text-white sm:text-3xl">{cat.name[locale]}</h2>
-          {cat.priceNote && <p class="mt-2 text-sm text-white/30">{cat.priceNote[locale]}</p>}
-        </div>
+  <!-- Menu Sections -->
+  {menuCategories.map((cat, catIdx) => {
+    const featured = cat.items.filter(item => item.popular || item.chefSpecial);
+    const rest = cat.items.filter(item => !item.popular && !item.chefSpecial);
+    return (
+      <section id={cat.id} class="relative scroll-mt-[160px] px-5 py-14 lg:px-8 lg:py-16">
+        {catIdx > 0 && <div class="divider-gold mx-auto mb-14 max-w-xs"></div>}
+        <div class="mx-auto max-w-4xl">
+          <div class="reveal mb-8 text-center">
+            <span class="text-2xl">{cat.icon}</span>
+            <h2 class="mt-2 font-display text-xl font-bold text-white sm:text-2xl">{cat.name[locale]}</h2>
+            {cat.priceNote && <p class="mt-1 text-xs text-white/25">{cat.priceNote[locale]}</p>}
+          </div>
 
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {cat.items.map((item, idx) => (
-            <div class={`reveal reveal-delay-${(idx % 4) + 1} group rounded-2xl border border-white/[0.06] bg-night-800/50 transition-all duration-500 hover:border-white/[0.12] ${item.img ? 'overflow-hidden' : 'p-5'}`}>
-              {item.img ? (
-                <>
-                  <div class="relative aspect-[16/10] overflow-hidden">
-                    <img src={item.img} alt={item.name[locale]} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-night-900/70 to-transparent"></div>
-                    <div class="absolute bottom-3 right-3 rounded-full bg-black/60 px-3 py-1 text-sm font-bold text-white backdrop-blur-sm">{item.price}</div>
-                    {item.popular && <div class="absolute top-3 left-3 rounded-full bg-golden/20 px-2.5 py-0.5 text-xs font-bold text-golden-light backdrop-blur-sm border border-golden/20">Popular</div>}
-                    {item.chefSpecial && <div class="absolute top-3 right-3 rounded-full bg-krong-red/20 px-2.5 py-0.5 text-xs font-bold text-krong-red-glow backdrop-blur-sm border border-krong-red/20">Chef Special</div>}
-                  </div>
-                  <div class="p-4">
-                    <h3 class="font-display text-sm font-bold text-white">{item.name[locale]}</h3>
-                  </div>
-                </>
-              ) : (
-                <div class="flex items-center justify-between">
-                  <h3 class="font-display text-sm font-bold text-white">{item.name[locale]}</h3>
-                  <span class="text-sm font-bold text-white/50">{item.price}</span>
+          {/* Featured Items — boxed highlight cards */}
+          {featured.length > 0 && (
+            <div class={`reveal mb-8 grid gap-4 ${featured.length === 1 ? 'max-w-md mx-auto' : 'sm:grid-cols-2'}`}>
+              {featured.map((item, idx) => (
+                <div class={`reveal-delay-${idx + 1} group relative overflow-hidden rounded-2xl border-2 border-golden/15 bg-night-800/60 transition-all duration-500 hover:border-golden/30`}>
+                  {item.img && (
+                    <div class="relative aspect-[16/10] overflow-hidden">
+                      <img src={item.img} alt={item.name[locale]} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                      <div class="absolute inset-0 bg-gradient-to-t from-night-900/90 via-night-900/30 to-transparent"></div>
+                      {item.chefSpecial && (
+                        <div class="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-krong-red/90 px-2.5 py-1 text-[10px] font-bold text-white backdrop-blur-sm">
+                          <span class="text-xs">👨‍🍳</span> Chef Special
+                        </div>
+                      )}
+                      <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="font-display text-base font-bold text-white">{item.name[locale]}</h3>
+                        {item.desc && <p class="mt-1 text-xs leading-relaxed text-white/50">{item.desc[locale]}</p>}
+                        <div class="mt-2 font-display text-lg font-bold text-golden">{item.price}</div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
+              ))}
             </div>
-          ))}
+          )}
+
+          {/* Remaining Items — clean list */}
+          {rest.length > 0 && (
+            <div class="reveal overflow-hidden rounded-xl border border-white/[0.06] bg-night-800/20">
+              {rest.map((item, idx) => (
+                <div class={`flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-white/[0.03] ${idx > 0 ? 'border-t border-white/[0.04]' : ''}`}>
+                  {item.img && <img src={item.img} alt={item.name[locale]} class="h-11 w-11 rounded-xl object-cover ring-1 ring-white/[0.06]" loading="lazy" />}
+                  <div class="flex-1 min-w-0">
+                    <h3 class="text-sm font-medium text-white/80">{item.name[locale]}</h3>
+                  </div>
+                  <span class="shrink-0 font-display text-sm font-bold text-white/35">{item.price}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      </div>
-    </section>
-  ))}
+      </section>
+    );
+  })}
 
   <!-- Notes -->
-  <section class="px-5 py-12 lg:px-8">
-    <div class="reveal mx-auto max-w-2xl space-y-3 text-center">
-      <p class="text-sm text-white/30">{i.menu.proteinNote}</p>
-      <p class="text-sm text-white/30">{i.menu.spiceLevels}</p>
+  <section class="px-5 py-10 lg:px-8">
+    <div class="reveal mx-auto max-w-2xl space-y-2 text-center">
+      <p class="text-xs text-white/25">{i.menu.proteinNote}</p>
+      <p class="text-xs text-white/25">{i.menu.spiceLevels}</p>
     </div>
   </section>
 
   <OrderCTA locale={locale} />
   <ContactStrip locale={locale} />
 </MarketingLayout>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .menu-nav-link.active {
+    border-color: var(--color-golden) !important;
+    background: color-mix(in srgb, var(--color-golden) 8%, transparent) !important;
+    color: var(--color-golden-light) !important;
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll<HTMLElement>('section[id]');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.menu-nav-link');
+
+  // Smooth scroll for nav links — accounts for fixed header + sticky nav
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href?.startsWith('#')) return;
+      e.preventDefault();
+      const target = document.getElementById(href.slice(1));
+      if (!target) return;
+      const offset = 160; // header (76) + menu nav (69) + padding (15)
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      history.pushState(null, '', href);
+    });
+  });
+
+  // Highlight active section in nav
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.menu-nav-link[data-section="${entry.target.id}"]`);
+        activeLink?.classList.add('active');
+        activeLink?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+</script>

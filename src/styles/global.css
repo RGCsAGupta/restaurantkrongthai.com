@@ -48,16 +48,12 @@
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  overflow-x: hidden;
   font-family: var(--font-body);
   background-color: var(--color-night-950);
   color: #e0ddd8;
