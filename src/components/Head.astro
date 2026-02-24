@@ -121,6 +121,14 @@ const pageName = pageNames[locale]?.[localSlug];
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "15:00", "closes": "21:00" }
   ]
 })} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Krong Thai Restaurant",
+  "url": base,
+  "inLanguage": [locale === "fr" ? "fr-CA" : "en-CA"],
+  "publisher": { "@type": "Restaurant", "name": "Krong Thai Restaurant" }
+})} />
 {pageName && (
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",

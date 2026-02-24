@@ -19,6 +19,8 @@ export const business = {
   social: {
     facebook: "https://www.facebook.com/krongthairestaurant",
     instagram: "https://www.instagram.com/krongthairestaurant",
+    // TODO: Replace with actual Google Maps CID from GBP dashboard
+    // Find it: Google Maps → search your business → copy CID from URL
     google:
       "https://maps.google.com/?cid=krongthairestaurant",
     yelp: "https://www.yelp.ca/biz/krong-thai-restaurant-gatineau",

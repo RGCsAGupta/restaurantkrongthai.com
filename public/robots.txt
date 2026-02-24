@@ -2,4 +2,23 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
+# Explicitly allow AI crawlers for AI search visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://restaurantkrongthai.com/sitemap-index.xml
