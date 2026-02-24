@@ -11,16 +11,16 @@ const locale = "fr";
 const i = t(locale);
 
 const highlights = [
-  { emoji: "🍜", title: "Soupe Bangkok", desc: "Notre plat #1 — taux d'approbation de 93 %", img: "/promo/images/bangkok-soup-large.jpg" },
-  { emoji: "🥢", title: "Pad Thai", desc: "Nouilles sautées classiques — taux d'approbation de 95 %", img: "/promo/images/pad-thai.jpg" },
-  { emoji: "🥟", title: "Rouleaux impériaux", desc: "Rouleaux dorés croustillants avec sauce maison", img: "/promo/images/imperial-rolls.jpg" },
+  { emoji: "🍜", title: i.specials.bestSeller1, desc: i.specials.bestSeller1Desc, img: "/promo/images/bangkok-soup-large.jpg" },
+  { emoji: "🥢", title: i.specials.bestSeller2, desc: i.specials.bestSeller2Desc, img: "/promo/images/pad-thai.jpg" },
+  { emoji: "🥟", title: i.specials.bestSeller3, desc: i.specials.bestSeller3Desc, img: "/promo/images/imperial-rolls.jpg" },
 ];
 
 const perks = [
-  { emoji: "🍷", text: "Apportez votre vin ou bière — sans frais de bouchon" },
-  { emoji: "🚗", text: "Stationnement gratuit sur place" },
-  { emoji: "⏱️", text: "Prêt en 15-20 minutes pour emporter" },
-  { emoji: "🚚", text: "Disponible sur UberEats, DoorDash et SkipTheDishes" },
+  { emoji: "🍷", text: i.specials.perk1 },
+  { emoji: "🚗", text: i.specials.perk2 },
+  { emoji: "⏱️", text: i.specials.perk3 },
+  { emoji: "🚚", text: i.specials.perk4 },
 ];
 
 const combos = [
@@ -65,7 +65,7 @@ const combos = [
     <div class="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-golden/[0.03] blur-[120px]"></div>
     <div class="mx-auto max-w-7xl">
       <div class="reveal mb-16 text-center">
-        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Offres</span>
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">{i.specials.dealsLabel}</span>
         <h2 class="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
           {i.specials.comboTitle}
         </h2>
@@ -100,9 +100,9 @@ const combos = [
     <div class="divider-gold mx-auto mb-24 max-w-xs"></div>
     <div class="mx-auto max-w-7xl">
       <div class="reveal mb-16 text-center">
-        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Les plus populaires</span>
-        <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl">Accompagnez votre combo</h2>
-        <p class="mx-auto mt-3 max-w-lg text-sm text-white/35">Nos plats les plus populaires — parfaits comme plat principal dans n'importe quel combo.</p>
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">{i.specials.bestSellersLabel}</span>
+        <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl">{i.specials.pairTitle}</h2>
+        <p class="mx-auto mt-3 max-w-lg text-sm text-white/35">{i.specials.pairDesc}</p>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
         {highlights.map((item, idx) => (
@@ -129,8 +129,8 @@ const combos = [
     <div class="divider-gold mx-auto mb-24 max-w-xs"></div>
     <div class="mx-auto max-w-3xl">
       <div class="reveal mb-12 text-center">
-        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Avantages</span>
-        <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl">Plus de raisons de nous visiter</h2>
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">{i.specials.perksLabel}</span>
+        <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl">{i.specials.perksTitle}</h2>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
         {perks.map((perk, idx) => (

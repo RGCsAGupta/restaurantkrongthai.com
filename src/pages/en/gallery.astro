@@ -40,12 +40,12 @@ const photos = [
   { src: "/promo/images/imperial-rolls.jpg", alt: "Imperial Rolls" },
   { src: "/promo/images/green-curry-chicken.jpg", alt: "Green Curry" },
   { src: "/promo/images/thai-fried-rice.jpg", alt: "Thai Fried Rice" },
-  { src: "/promo/images/chef-cooking.jpg", alt: "Our Chef", span: "col-span-2" },
+  { src: "/promo/images/chef-cooking.jpg", alt: "Signature Dish", span: "col-span-2" },
   { src: "/promo/images/pho-beef.jpg", alt: "Pho Beef" },
   { src: "/promo/images/crispy-wontons.jpg", alt: "Crispy Wontons" },
-  { src: "/promo/images/restaurant-dining.jpg", alt: "Restaurant Atmosphere", span: "col-span-2" },
+  { src: "/promo/images/restaurant-dining.jpg", alt: "Mango Salad", span: "col-span-2" },
   { src: "/promo/images/chicken-royal-nest.jpg", alt: "Royal Nest" },
-  { src: "/promo/images/thai-spices.jpg", alt: "Fresh Spices & Ingredients" },
+  { src: "/promo/images/thai-spices.jpg", alt: "Red Curry Chicken" },
   { src: "/promo/images/catering-spread.jpg", alt: "Catering Spread", span: "col-span-2" },
   { src: "/promo/images/dumplings-peanut-sauce.jpg", alt: "Dumplings" },
   { src: "/promo/images/spring-rolls-fresh.jpg", alt: "Fresh Spring Rolls" },
@@ -59,7 +59,7 @@ const photos = [
   <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
     <div class="mx-auto max-w-7xl">
       <div class="reveal mb-16 text-center">
-        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Photos</span>
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">{i.gallery.photosLabel}</span>
         <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl">{i.gallery.photosTitle}</h2>
       </div>
       <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4" id="photo-grid">
@@ -83,7 +83,7 @@ const photos = [
     <div class="divider-gold mx-auto mb-24 max-w-xs"></div>
     <div class="mx-auto max-w-5xl">
       <div class="reveal mb-16 text-center">
-        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">Reviews</span>
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">{i.gallery.reviewsLabel}</span>
         <h2 class="mt-4 font-display text-3xl font-bold text-white sm:text-4xl">{i.gallery.testimonialsTitle}</h2>
         <div class="mt-4 flex items-center justify-center gap-3">
           <div class="flex gap-0.5">
