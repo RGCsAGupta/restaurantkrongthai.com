@@ -179,7 +179,7 @@ const i = t(locale);
         navLinks.forEach(link => link.classList.remove('active'));
         const activeLink = document.querySelector(`.menu-nav-link[data-section="${entry.target.id}"]`);
         activeLink?.classList.add('active');
-        activeLink?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        activeLink?.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
       }
     });
   }, { rootMargin: '-35% 0px -60% 0px' });

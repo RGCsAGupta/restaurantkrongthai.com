@@ -60,7 +60,9 @@ const pageName = pageNames[locale]?.[localSlug];
 <meta name="geo.position" content="45.4765;-75.7013" />
 <meta name="ICBM" content="45.4765, -75.7013" />
 <meta property="og:image:alt" content="Krong Thai Restaurant — Authentic Thai, Vietnamese & Cambodian Cuisine" />
-<!-- Fonts self-hosted in /fonts/ — declared via @font-face in global.css -->
+<!-- Preload critical fonts to prevent layout shift -->
+<link rel="preload" as="font" href="/fonts/dm-sans-latin.woff2" type="font/woff2" crossorigin />
+<link rel="preload" as="font" href="/fonts/playfair-latin.woff2" type="font/woff2" crossorigin />
 {!canonicalPath && (
   <link rel="preload" as="image" type="image/webp" href="/images/bangkok-soup-large.webp" />
 )}

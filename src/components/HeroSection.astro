@@ -27,18 +27,16 @@ const { headline, subheadline, imageSrc, imageAlt, badgeText, badgeSubtext } = A
 
   <div class="relative z-10 flex min-h-[100svh] items-center px-5 sm:px-8 lg:px-12">
     <div class="mx-auto max-w-5xl text-center">
-      {badgeText && (
-        <div class="mb-8 inline-flex items-center gap-3 rounded-full border border-golden/20 bg-golden/[0.07] px-6 py-2.5 backdrop-blur-sm">
-          <span class="h-1.5 w-1.5 rounded-full bg-golden animate-pulse"></span>
-          <span class="text-sm font-semibold tracking-wide text-golden-light">{badgeText}</span>
-        </div>
-      )}
-
-      {!badgeText && (
-        <div class="mb-10">
+      <div class="mb-6 h-[7.5rem] flex items-end justify-center sm:h-[8.5rem] md:h-[9.5rem]">
+        {badgeText ? (
+          <div class="mb-0 inline-flex items-center gap-3 rounded-full border border-golden/20 bg-golden/[0.07] px-6 py-2.5 backdrop-blur-sm">
+            <span class="h-1.5 w-1.5 rounded-full bg-golden animate-pulse"></span>
+            <span class="text-sm font-semibold tracking-wide text-golden-light">{badgeText}</span>
+          </div>
+        ) : (
           <img src="/images/logo.svg" alt="Krong Thai" width="120" height="120" class="mx-auto h-24 w-24 drop-shadow-[0_0_40px_rgba(212,175,55,0.3)] sm:h-28 sm:w-28 md:h-32 md:w-32" />
-        </div>
-      )}
+        )}
+      </div>
 
       <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
         <Fragment set:html={headline.replace(/&/, '<span class="text-gradient-gold">&amp;</span>')} />

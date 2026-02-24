@@ -114,9 +114,7 @@
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior: smooth removed — handled by JS where needed to avoid CLS */
 
 body {
   overflow-x: hidden;
@@ -205,25 +203,42 @@ a, button, [role="button"], input, select, textarea {
   opacity: 0.3;
 }
 
-/* Shimmer animation for CTA buttons */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
+/* Shimmer animation for CTA buttons — uses transform (composited) */
 .btn-shimmer {
-  background-size: 200% auto;
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  transform: translateX(-100%);
   animation: shimmer 3s linear infinite;
+  pointer-events: none;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-/* Pulse glow for order button */
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(227, 27, 35, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(227, 27, 35, 0.5), 0 0 60px rgba(227, 27, 35, 0.2); }
-}
-
+/* Pulse glow for order button — uses opacity on pseudo-element (composited) */
 .pulse-cta {
+  position: relative;
+}
+.pulse-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 40px rgba(227, 27, 35, 0.5), 0 0 60px rgba(227, 27, 35, 0.2);
+  opacity: 0;
   animation: pulse-glow 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 /* Floating animation */
