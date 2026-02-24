@@ -1,6 +1,5 @@
 ---
 import MarketingLayout from "../layouts/MarketingLayout.astro";
-import CTAButton from "../components/CTAButton.astro";
 ---
 
 <MarketingLayout
@@ -21,9 +20,9 @@ import CTAButton from "../components/CTAButton.astro";
         The page you're looking for doesn't exist or has been moved.
       </p>
       <div class="mt-8">
-        <CTAButton href="/en/" variant="primary" id="nf-back">
+        <a id="nf-back" href="/en/" class="inline-flex items-center justify-center rounded-full font-bold transition-all duration-300 bg-krong-red text-white shadow-red hover:shadow-xl hover:brightness-110 active:scale-[0.97] pulse-cta px-7 py-3 text-sm">
           Back to Home
-        </CTAButton>
+        </a>
       </div>
     </div>
   </section>
