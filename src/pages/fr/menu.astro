@@ -62,7 +62,10 @@ const i = t(locale);
                 <div class={`reveal-delay-${idx + 1} group relative overflow-hidden rounded-2xl border-2 border-golden/15 bg-night-800/60 transition-all duration-500 hover:border-golden/30`}>
                   {item.img && (
                     <div class="relative aspect-[16/10] overflow-hidden">
-                      <img src={item.img} alt={item.name[locale]} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                      <picture>
+                        <source srcset={item.img.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+                        <img src={item.img} alt={item.name[locale]} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="800" height="500" />
+                      </picture>
                       <div class="absolute inset-0 bg-gradient-to-t from-night-900/90 via-night-900/30 to-transparent"></div>
                       {item.chefSpecial && (
                         <div class="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-krong-red/90 px-2.5 py-1 text-[10px] font-bold text-white backdrop-blur-sm">
@@ -86,7 +89,12 @@ const i = t(locale);
             <div class="reveal overflow-hidden rounded-xl border border-white/[0.06] bg-night-800/20">
               {rest.map((item, idx) => (
                 <div class={`flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-white/[0.03] ${idx > 0 ? 'border-t border-white/[0.04]' : ''}`}>
-                  {item.img && <img src={item.img} alt={item.name[locale]} class="h-11 w-11 rounded-xl object-cover ring-1 ring-white/[0.06]" loading="lazy" />}
+                  {item.img && (
+                    <picture>
+                      <source srcset={item.img.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+                      <img src={item.img} alt={item.name[locale]} class="h-11 w-11 rounded-xl object-cover ring-1 ring-white/[0.06]" loading="lazy" width="44" height="44" />
+                    </picture>
+                  )}
                   <div class="flex-1 min-w-0">
                     <h3 class="text-sm font-medium text-white/80">{item.name[locale]}</h3>
                   </div>

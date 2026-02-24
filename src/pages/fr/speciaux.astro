@@ -108,7 +108,10 @@ const combos = [
         {highlights.map((item, idx) => (
           <div class={`reveal reveal-delay-${idx + 1} group overflow-hidden rounded-3xl border border-white/[0.06] bg-night-800/60 transition-all duration-500 hover:border-golden/20`}>
             <div class="relative aspect-[4/3] overflow-hidden">
-              <img src={item.img} alt={item.title} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              <picture>
+                <source srcset={item.img.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+                <img src={item.img} alt={item.title} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" width="800" height="600" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-night-950/80 to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-3xl">{item.emoji}</div>
             </div>

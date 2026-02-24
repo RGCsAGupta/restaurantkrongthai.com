@@ -66,7 +66,10 @@ const photos = [
         {photos.map((photo, idx) => (
           <div class={`reveal reveal-delay-${(idx % 4) + 1} group cursor-pointer overflow-hidden rounded-2xl border border-white/[0.06] ${photo.span || ''}`} data-lightbox={idx}>
             <div class="relative h-full overflow-hidden">
-              <img src={photo.src} alt={photo.alt} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              <picture>
+                <source srcset={photo.src.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+                <img src={photo.src} alt={photo.alt} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" width="800" height="640" />
+              </picture>
               <div class="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/30"></div>
               <div class="absolute bottom-3 left-3 translate-y-4 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">{photo.alt}</div>
             </div>
