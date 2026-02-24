@@ -54,7 +54,11 @@ const pageName = pageNames[locale]?.[localSlug];
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={`${base}/images/og-image.jpg`} />
-<meta name="robots" content="index, follow" />
+{canonicalPath === "thanks" ? (
+  <meta name="robots" content="noindex, nofollow" />
+) : (
+  <meta name="robots" content="index, follow" />
+)}
 <meta name="geo.region" content="CA-QC" />
 <meta name="geo.placename" content="Gatineau" />
 <meta name="geo.position" content="45.4765;-75.7013" />
