@@ -14,7 +14,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const locale = data.get("locale")?.toString() || "en";
 
   if (!name || !email || !message) {
-    const errorPath = locale === "fr" ? "/promo/fr/contact/" : "/promo/en/contact/";
+    const errorPath = locale === "fr" ? "/fr/contact/" : "/en/contact/";
     return redirect(`${errorPath}?error=missing`, 302);
   }
 
@@ -36,11 +36,11 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       `,
     });
   } catch {
-    const errorPath = locale === "fr" ? "/promo/fr/contact/" : "/promo/en/contact/";
+    const errorPath = locale === "fr" ? "/fr/contact/" : "/en/contact/";
     return redirect(`${errorPath}?error=send`, 302);
   }
 
-  const thankYouPath = locale === "fr" ? "/promo/fr/merci/" : "/promo/en/thanks/";
+  const thankYouPath = locale === "fr" ? "/fr/merci/" : "/en/thanks/";
   return redirect(thankYouPath, 302);
 };
 

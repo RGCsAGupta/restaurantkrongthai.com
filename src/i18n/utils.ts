@@ -7,7 +7,7 @@ export type Locale = keyof typeof translations;
 export type TranslationKeys = typeof en;
 
 export function getLocaleFromUrl(url: URL): Locale {
-  const segments = url.pathname.replace("/promo", "").split("/").filter(Boolean);
+  const segments = url.pathname.split("/").filter(Boolean);
   const lang = segments[0];
   if (lang === "fr") return "fr";
   return "en";
@@ -39,7 +39,7 @@ const reverseSlugMap = Object.fromEntries(
 );
 
 export function localizedPath(locale: Locale, path: string): string {
-  const base = "/promo";
+  const base = "";
   const clean = path.replace(/^\//, "").replace(/\/$/, "");
 
   if (!clean || clean === "en" || clean === "fr") {

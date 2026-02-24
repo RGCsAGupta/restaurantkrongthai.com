@@ -5,7 +5,6 @@ import vercel from "@astrojs/vercel";
 
 export default defineConfig({
   site: "https://restaurantkrongthai.com",
-  base: "/promo",
   output: "static",
   adapter: vercel(),
   devToolbar: { enabled: false },

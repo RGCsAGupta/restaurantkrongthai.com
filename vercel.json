@@ -1,19 +1,19 @@
 {
   "headers": [
     {
-      "source": "/promo/images/(.*)",
+      "source": "/images/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/promo/_astro/(.*)",
+      "source": "/_astro/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/promo/(.*)",
+      "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },
@@ -22,7 +22,7 @@
     }
   ],
   "redirects": [
-    { "source": "/promo", "destination": "/promo/fr/", "permanent": false },
-    { "source": "/promo/", "destination": "/promo/fr/", "permanent": false }
+    { "source": "/promo/:path*", "destination": "/:path*", "permanent": true },
+    { "source": "/promo", "destination": "/fr/", "permanent": true }
   ]
 }
