@@ -14,7 +14,7 @@ export const business = {
     lat: 45.4765,
     lng: -75.7013,
   },
-  website: "https://krongthairestaurant.ca",
+  website: "https://restaurantkrongthai.com",
   orderingUrl: "https://krongthai.order-online.ai/",
   social: {
     facebook: "https://www.facebook.com/krongthairestaurant",

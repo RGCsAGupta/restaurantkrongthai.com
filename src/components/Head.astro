@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { title, description, locale, canonicalPath = "" } = Astro.props;
-const base = "https://krongthairestaurant.ca/promo";
+const base = "https://restaurantkrongthai.com/promo";
 const canonical = `${base}/${locale}/${canonicalPath}`.replace(/\/$/, "") + "/";
 const alternateLang = locale === "en" ? "fr" : "en";
 
@@ -52,7 +52,7 @@ const alternate = `${base}/${alternateLang}/${altPath}`.replace(/\/$/, "") + "/"
   "@type": "Restaurant",
   "name": "Krong Thai Restaurant",
   "image": `${base}/images/hero.jpg`,
-  "url": "https://krongthairestaurant.ca",
+  "url": "https://restaurantkrongthai.com",
   "telephone": "+18192435000",
   "address": {
     "@type": "PostalAddress",

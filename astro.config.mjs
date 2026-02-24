@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://krongthairestaurant.ca",
+  site: "https://restaurantkrongthai.com",
   base: "/promo",
   devToolbar: { enabled: false },
   integrations: [sitemap()],
