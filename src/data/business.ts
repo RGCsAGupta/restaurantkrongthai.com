@@ -30,4 +30,9 @@ export const business = {
       "https://www.doordash.com/store/krong-thai-restaurant-gatineau",
     skip: "https://www.skipthedishes.com/krong-thai-restaurant",
   },
+  forms: {
+    // Formspree endpoints — sign up at https://formspree.io and replace these IDs
+    contact: "https://formspree.io/f/REPLACE_CONTACT_FORM_ID",
+    catering: "https://formspree.io/f/REPLACE_CATERING_FORM_ID",
+  },
 } as const;
