@@ -21,13 +21,13 @@ export const business = {
     instagram: "https://www.instagram.com/restaurantkrongthai",
     google:
       "https://www.google.com/maps/place/?q=place_id:ChIJu476UxUbzkwRSV2u84dWyWk",
-    yelp: "https://www.yelp.ca/biz/krong-thai-restaurant-gatineau",
+    yelp: "https://www.yelp.ca/biz/krong-thai-gatineau-2",
   },
   delivery: {
     ubereats:
-      "https://www.ubereats.com/ca/store/krong-thai-restaurant",
+      "https://www.ubereats.com/ca/store/restaurant-krong-thai/lJfufUEbRjGlH7yd9QsrvA",
     doordash:
-      "https://www.doordash.com/store/krong-thai-restaurant-gatineau",
-    skip: "https://www.skipthedishes.com/krong-thai-restaurant",
+      "https://www.doordash.com/en-CA/store/28750609",
+    skip: "https://www.skipthedishes.com/restaurant-krong-thai",
   },
 } as const;
