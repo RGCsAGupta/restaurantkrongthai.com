@@ -7,4 +7,6 @@ dist/
 .vercel/
 .DS_Store
 *.png
+!public/apple-touch-icon.png
+!public/icon-192.png
 .playwright-mcp/

@@ -12,8 +12,27 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const phone = data.get("phone")?.toString() || "Not provided";
   const message = data.get("message")?.toString();
   const locale = data.get("locale")?.toString() || "en";
+  const honeypot = data.get("website")?.toString();
+
+  // Spam protection: reject if honeypot is filled
+  if (honeypot) {
+    const thankYouPath = locale === "fr" ? "/fr/merci/" : "/en/thanks/";
+    return redirect(thankYouPath, 302);
+  }
 
   if (!name || !email || !message) {
+    const errorPath = locale === "fr" ? "/fr/contact/" : "/en/contact/";
+    return redirect(`${errorPath}?error=missing`, 302);
+  }
+
+  // Basic email format validation
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    const errorPath = locale === "fr" ? "/fr/contact/" : "/en/contact/";
+    return redirect(`${errorPath}?error=missing`, 302);
+  }
+
+  // Reject suspiciously short or long messages
+  if (message.length < 5 || message.length > 5000) {
     const errorPath = locale === "fr" ? "/fr/contact/" : "/en/contact/";
     return redirect(`${errorPath}?error=missing`, 302);
   }

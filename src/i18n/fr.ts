@@ -187,7 +187,6 @@ export default {
   footer: {
     tagline:
       "Cuisine authentique thaï, vietnamienne et cambodgienne depuis 2008",
-    visitMain: "Visitez notre site principal",
     contactLabel: "Contact",
     linksLabel: "Liens",
     rights: "Tous droits réservés.",

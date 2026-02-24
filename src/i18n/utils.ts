@@ -22,7 +22,7 @@ export function getAlternateLocale(locale: Locale): Locale {
 }
 
 /** Map English slugs to French equivalents */
-const slugMap: Record<string, string> = {
+export const slugMap: Record<string, string> = {
   catering: "traiteur",
   specials: "speciaux",
   thanks: "merci",
@@ -34,7 +34,7 @@ const slugMap: Record<string, string> = {
   accessibility: "accessibilite",
 };
 
-const reverseSlugMap = Object.fromEntries(
+export const reverseSlugMap = Object.fromEntries(
   Object.entries(slugMap).map(([k, v]) => [v, k])
 );
 

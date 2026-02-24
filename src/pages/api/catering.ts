@@ -14,8 +14,21 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const guests = data.get("guests")?.toString() || "Not specified";
   const message = data.get("message")?.toString() || "";
   const locale = data.get("locale")?.toString() || "en";
+  const honeypot = data.get("website")?.toString();
+
+  // Spam protection: reject if honeypot is filled
+  if (honeypot) {
+    const thankYouPath = locale === "fr" ? "/fr/merci/" : "/en/thanks/";
+    return redirect(thankYouPath, 302);
+  }
 
   if (!name || !email) {
+    const errorPath = locale === "fr" ? "/fr/traiteur/" : "/en/catering/";
+    return redirect(`${errorPath}?error=missing`, 302);
+  }
+
+  // Basic email format validation
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     const errorPath = locale === "fr" ? "/fr/traiteur/" : "/en/catering/";
     return redirect(`${errorPath}?error=missing`, 302);
   }
