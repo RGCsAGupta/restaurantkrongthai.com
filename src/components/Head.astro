@@ -13,6 +13,8 @@ const { title, description, locale, canonicalPath = "" } = Astro.props;
 const base = "https://restaurantkrongthai.com";
 const canonical = `${base}/${locale}/${canonicalPath}`.replace(/\/$/, "") + "/";
 const alternateLang = locale === "en" ? "fr" : "en";
+const hreflangLocale = locale === "en" ? "en-CA" : "fr-CA";
+const hreflangAlt = locale === "en" ? "fr-CA" : "en-CA";
 
 const altPath =
   locale === "en"
@@ -34,8 +36,8 @@ const pageName = pageNames[locale]?.[localSlug];
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
-<link rel="alternate" hreflang={locale} href={canonical} />
-<link rel="alternate" hreflang={alternateLang} href={alternate} />
+<link rel="alternate" hreflang={hreflangLocale} href={canonical} />
+<link rel="alternate" hreflang={hreflangAlt} href={alternate} />
 <link rel="alternate" hreflang="x-default" href={`${base}/fr/`} />
 <meta name="theme-color" content="#0A0A0A" />
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
