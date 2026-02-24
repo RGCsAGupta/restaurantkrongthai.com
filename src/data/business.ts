@@ -17,8 +17,8 @@ export const business = {
   website: "https://restaurantkrongthai.com",
   orderingUrl: "https://krongthai.order-online.ai/",
   social: {
-    facebook: "https://www.facebook.com/krongthairestaurant",
-    instagram: "https://www.instagram.com/krongthairestaurant",
+    facebook: "https://www.facebook.com/restaurantkrongthai",
+    instagram: "https://www.instagram.com/restaurantkrongthai",
     google:
       "https://www.google.com/maps/place/?q=place_id:ChIJu476UxUbzkwRSV2u84dWyWk",
     yelp: "https://www.yelp.ca/biz/krong-thai-restaurant-gatineau",
