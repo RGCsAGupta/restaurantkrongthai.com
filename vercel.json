@@ -23,6 +23,8 @@
   ],
   "redirects": [
     { "source": "/", "destination": "/fr/", "permanent": false },
+    { "source": "/review", "destination": "https://search.google.com/local/writereview?placeid=REPLACE_WITH_ACTUAL_PLACE_ID", "permanent": false },
+    { "source": "/avis", "destination": "https://search.google.com/local/writereview?placeid=REPLACE_WITH_ACTUAL_PLACE_ID", "permanent": false },
     { "source": "/promo", "destination": "/fr/", "permanent": true },
     { "source": "/promo/", "destination": "/fr/", "permanent": true },
     { "source": "/promo/:path(.*)", "destination": "/:path", "permanent": true }

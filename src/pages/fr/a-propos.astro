@@ -15,7 +15,7 @@ const timeline = [
 ---
 
 <MarketingLayout title={i.meta.aboutTitle} description={i.meta.aboutDesc} locale={locale} canonicalPath="a-propos" currentPath="about">
-  <HeroSection headline={i.about.heroTitle} subheadline={i.about.heroSubtitle} imageSrc="/images/chicken-royal-nest.jpg" imageAlt="Cuisine du Restaurant Krong Thai" />
+  <HeroSection headline={i.about.heroTitle} subheadline={i.about.heroSubtitle} imageSrc="/images/chicken-royal-nest.jpg" imageAlt={i.alt.heroAbout} />
 
   <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
     <div class="absolute left-0 top-0 h-[400px] w-[400px] rounded-full bg-golden/[0.03] blur-[120px]"></div>
@@ -30,7 +30,7 @@ const timeline = [
           <div class="overflow-hidden rounded-3xl border border-white/[0.06]">
             <picture>
               <source srcset="/images/chef-cooking.webp" type="image/webp" />
-              <img src="/images/chef-cooking.jpg" alt="Plat signature Krong Thai" class="aspect-[3/4] w-full object-cover" loading="lazy" width="1200" height="1800" />
+              <img src="/images/chef-cooking.jpg" alt={i.alt.chefCooking} class="aspect-[3/4] w-full object-cover" loading="lazy" width="1200" height="1800" />
             </picture>
           </div>
           <div class="absolute -bottom-4 -right-4 rounded-2xl border border-golden/20 bg-black/80 px-5 py-3 backdrop-blur-md">
@@ -55,7 +55,7 @@ const timeline = [
           <div class="overflow-hidden rounded-3xl border border-white/[0.06]">
             <picture>
               <source srcset="/images/phnom-penh-soup.webp" type="image/webp" />
-              <img src="/images/phnom-penh-soup.jpg" alt="Soupe Phnom Penh" class="aspect-[4/3] w-full object-cover" loading="lazy" width="800" height="450" />
+              <img src="/images/phnom-penh-soup.jpg" alt={i.alt.phnomPenhSoup} class="aspect-[4/3] w-full object-cover" loading="lazy" width="800" height="450" />
             </picture>
           </div>
           <div class="absolute -bottom-4 -left-4 rounded-2xl border border-golden/20 bg-black/80 px-5 py-3 backdrop-blur-md">
@@ -98,7 +98,7 @@ const timeline = [
           <div class="overflow-hidden rounded-3xl border border-white/[0.06]">
             <picture>
               <source srcset="/images/restaurant-dining.webp" type="image/webp" />
-              <img src="/images/restaurant-dining.jpg" alt="Salade de mangue chez Krong Thai" class="aspect-[4/3] w-full object-cover" loading="lazy" width="1200" height="800" />
+              <img src="/images/restaurant-dining.jpg" alt={i.alt.restaurantDining} class="aspect-[4/3] w-full object-cover" loading="lazy" width="1200" height="800" />
             </picture>
           </div>
           <div class="absolute -bottom-4 -left-4 rounded-2xl border border-golden/20 bg-black/80 px-5 py-3 backdrop-blur-md">

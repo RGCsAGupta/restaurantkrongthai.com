@@ -12,7 +12,7 @@ const i = t(locale);
 ---
 
 <MarketingLayout title={i.meta.menuTitle} description={i.meta.menuDesc} locale={locale} canonicalPath="menu" currentPath="menu">
-  <HeroSection headline={i.menu.heroTitle} subheadline={i.menu.heroSubtitle} imageSrc="/images/thai-fried-rice.jpg" imageAlt="Menu authentique Krong Thai" />
+  <HeroSection headline={i.menu.heroTitle} subheadline={i.menu.heroSubtitle} imageSrc="/images/thai-fried-rice.jpg" imageAlt={i.alt.heroMenu} />
 
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",

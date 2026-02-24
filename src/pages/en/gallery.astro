@@ -35,25 +35,25 @@ const reviews = [
 ];
 
 const photos = [
-  { src: "/images/bangkok-soup-large.jpg", alt: "Bangkok Soup", span: "col-span-2 row-span-2" },
-  { src: "/images/pad-thai.jpg", alt: "Pad Thai" },
-  { src: "/images/imperial-rolls.jpg", alt: "Imperial Rolls" },
-  { src: "/images/green-curry-chicken.jpg", alt: "Green Curry" },
-  { src: "/images/thai-fried-rice.jpg", alt: "Thai Fried Rice" },
-  { src: "/images/chef-cooking.jpg", alt: "Signature Dish", span: "col-span-2" },
-  { src: "/images/pho-beef.jpg", alt: "Pho Beef" },
-  { src: "/images/crispy-wontons.jpg", alt: "Crispy Wontons" },
-  { src: "/images/restaurant-dining.jpg", alt: "Mango Salad", span: "col-span-2" },
-  { src: "/images/chicken-royal-nest.jpg", alt: "Royal Nest" },
-  { src: "/images/thai-spices.jpg", alt: "Red Curry Chicken" },
-  { src: "/images/catering-spread.jpg", alt: "Catering Spread", span: "col-span-2" },
-  { src: "/images/dumplings-peanut-sauce.jpg", alt: "Dumplings" },
-  { src: "/images/spring-rolls-fresh.jpg", alt: "Fresh Spring Rolls" },
+  { src: "/images/bangkok-soup-large.jpg", alt: i.alt.galleryBangkokSoup, span: "col-span-2 row-span-2" },
+  { src: "/images/pad-thai.jpg", alt: i.alt.galleryPadThai },
+  { src: "/images/imperial-rolls.jpg", alt: i.alt.galleryImperialRolls },
+  { src: "/images/green-curry-chicken.jpg", alt: i.alt.galleryGreenCurry },
+  { src: "/images/thai-fried-rice.jpg", alt: i.alt.galleryFriedRice },
+  { src: "/images/chef-cooking.jpg", alt: i.alt.galleryChef, span: "col-span-2" },
+  { src: "/images/pho-beef.jpg", alt: i.alt.galleryPhoBoeuf },
+  { src: "/images/crispy-wontons.jpg", alt: i.alt.galleryWontons },
+  { src: "/images/restaurant-dining.jpg", alt: i.alt.galleryDining, span: "col-span-2" },
+  { src: "/images/chicken-royal-nest.jpg", alt: i.alt.galleryRoyalNest },
+  { src: "/images/thai-spices.jpg", alt: i.alt.gallerySpices },
+  { src: "/images/catering-spread.jpg", alt: i.alt.galleryCatering, span: "col-span-2" },
+  { src: "/images/dumplings-peanut-sauce.jpg", alt: i.alt.galleryDumplings },
+  { src: "/images/spring-rolls-fresh.jpg", alt: i.alt.gallerySpringRolls },
 ];
 ---
 
 <MarketingLayout title={i.meta.galleryTitle} description={i.meta.galleryDesc} locale={locale} canonicalPath="gallery" currentPath="gallery">
-  <HeroSection headline={i.gallery.heroTitle} subheadline={i.gallery.heroSubtitle} imageSrc="/images/appetizer-platter.jpg" imageAlt="Krong Thai food gallery" />
+  <HeroSection headline={i.gallery.heroTitle} subheadline={i.gallery.heroSubtitle} imageSrc="/images/appetizer-platter.jpg" imageAlt={i.alt.heroGallery} />
 
   <!-- Photo Grid -->
   <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">

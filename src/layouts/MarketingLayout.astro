@@ -18,7 +18,7 @@ const { title, description, locale, canonicalPath = "", currentPath = "" } =
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang={locale === "fr" ? "fr-CA" : "en-CA"}>
   <head>
     <Head
       title={title}
