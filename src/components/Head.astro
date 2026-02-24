@@ -41,8 +41,15 @@ const alternate = `${base}/${alternateLang}/${altPath}`.replace(/\/$/, "") + "/"
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonical} />
+<meta property="og:image" content={`${base}/images/og-image.jpg`} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:locale" content={locale === "fr" ? "fr_CA" : "en_CA"} />
 <meta property="og:site_name" content="Krong Thai Restaurant" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={`${base}/images/og-image.jpg`} />
 <meta name="robots" content="index, follow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
