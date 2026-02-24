@@ -4,6 +4,7 @@ dist/
 .env
 .env.*
 !.env.example
+.vercel/
 .DS_Store
 *.png
 .playwright-mcp/

@@ -28,17 +28,10 @@ const labelClass = "mb-1.5 block text-sm font-semibold text-white/60";
 
     <form
       method="POST"
-      action={business.forms.catering}
+      action="/promo/api/catering"
       class="space-y-6 rounded-3xl border border-white/[0.08] bg-night-800/60 p-8 backdrop-blur-sm sm:p-10"
     >
-      <input type="hidden" name="_next" value={`${business.website}/promo/${locale === "fr" ? "fr/merci" : "en/thanks"}/`} />
-      <input type="hidden" name="_subject" value={locale === "fr" ? "Nouvelle demande traiteur — Krong Thai" : "New catering inquiry — Krong Thai"} />
       <input type="hidden" name="locale" value={locale} />
-      <p class="hidden">
-        <label>
-          Don't fill this out: <input name="_gotcha" />
-        </label>
-      </p>
 
       <div class="grid gap-6 sm:grid-cols-2">
         <div>
