@@ -56,7 +56,7 @@ const pageName = pageNames[locale]?.[localSlug];
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={`${base}/images/og-image.jpg`} />
-{canonicalPath === "thanks" ? (
+{(canonicalPath === "thanks" || canonicalPath === "merci") ? (
   <meta name="robots" content="noindex, nofollow" />
 ) : (
   <meta name="robots" content="index, follow" />
