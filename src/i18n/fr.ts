@@ -253,6 +253,17 @@ export default {
     formPhone: "Téléphone (optionnel)",
     formMessage: "Votre message",
     formSubmit: "Envoyer le message",
+    faqTitle: "Questions fréquentes",
+    faq: [
+      { q: "Acceptez-vous les réservations ?", a: "Oui ! Appelez-nous au (819) 243-5000 pour réserver une table. Les clients sans réservation sont aussi les bienvenus." },
+      { q: "Puis-je apporter mon propre vin ou bière ?", a: "Absolument — nous sommes un restaurant apportez votre vin sans frais de bouchon." },
+      { q: "Y a-t-il du stationnement ?", a: "Oui, nous offrons un stationnement gratuit sur place pour tous nos clients." },
+      { q: "Offrez-vous un service traiteur ?", a: "Oui, nous offrons un service traiteur pour événements corporatifs, fêtes privées et réunions familiales. Les forfaits débutent à 18 $ par personne." },
+      { q: "Quelles cuisines servez-vous ?", a: "Nous servons une cuisine authentique thaïe, vietnamienne et cambodgienne — nous sommes le seul restaurant cambodgien de la région Gatineau-Ottawa." },
+      { q: "Offrez-vous la livraison ?", a: "Oui, nous livrons via UberEats, DoorDash et SkipTheDishes. Vous pouvez aussi commander pour emporter directement sur notre site web." },
+      { q: "Le restaurant est-il accessible en fauteuil roulant ?", a: "Oui, notre restaurant est entièrement accessible en fauteuil roulant." },
+      { q: "Quelles sont vos heures d'ouverture ?", a: "Mardi 15h-21h, mercredi-jeudi 11h-21h, vendredi-samedi 11h-22h, dimanche 15h-21h. Fermé le lundi." },
+    ],
   },
   privacy: {
     title: "Politique de confidentialité",

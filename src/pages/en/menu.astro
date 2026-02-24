@@ -14,6 +14,29 @@ const i = t(locale);
 <MarketingLayout title={i.meta.menuTitle} description={i.meta.menuDesc} locale={locale} canonicalPath="menu" currentPath="menu">
   <HeroSection headline={i.menu.heroTitle} subheadline={i.menu.heroSubtitle} imageSrc="/images/thai-fried-rice.jpg" imageAlt="Krong Thai authentic menu" />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "Krong Thai Restaurant Menu",
+    "url": "https://restaurantkrongthai.com/en/menu/",
+    "mainEntity": { "@type": "Restaurant", "name": "Krong Thai Restaurant" },
+    "hasMenuSection": menuCategories.map(cat => ({
+      "@type": "MenuSection",
+      "name": cat.name.en,
+      "hasMenuItem": cat.items.map(item => {
+        const basePrice = item.price.includes("/") ? item.price.split("/")[0] : item.price;
+        const menuItem: Record<string, unknown> = {
+          "@type": "MenuItem",
+          "name": item.name.en,
+          "offers": { "@type": "Offer", "price": basePrice, "priceCurrency": "CAD" },
+        };
+        if (item.desc) menuItem.description = item.desc.en;
+        if (item.img) menuItem.image = `https://restaurantkrongthai.com${item.img}`;
+        return menuItem;
+      })
+    }))
+  })} />
+
   <!-- Sticky Category Nav -->
   <nav id="menu-nav" class="sticky top-[72px] z-30 border-b border-white/[0.04] bg-night-950/90 backdrop-blur-xl transition-shadow" aria-label="Menu categories">
     <div class="mx-auto max-w-5xl overflow-x-auto scrollbar-hide">

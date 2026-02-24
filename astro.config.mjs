@@ -11,7 +11,15 @@ export default defineConfig({
   output: "static",
   adapter: vercel(),
   devToolbar: { enabled: false },
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    i18n: {
+      defaultLocale: "fr",
+      locales: {
+        en: "en-CA",
+        fr: "fr-CA",
+      },
+    },
+  })],
   vite: {
     plugins: [tailwindcss()],
   },

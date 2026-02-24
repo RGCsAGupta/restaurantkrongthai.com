@@ -249,6 +249,17 @@ export default {
     formPhone: "Phone (optional)",
     formMessage: "Your Message",
     formSubmit: "Send Message",
+    faqTitle: "Frequently Asked Questions",
+    faq: [
+      { q: "Do you accept reservations?", a: "Yes! Call us at (819) 243-5000 to reserve a table. Walk-ins are also welcome." },
+      { q: "Can I bring my own wine or beer?", a: "Absolutely — we are BYOB (Bring Your Own Bottle) with no corkage fee." },
+      { q: "Is parking available?", a: "Yes, we offer free parking on-site for all guests." },
+      { q: "Do you offer catering services?", a: "Yes, we cater corporate events, private parties, and family gatherings. Packages start at $18 per person." },
+      { q: "What cuisines do you serve?", a: "We serve authentic Thai, Vietnamese, and Cambodian cuisine — we are the only Cambodian restaurant in the Gatineau-Ottawa region." },
+      { q: "Do you offer delivery?", a: "Yes, we deliver via UberEats, DoorDash, and SkipTheDishes. You can also order pickup directly from our website." },
+      { q: "Is the restaurant wheelchair accessible?", a: "Yes, our restaurant is fully wheelchair accessible." },
+      { q: "What are your hours of operation?", a: "Tuesday 3-9 PM, Wednesday-Thursday 11 AM-9 PM, Friday-Saturday 11 AM-10 PM, Sunday 3-9 PM. Closed Monday." },
+    ],
   },
   privacy: {
     title: "Privacy Policy",

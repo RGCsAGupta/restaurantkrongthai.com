@@ -1,5 +1,6 @@
 ---
 import { slugMap, reverseSlugMap } from "../i18n/utils";
+import { business } from "../data/business";
 
 interface Props {
   title: string;
@@ -18,6 +19,14 @@ const altPath =
     ? slugMap[canonicalPath] ?? canonicalPath
     : reverseSlugMap[canonicalPath] ?? canonicalPath;
 const alternate = `${base}/${alternateLang}/${altPath}`.replace(/\/$/, "") + "/";
+
+// Page name for breadcrumbs
+const pageNames: Record<string, Record<string, string>> = {
+  en: { menu: "Menu", about: "About", catering: "Catering", specials: "Specials", gallery: "Gallery", contact: "Contact", privacy: "Privacy Policy", accessibility: "Accessibility", thanks: "Thank You" },
+  fr: { menu: "Menu", "a-propos": "À propos", traiteur: "Traiteur", speciaux: "Spéciaux", galerie: "Galerie", contact: "Contact", confidentialite: "Confidentialité", accessibilite: "Accessibilité", merci: "Merci" },
+};
+const localSlug = locale === "en" ? canonicalPath : (slugMap[canonicalPath] ?? canonicalPath);
+const pageName = pageNames[locale]?.[localSlug];
 ---
 
 <meta charset="UTF-8" />
@@ -46,6 +55,11 @@ const alternate = `${base}/${alternateLang}/${altPath}`.replace(/\/$/, "") + "/"
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={`${base}/images/og-image.jpg`} />
 <meta name="robots" content="index, follow" />
+<meta name="geo.region" content="CA-QC" />
+<meta name="geo.placename" content="Gatineau" />
+<meta name="geo.position" content="45.4765;-75.7013" />
+<meta name="ICBM" content="45.4765, -75.7013" />
+<meta property="og:image:alt" content="Krong Thai Restaurant — Authentic Thai, Vietnamese & Cambodian Cuisine" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
@@ -67,6 +81,31 @@ const alternate = `${base}/${alternateLang}/${altPath}`.replace(/\/$/, "") + "/"
   "geo": { "@type": "GeoCoordinates", "latitude": 45.4765, "longitude": -75.7013 },
   "servesCuisine": ["Thai", "Vietnamese", "Cambodian"],
   "priceRange": "$$",
+  "acceptsReservations": "True",
+  "paymentAccepted": "Cash, Credit Card, Debit Card",
+  "currenciesAccepted": "CAD",
+  "sameAs": [
+    business.social.facebook,
+    business.social.instagram,
+    business.social.yelp,
+    business.delivery.ubereats,
+    business.delivery.doordash,
+    business.delivery.skip
+  ],
+  "hasMenu": {
+    "@type": "Menu",
+    "url": `${base}/${locale}/menu/`,
+    "name": locale === "fr" ? "Menu du restaurant" : "Restaurant Menu"
+  },
+  "potentialAction": {
+    "@type": "OrderAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": business.orderingUrl,
+      "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+    },
+    "deliveryMethod": ["http://purl.org/goodrelations/v1#DeliveryModePickUp"]
+  },
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.2", "reviewCount": "220" },
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "15:00", "closes": "21:00" },
@@ -75,3 +114,13 @@ const alternate = `${base}/${alternateLang}/${altPath}`.replace(/\/$/, "") + "/"
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "15:00", "closes": "21:00" }
   ]
 })} />
+{pageName && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": locale === "fr" ? "Accueil" : "Home", "item": `${base}/${locale}/` },
+      { "@type": "ListItem", "position": 2, "name": pageName, "item": canonical }
+    ]
+  })} />
+)}
