@@ -130,12 +130,7 @@ body {
   outline-offset: 3px;
 }
 
-/* WCAG touch targets — only apply to standalone interactive elements, not inline text links */
-button, [role="button"], input, select, textarea {
-  min-height: 44px;
-  min-width: 44px;
-}
-a[class*="rounded"], a[class*="btn"], a[class*="flex"] {
+a, button, [role="button"], input, select, textarea {
   min-height: 44px;
   min-width: 44px;
 }
@@ -190,16 +185,15 @@ a[class*="rounded"], a[class*="btn"], a[class*="flex"] {
   box-shadow: 0 0 60px rgba(212, 175, 55, 0.12), 0 0 120px rgba(212, 175, 55, 0.04);
 }
 
-/* Noise texture overlay — promoted to own layer with will-change to avoid repaints */
+/* Noise texture overlay */
 .noise::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
-  will-change: transform;
 }
 
 /* Divider line */
