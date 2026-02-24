@@ -173,6 +173,11 @@ export default {
     seasonalTitle: "Découvertes saisonnières",
     cta: "Commander maintenant",
   },
+  notFound: {
+    title: "Page introuvable",
+    message: "La page que vous cherchez n'existe pas ou a été déplacée.",
+    back: "Retour à l'accueil",
+  },
   thanks: {
     title: "Merci !",
     message:

@@ -170,6 +170,11 @@ export default {
     seasonalTitle: "Seasonal Highlights",
     cta: "Order Now",
   },
+  notFound: {
+    title: "Page Not Found",
+    message: "The page you're looking for doesn't exist or has been moved.",
+    back: "Back to Home",
+  },
   thanks: {
     title: "Thank You!",
     message:
