@@ -22,6 +22,7 @@
     }
   ],
   "redirects": [
+    { "source": "/", "destination": "/fr/", "permanent": false },
     { "source": "/promo/:path*", "destination": "/:path*", "permanent": true },
     { "source": "/promo", "destination": "/fr/", "permanent": true }
   ]
