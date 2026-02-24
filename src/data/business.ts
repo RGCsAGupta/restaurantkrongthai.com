@@ -22,6 +22,7 @@ export const business = {
     google:
       "https://www.google.com/maps/place/?q=place_id:ChIJu476UxUbzkwRSV2u84dWyWk",
     yelp: "https://www.yelp.ca/biz/krong-thai-gatineau-2",
+    tripadvisor: "https://www.tripadvisor.ca/Restaurant_Review-g182166-d4852692-Reviews-Restaurant_Krong_Thai-Gatineau_Outaouais_Region_Quebec.html",
   },
   delivery: {
     ubereats:
