@@ -46,7 +46,7 @@ const privacyPath = localizedPath(locale, "privacy");
     var banner = document.getElementById("cookie-consent");
 
     if (consent === "accepted") {
-      loadClarity();
+      (window.requestIdleCallback || setTimeout)(loadClarity);
       return;
     }
 

@@ -46,7 +46,7 @@ const { title, description, locale, canonicalPath = "", currentPath = "" } =
 
     <!-- Scroll reveal observer — deferred to reduce TBT -->
     <script>
-      requestAnimationFrame(() => {
+      (window.requestIdleCallback || requestAnimationFrame)(() => {
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((e) => {
