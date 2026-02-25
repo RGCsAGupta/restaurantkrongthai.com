@@ -251,7 +251,7 @@ export default {
     heroSubtitle: "Discover the family heritage that makes Krong Thai the only authentic Cambodian restaurant in the Gatineau region.",
     sinceLabel: "Since 2008",
     storyTitle: "A Family Tradition",
-    storyText: "In 2008, a Cambodian family brought their treasured recipes to Gatineau — dishes passed down through generations in Phnom Penh. Today, those same hands still prepare every Bangkok Soup, every curry paste, and every spice blend from scratch. Under new management since 2023, we honour this legacy while welcoming a new chapter for the restaurant.",
+    storyText: "In 2008, a Cambodian family brought their treasured recipes to Gatineau — dishes passed down through generations in Cambodia. Today, those same traditions live on in every Bangkok Soup, every curry paste, and every spice blend made from scratch. Under new management since May 2024, we honour this legacy while welcoming a new chapter for the restaurant.",
     familyBadge: "Family recipes since 2008",
     heritageLabel: "Heritage",
     cambodianTitle: "Cambodian Heritage",

@@ -255,7 +255,7 @@ export default {
     heroSubtitle: "Découvrez le patrimoine familial qui fait de Krong Thai le seul restaurant cambodgien authentique de la région de Gatineau.",
     sinceLabel: "Depuis 2008",
     storyTitle: "Une tradition familiale",
-    storyText: "En 2008, une famille cambodgienne a apporté ses recettes précieuses à Gatineau — des plats transmis de génération en génération à Phnom Penh. Aujourd'hui, ces mêmes mains préparent chaque Soupe Bangkok, chaque pâte de cari et chaque mélange d'épices à partir de zéro. Sous nouvelle direction depuis 2023, nous honorons cet héritage tout en ouvrant un nouveau chapitre.",
+    storyText: "En 2008, une famille cambodgienne a apporté ses recettes précieuses à Gatineau — des plats transmis de génération en génération au Cambodge. Aujourd'hui, ces mêmes traditions perdurent dans chaque Soupe Bangkok, chaque pâte de cari et chaque mélange d'épices préparé à partir de zéro. Sous nouvelle direction depuis mai 2024, nous honorons cet héritage tout en ouvrant un nouveau chapitre.",
     familyBadge: "Recettes familiales depuis 2008",
     heritageLabel: "Patrimoine",
     cambodianTitle: "Patrimoine cambodgien",
