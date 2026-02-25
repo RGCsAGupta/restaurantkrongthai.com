@@ -88,3 +88,70 @@ const labelClass = "mb-1.5 block text-sm font-semibold text-white/60";
     </form>
   </div>
 </section>
+
+<script define:vars={{ locale }}>
+  document.querySelectorAll('form[action="/api/catering"]').forEach((form) => {
+    const errClass = "mt-1 text-xs text-red-400 hidden";
+    const fr = locale === "fr";
+
+    form.querySelectorAll("[required], [type='email'], [type='tel'], [type='date'], [type='number']").forEach((field) => {
+      const err = document.createElement("div");
+      err.className = errClass;
+      err.setAttribute("role", "alert");
+      field.parentNode?.appendChild(err);
+    });
+
+    form.addEventListener("submit", (e) => {
+      let valid = true;
+      form.querySelectorAll("[role='alert']").forEach((el) => {
+        el.classList.add("hidden");
+        el.textContent = "";
+      });
+
+      const name = form.querySelector("#name");
+      const email = form.querySelector("#email");
+      const date = form.querySelector("#date");
+      const guests = form.querySelector("#guests");
+
+      if (name && !name.value.trim()) {
+        showError(name, fr ? "Ce champ est requis." : "This field is required.");
+        valid = false;
+      }
+
+      if (email) {
+        if (!email.value.trim()) {
+          showError(email, fr ? "Ce champ est requis." : "This field is required.");
+          valid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+          showError(email, fr ? "Veuillez entrer une adresse courriel valide." : "Please enter a valid email address.");
+          valid = false;
+        }
+      }
+
+      if (date) {
+        const d = new Date(date.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (!date.value || d < today) {
+          showError(date, fr ? "Veuillez choisir une date future." : "Please select a future date.");
+          valid = false;
+        }
+      }
+
+      if (guests && (!guests.value || parseInt(guests.value) < 1)) {
+        showError(guests, fr ? "Veuillez entrer au moins 1 invité." : "Please enter at least 1 guest.");
+        valid = false;
+      }
+
+      if (!valid) e.preventDefault();
+    });
+
+    function showError(field, msg) {
+      const err = field.parentNode?.querySelector("[role='alert']");
+      if (err) {
+        err.textContent = msg;
+        err.classList.remove("hidden");
+      }
+    }
+  });
+</script>

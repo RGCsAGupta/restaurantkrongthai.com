@@ -26,6 +26,7 @@ const labelClass = "mb-1.5 block text-sm font-semibold text-white/60";
           <h3 class="font-display text-lg font-bold text-white">{i.contactPage.phoneTitle}</h3>
           <p class="mt-2 text-sm text-white/60">{i.contactPage.phoneDesc}</p>
           <a href={`tel:${business.phone}`} class="mt-4 inline-block text-lg font-bold text-golden transition-colors hover:text-golden-light">{business.phoneDisplay}</a>
+          <a href={`tel:${business.phone}`} class="mt-3 inline-flex items-center justify-center rounded-full bg-krong-red px-6 py-3 text-sm font-bold text-white shadow-red transition-all duration-300 hover:shadow-xl hover:brightness-110 active:scale-[0.97]">{i.contactPage.reserveBtn}</a>
         </div>
         <!-- Location -->
         <div class="reveal reveal-delay-2 rounded-3xl border border-white/[0.06] bg-night-800/60 p-8 text-center">
@@ -140,4 +141,59 @@ const labelClass = "mb-1.5 block text-sm font-semibold text-white/60";
   </section>
 
   <ContactStrip locale={locale} />
+
+  <script>
+    document.querySelectorAll('form[action^="/api/"]').forEach((form) => {
+      const errClass = "mt-1 text-xs text-red-400 hidden";
+
+      form.querySelectorAll("[required], [type='email'], [type='tel']").forEach((field) => {
+        const err = document.createElement("div");
+        err.className = errClass;
+        err.setAttribute("role", "alert");
+        field.parentNode?.appendChild(err);
+      });
+
+      form.addEventListener("submit", (e) => {
+        let valid = true;
+        form.querySelectorAll("[role='alert']").forEach((el) => {
+          el.classList.add("hidden");
+          el.textContent = "";
+        });
+
+        const name = form.querySelector<HTMLInputElement>("#name");
+        const email = form.querySelector<HTMLInputElement>("#email");
+        const message = form.querySelector<HTMLTextAreaElement>("#message");
+
+        if (name && !name.value.trim()) {
+          showError(name, "This field is required.");
+          valid = false;
+        }
+
+        if (email) {
+          if (!email.value.trim()) {
+            showError(email, "This field is required.");
+            valid = false;
+          } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+            showError(email, "Please enter a valid email address.");
+            valid = false;
+          }
+        }
+
+        if (message && message.hasAttribute("required") && message.value.trim().length < 10) {
+          showError(message, "Please write at least 10 characters.");
+          valid = false;
+        }
+
+        if (!valid) e.preventDefault();
+      });
+
+      function showError(field: Element, msg: string) {
+        const err = field.parentNode?.querySelector("[role='alert']");
+        if (err) {
+          err.textContent = msg;
+          err.classList.remove("hidden");
+        }
+      }
+    });
+  </script>
 </MarketingLayout>
