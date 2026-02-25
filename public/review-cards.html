@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krong Thai — Review Table Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --krong-red: #E31B23;
+    --golden: #D4AF37;
+    --golden-light: #E8CC6E;
+    --night: #050505;
+    --night-800: #111111;
+    --night-700: #1A1A1A;
+    --warm-50: #FDFBF7;
+    --warm-100: #F8F4EC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f0ece4;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--night);
+    padding: 20px;
+  }
+
+  .print-instructions {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    padding: 24px 32px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+  }
+  .print-instructions h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--night);
+    margin-bottom: 12px;
+  }
+  .print-instructions strong { color: var(--night); }
+  .print-instructions code {
+    background: #f5f2ed;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ===== CARD SHEET ===== */
+  .card-sheet {
+    width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* ===== SINGLE TENT CARD (two halves) ===== */
+  .tent-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    page-break-inside: avoid;
+  }
+
+  .tent-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ===== CARD SIDE ===== */
+  .card-side {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+    justify-content: center;
+  }
+
+  .card-side--dark {
+    background: var(--night);
+    color: white;
+  }
+
+  .card-side--dark::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .card-side--dark::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(227,27,35,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .card-side--light {
+    background: var(--warm-50);
+    color: var(--night);
+    border-left: 1px dashed #d9cfc0;
+  }
+
+  .card-side--light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ===== FOLD LINE ===== */
+  .fold-indicator {
+    text-align: center;
+    padding: 6px 0;
+    background: white;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #bbb;
+    border-top: 2px dashed #e0dcd4;
+    border-bottom: 2px dashed #e0dcd4;
+    font-weight: 600;
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  .card-logo {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-logo--dark {
+    background: linear-gradient(135deg, var(--golden), var(--golden-light));
+    color: var(--night);
+    box-shadow: 0 4px 20px rgba(212,175,55,0.25);
+  }
+
+  .card-logo--light {
+    background: var(--night);
+    color: var(--golden-light);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+
+  .card-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-brand--dark { color: var(--golden-light); }
+  .card-brand--light { color: var(--golden); }
+
+  .card-divider {
+    width: 40px;
+    height: 1px;
+    margin: 0 auto 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .card-divider--gold { background: linear-gradient(90deg, transparent, var(--golden), transparent); }
+  .card-divider--red { background: linear-gradient(90deg, transparent, var(--krong-red), transparent); }
+
+  .card-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-heading--dark { color: white; }
+  .card-heading--light { color: var(--night); }
+
+  .card-subheading {
+    font-size: 12.5px;
+    font-weight: 500;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-subheading--dark { color: rgba(255,255,255,0.45); }
+  .card-subheading--light { color: #8c7e6a; }
+
+  /* ===== STARS ===== */
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .star {
+    width: 22px;
+    height: 22px;
+    fill: var(--golden);
+    filter: drop-shadow(0 1px 3px rgba(212,175,55,0.3));
+  }
+
+  /* ===== QR CODE ===== */
+  .qr-wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .qr-wrapper--dark {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .qr-wrapper--light {
+    background: white;
+    border: 1px solid #e8e2d8;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .qr-wrapper img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 6px;
+  }
+
+  .card-url {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    position: relative;
+    z-index: 1;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .card-url--dark {
+    background: rgba(255,255,255,0.06);
+    color: var(--golden-light);
+    border: 1px solid rgba(212,175,55,0.15);
+  }
+
+  .card-url--light {
+    background: var(--night);
+    color: var(--golden-light);
+  }
+
+  .card-footer {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+  }
+
+  .card-footer--dark { color: rgba(255,255,255,0.2); }
+  .card-footer--light { color: #b5a893; }
+
+  .lang-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lang-tag--fr {
+    background: rgba(227,27,35,0.1);
+    color: var(--krong-red);
+  }
+
+  .lang-tag--en {
+    background: rgba(212,175,55,0.12);
+    color: var(--golden);
+  }
+
+  .lang-tag--fr-dark {
+    background: rgba(227,27,35,0.15);
+    color: #ff6b6f;
+  }
+
+  .lang-tag--en-dark {
+    background: rgba(212,175,55,0.1);
+    color: var(--golden-light);
+  }
+
+  /* ===== PRINT STYLES ===== */
+  @media print {
+    body {
+      background: white;
+      padding: 0;
+    }
+
+    .print-instructions { display: none; }
+    .no-print { display: none; }
+
+    .card-sheet {
+      width: 100%;
+      gap: 16px;
+    }
+
+    .tent-card {
+      box-shadow: none;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .card-side { min-height: 380px; }
+
+    @page {
+      size: letter;
+      margin: 0.5in;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-instructions no-print">
+  <h1>Review Table Cards</h1>
+  <p>
+    <strong>Instructions:</strong> Print this page (<code>Ctrl+P</code> / <code>Cmd+P</code>), cut along the card edges, fold along the dashed line, and place on tables. Each card has French on one side and English on the other.
+  </p>
+  <p>
+    <strong>Print settings:</strong> Letter size, no margins or "minimum margins", background graphics ON.
+  </p>
+</div>
+
+<div class="card-sheet">
+
+  <!-- ===== CARD 1 ===== -->
+  <div class="tent-card">
+    <div class="tent-card-inner">
+
+      <!-- FRENCH SIDE -->
+      <div class="card-side card-side--dark">
+        <div class="card-logo card-logo--dark">K</div>
+        <div class="card-brand card-brand--dark">Krong Thai</div>
+        <div class="card-divider card-divider--gold"></div>
+        <span class="lang-tag lang-tag--fr-dark">Fran&ccedil;ais</span>
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+        </div>
+        <h2 class="card-heading card-heading--dark">Vous avez aim&eacute;<br>votre repas ?</h2>
+        <p class="card-subheading card-subheading--dark">Votre avis nous aide &eacute;norm&eacute;ment !</p>
+        <div class="qr-wrapper qr-wrapper--dark">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&format=svg&data=https://restaurantkrongthai.com/avis&bgcolor=0A0A0A&color=E8CC6E&qzone=1" alt="QR Code — Laisser un avis" />
+        </div>
+        <div class="card-url card-url--dark">restaurantkrongthai.com/avis</div>
+        <p class="card-footer card-footer--dark">Scannez &bull; Laissez un avis &bull; Merci !</p>
+      </div>
+
+      <!-- ENGLISH SIDE -->
+      <div class="card-side card-side--light">
+        <div class="card-logo card-logo--light">K</div>
+        <div class="card-brand card-brand--light">Krong Thai</div>
+        <div class="card-divider card-divider--red"></div>
+        <span class="lang-tag lang-tag--en">English</span>
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+        </div>
+        <h2 class="card-heading card-heading--light">Enjoyed your<br>meal?</h2>
+        <p class="card-subheading card-subheading--light">Your review means the world to us!</p>
+        <div class="qr-wrapper qr-wrapper--light">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&format=svg&data=https://restaurantkrongthai.com/review&bgcolor=FDFBF7&color=111111&qzone=1" alt="QR Code — Leave a review" />
+        </div>
+        <div class="card-url card-url--light">restaurantkrongthai.com/review</div>
+        <p class="card-footer card-footer--light">Scan &bull; Review &bull; Thank you!</p>
+      </div>
+
+    </div>
+    <div class="fold-indicator">&uarr; fold here &mdash; pliez ici &uarr;</div>
+  </div>
+
+  <!-- ===== CARD 2 (duplicate for printing multiple) ===== -->
+  <div class="tent-card">
+    <div class="tent-card-inner">
+      <div class="card-side card-side--dark">
+        <div class="card-logo card-logo--dark">K</div>
+        <div class="card-brand card-brand--dark">Krong Thai</div>
+        <div class="card-divider card-divider--gold"></div>
+        <span class="lang-tag lang-tag--fr-dark">Fran&ccedil;ais</span>
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+        </div>
+        <h2 class="card-heading card-heading--dark">Vous avez aim&eacute;<br>votre repas ?</h2>
+        <p class="card-subheading card-subheading--dark">Votre avis nous aide &eacute;norm&eacute;ment !</p>
+        <div class="qr-wrapper qr-wrapper--dark">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&format=svg&data=https://restaurantkrongthai.com/avis&bgcolor=0A0A0A&color=E8CC6E&qzone=1" alt="QR Code — Laisser un avis" />
+        </div>
+        <div class="card-url card-url--dark">restaurantkrongthai.com/avis</div>
+        <p class="card-footer card-footer--dark">Scannez &bull; Laissez un avis &bull; Merci !</p>
+      </div>
+      <div class="card-side card-side--light">
+        <div class="card-logo card-logo--light">K</div>
+        <div class="card-brand card-brand--light">Krong Thai</div>
+        <div class="card-divider card-divider--red"></div>
+        <span class="lang-tag lang-tag--en">English</span>
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+        </div>
+        <h2 class="card-heading card-heading--light">Enjoyed your<br>meal?</h2>
+        <p class="card-subheading card-subheading--light">Your review means the world to us!</p>
+        <div class="qr-wrapper qr-wrapper--light">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&format=svg&data=https://restaurantkrongthai.com/review&bgcolor=FDFBF7&color=111111&qzone=1" alt="QR Code — Leave a review" />
+        </div>
+        <div class="card-url card-url--light">restaurantkrongthai.com/review</div>
+        <p class="card-footer card-footer--light">Scan &bull; Review &bull; Thank you!</p>
+      </div>
+    </div>
+    <div class="fold-indicator">&uarr; fold here &mdash; pliez ici &uarr;</div>
+  </div>
+
+</div>
+
+</body>
+</html>
