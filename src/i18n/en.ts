@@ -210,9 +210,9 @@ export default {
     title: "What Our Customers Say",
     cta: "Leave a Review",
     reviews: [
-      { name: "Marie L.", text: "Best Thai food in the Gatineau-Ottawa region! The Bangkok Soup is absolutely incredible. We come here every week.", rating: 5 },
-      { name: "Jean-Pierre D.", text: "The only place for authentic Cambodian food nearby. The Phnom Penh Soup brings back memories of my travels. BYOB is a great bonus!", rating: 5 },
-      { name: "Sarah M.", text: "Pad Thai is perfect every time. The family recipes really make a difference — you can taste the authenticity. Free parking too!", rating: 4 },
+      { name: "Kathy S.", text: "Best restaurant I've been to in Gatineau. Food is super flavourful. Texture is great, rice was perfect, big portion size. Everybody gave us amazing service. The chef even came out to greet us during our meal. Will definitely be back again.", rating: 5 },
+      { name: "Mike L.", text: "Best Tom Yum Soup I've ever had. The owner greeted me warmly and asked if I wanted coconut milk in my soup. The broth was infused with fresh lemongrass and coriander root, giving it a vibrant, layered flavor. A true hidden gem!", rating: 5 },
+      { name: "Lynne L.", text: "Simple flare restaurant. Bring your own wine with no extra fee for corking. Table d'hôte is main course + $10 or you pick from the menu. Great value for authentic Thai food.", rating: 4 },
     ],
   },
   byobSection: {

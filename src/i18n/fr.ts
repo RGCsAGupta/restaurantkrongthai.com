@@ -213,9 +213,9 @@ export default {
     title: "Ce que disent nos clients",
     cta: "Laisser un avis",
     reviews: [
-      { name: "Marie L.", text: "La meilleure cuisine thaïe de la région Gatineau-Ottawa ! La Soupe Bangkok est absolument incroyable. On y vient chaque semaine.", rating: 5 },
-      { name: "Jean-Pierre D.", text: "Le seul endroit pour une cuisine cambodgienne authentique à proximité. La Soupe Phnom Penh me rappelle mes voyages. Apportez votre vin, c'est un beau bonus !", rating: 5 },
-      { name: "Sarah M.", text: "Le Pad Thai est parfait à chaque fois. Les recettes familiales font vraiment la différence — on goûte l'authenticité. Stationnement gratuit en plus !", rating: 4 },
+      { name: "Kathy S.", text: "Le meilleur restaurant que j'ai visité à Gatineau. La nourriture est super savoureuse. La texture est parfaite, le riz impeccable, de grosses portions. Le chef est même venu nous saluer pendant notre repas. On y retourne certainement.", rating: 5 },
+      { name: "Mike L.", text: "La meilleure soupe Tom Yum que j'ai jamais goûtée. Le propriétaire m'a accueilli chaleureusement et m'a demandé si je voulais du lait de coco. Le bouillon était infusé de citronnelle fraîche et de racine de coriandre. Un vrai bijou caché !", rating: 5 },
+      { name: "Lynne L.", text: "Restaurant à l'ambiance simple. Apportez votre vin sans frais de bouchon. La table d'hôte est le plat principal + 10 $ ou vous choisissez du menu. Excellent rapport qualité-prix pour de la cuisine thaïe authentique.", rating: 4 },
     ],
   },
   byobSection: {
