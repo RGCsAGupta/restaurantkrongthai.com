@@ -183,6 +183,8 @@ export default {
     message:
       "Nous avons reçu votre demande et vous répondrons dans les 24 heures.",
     back: "Retour à l'accueil",
+    reviewAsk: "Vous avez aimé votre expérience ?",
+    reviewCta: "Laissez-nous un avis",
   },
   footer: {
     tagline:

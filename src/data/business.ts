@@ -11,8 +11,8 @@ export const business = {
     country: "CA",
   },
   coordinates: {
-    lat: 45.4765,
-    lng: -75.7013,
+    lat: 45.480152,
+    lng: -75.6919493,
   },
   website: "https://restaurantkrongthai.com",
   orderingUrl: "https://krongthai.order-online.ai/",

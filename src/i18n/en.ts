@@ -180,6 +180,8 @@ export default {
     message:
       "We've received your inquiry and will get back to you within 24 hours.",
     back: "Back to Home",
+    reviewAsk: "Enjoyed your experience?",
+    reviewCta: "Leave Us a Review",
   },
   footer: {
     tagline: "Authentic Thai, Vietnamese & Cambodian Cuisine since 2008",
