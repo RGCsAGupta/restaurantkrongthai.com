@@ -7,7 +7,7 @@ import { business } from "../../data/business";
 
 const locale = "en";
 const i = t(locale);
-const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${business.address.street}, ${business.address.city}, ${business.address.province} ${business.address.postal}`)}`;
+
 
 const inputClass = "w-full rounded-xl border border-white/10 bg-night-700/80 px-4 py-3.5 text-white placeholder-white/25 transition-all focus:border-golden/50 focus:outline-none focus:ring-2 focus:ring-golden/20";
 const labelClass = "mb-1.5 block text-sm font-semibold text-white/60";
@@ -33,7 +33,7 @@ const labelClass = "mb-1.5 block text-sm font-semibold text-white/60";
           <h3 class="font-display text-lg font-bold text-white">{i.contactPage.locationTitle}</h3>
           <p class="mt-2 text-sm text-white/35">{business.address.street}</p>
           <p class="text-sm text-white/35">{business.address.city}, {business.address.province} {business.address.postal}</p>
-          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-sm font-bold text-golden transition-colors hover:text-golden-light">{i.contact.directions}</a>
+          <a href={business.directionsUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-sm font-bold text-golden transition-colors hover:text-golden-light">{i.contact.directions}</a>
         </div>
         <!-- Hours -->
         <div class="reveal reveal-delay-3 rounded-3xl border border-white/[0.06] bg-night-800/60 p-8 text-center">
