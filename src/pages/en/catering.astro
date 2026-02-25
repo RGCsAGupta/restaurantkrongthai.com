@@ -112,14 +112,17 @@ const menus = [
         <span class="text-xs font-bold uppercase tracking-[0.25em] text-golden">{i.catering.policiesLabel}</span>
         <h2 class="mt-4 font-display text-2xl font-bold text-white sm:text-3xl">{i.catering.policiesTitle}</h2>
       </div>
-      <div class="grid gap-4 sm:grid-cols-2">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {[
           { icon: "👥", text: i.catering.policyMinGuests },
           { icon: "💳", text: i.catering.policyDeposit },
           { icon: "📅", text: i.catering.policyCancellation },
+          { icon: "🕐", text: i.catering.policyLeadTime },
           { icon: "🥗", text: i.catering.policyDietary },
           { icon: "🚗", text: i.catering.policyArea },
-          { icon: "🍽️", text: i.catering.policySetup },
+          { icon: "🍽️", text: i.catering.policyServing },
+          { icon: "💰", text: i.catering.policyPayment },
+          { icon: "✨", text: i.catering.policyCustom },
         ].map((item, idx) => (
           <div class={`reveal reveal-delay-${(idx % 4) + 1} flex items-center gap-4 rounded-2xl border border-white/[0.06] bg-night-800/40 px-6 py-4`}>
             <span class="text-xl">{item.icon}</span>
