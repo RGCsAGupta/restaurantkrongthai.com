@@ -7,6 +7,8 @@ import ValueProps from "../../components/ValueProps.astro";
 import FeaturedDishes from "../../components/FeaturedDishes.astro";
 import ComboSpecial from "../../components/ComboSpecial.astro";
 import OrderCTA from "../../components/OrderCTA.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import BYOBSection from "../../components/BYOBSection.astro";
 import ContactStrip from "../../components/ContactStrip.astro";
 import { t, localizedPath } from "../../i18n/utils";
 import { business } from "../../data/business";
@@ -45,6 +47,8 @@ const i = t(locale);
   <ValueProps locale={locale} />
   <FeaturedDishes locale={locale} />
   <ComboSpecial locale={locale} />
+  <BYOBSection locale={locale} />
+  <Testimonials locale={locale} />
   <OrderCTA locale={locale} />
   <ContactStrip locale={locale} />
 </MarketingLayout>

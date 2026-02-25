@@ -4,7 +4,7 @@ import HeroSection from "../../components/HeroSection.astro";
 import OrderCTA from "../../components/OrderCTA.astro";
 import ContactStrip from "../../components/ContactStrip.astro";
 import { t } from "../../i18n/utils";
-import { menuCategories } from "../../data/menu";
+import { menuCategories, dietaryTags } from "../../data/menu";
 import { business } from "../../data/business";
 
 const locale = "en";
@@ -98,7 +98,12 @@ const i = t(locale);
                       <div class="absolute bottom-0 left-0 right-0 p-4">
                         <h3 class="font-display text-base font-bold text-white">{item.name[locale]}</h3>
                         {item.desc && <p class="mt-1 text-xs leading-relaxed text-white/50">{item.desc[locale]}</p>}
-                        <div class="mt-2 font-display text-lg font-bold text-golden">{item.price}</div>
+                        <div class="mt-2 flex items-center gap-2">
+                          <span class="font-display text-lg font-bold text-golden">{item.price}</span>
+                          {item.tags && item.tags.map(tag => (
+                            <span class={`rounded-full border px-1.5 py-0.5 text-[9px] font-bold leading-none ${dietaryTags[tag].color}`} title={dietaryTags[tag].label[locale]}>{tag}</span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -119,7 +124,12 @@ const i = t(locale);
                     </picture>
                   )}
                   <div class="flex-1 min-w-0">
-                    <h3 class="text-sm font-medium text-white/80">{item.name[locale]}</h3>
+                    <div class="flex items-center gap-1.5">
+                      <h3 class="text-sm font-medium text-white/80">{item.name[locale]}</h3>
+                      {item.tags && item.tags.map(tag => (
+                        <span class={`rounded-full border px-1.5 py-0.5 text-[9px] font-bold leading-none ${dietaryTags[tag].color}`} title={dietaryTags[tag].label[locale]}>{tag}</span>
+                      ))}
+                    </div>
                   </div>
                   <span class="shrink-0 font-display text-sm font-bold text-white/60">{item.price}</span>
                 </div>
@@ -131,9 +141,16 @@ const i = t(locale);
     );
   })}
 
-  <!-- Notes -->
+  <!-- Dietary Legend + Notes -->
   <section class="px-5 py-10 lg:px-8">
-    <div class="reveal mx-auto max-w-2xl space-y-2 text-center">
+    <div class="reveal mx-auto max-w-2xl space-y-4 text-center">
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        {Object.entries(dietaryTags).map(([key, tag]) => (
+          <span class={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-bold ${tag.color}`}>
+            {key} <span class="font-medium opacity-75">{tag.label[locale]}</span>
+          </span>
+        ))}
+      </div>
       <p class="text-xs text-white/50">{i.menu.proteinNote}</p>
       <p class="text-xs text-white/50">{i.menu.spiceLevels}</p>
     </div>
