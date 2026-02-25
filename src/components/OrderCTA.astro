@@ -18,7 +18,7 @@ const i = t(locale);
     <h2 class="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
       {i.orderCta.title}
     </h2>
-    <p class="mt-4 text-lg text-white/35">{i.orderCta.subtitle}</p>
+    <p class="mt-4 text-lg text-white/60">{i.orderCta.subtitle}</p>
 
     <a
       href={business.orderingUrl}
@@ -30,7 +30,7 @@ const i = t(locale);
     </a>
 
     <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-white/20">{i.orderCta.orVia}</span>
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{i.orderCta.orVia}</span>
       {[
         { name: i.orderCta.ubereats, href: business.delivery.ubereats },
         { name: i.orderCta.doordash, href: business.delivery.doordash },
@@ -40,7 +40,7 @@ const i = t(locale);
           href={d.href}
           target="_blank"
           rel="noopener noreferrer"
-          class="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-white/40 transition-all duration-300 hover:border-golden/30 hover:text-golden-light"
+          class="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-white/65 transition-all duration-300 hover:border-golden/30 hover:text-golden-light"
         >
           {d.name}
         </a>

@@ -16,27 +16,27 @@ const year = new Date().getFullYear();
           <img src="/images/logo.svg" alt="Krong Thai" width="32" height="32" class="h-8 w-8" />
           <span class="font-display text-lg font-bold text-white">Krong Thai</span>
         </div>
-        <p class="mt-4 text-sm leading-relaxed text-white/30">{i.footer.tagline}</p>
+        <p class="mt-4 text-sm leading-relaxed text-white/55">{i.footer.tagline}</p>
       </div>
 
       <div>
-        <h3 class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-white/20">{i.footer.contactLabel}</h3>
-        <p class="text-sm text-white/40">{business.address.street}</p>
-        <p class="text-sm text-white/40">{business.address.city}, {business.address.province} {business.address.postal}</p>
+        <h3 class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-white/50">{i.footer.contactLabel}</h3>
+        <p class="text-sm text-white/65">{business.address.street}</p>
+        <p class="text-sm text-white/65">{business.address.city}, {business.address.province} {business.address.postal}</p>
         <a href={`tel:${business.phone}`} class="mt-3 block text-sm font-semibold text-white/60 transition-colors hover:text-golden-light">{business.phoneDisplay}</a>
       </div>
 
       <div>
-        <h3 class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-white/20">{i.contact.hours}</h3>
+        <h3 class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-white/50">{i.contact.hours}</h3>
         <div class="space-y-1.5">
           {Object.values(i.contact.hoursData).map((line) => (
-            <p class="text-sm text-white/35">{line}</p>
+            <p class="text-sm text-white/60">{line}</p>
           ))}
         </div>
       </div>
 
       <div>
-        <h3 class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-white/20">{i.footer.linksLabel}</h3>
+        <h3 class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-white/50">{i.footer.linksLabel}</h3>
         <div class="space-y-2.5">
           {[
             { label: i.nav.home, href: localizedPath(locale, "") },
@@ -47,11 +47,11 @@ const year = new Date().getFullYear();
             { label: i.nav.contact, href: localizedPath(locale, "contact") },
             { label: i.nav.orderNow, href: business.orderingUrl },
           ].map((link) => (
-            <a href={link.href} class="block text-sm text-white/35 transition-colors hover:text-golden-light">{link.label}</a>
+            <a href={link.href} class="block text-sm text-white/60 transition-colors hover:text-golden-light">{link.label}</a>
           ))}
           <div class="mt-3 space-y-1.5 border-t border-white/[0.04] pt-3">
-            <a href={localizedPath(locale, "privacy")} class="block text-xs text-white/20 transition-colors hover:text-white/40">{i.nav.privacy}</a>
-            <a href={localizedPath(locale, "accessibility")} class="block text-xs text-white/20 transition-colors hover:text-white/40">{i.nav.accessibility}</a>
+            <a href={localizedPath(locale, "privacy")} class="block text-xs text-white/50 transition-colors hover:text-white/60">{i.nav.privacy}</a>
+            <a href={localizedPath(locale, "accessibility")} class="block text-xs text-white/50 transition-colors hover:text-white/60">{i.nav.accessibility}</a>
           </div>
         </div>
         <div class="mt-6 flex gap-3">
@@ -60,7 +60,7 @@ const year = new Date().getFullYear();
             { label: "Instagram", href: business.social.instagram, icon: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" },
             { label: "TripAdvisor", href: business.social.tripadvisor, icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.5 14.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm5 0a2.5 2.5 0 110-5 2.5 2.5 0 010 5zM12 6c-3.17 0-5.99 1.37-7.95 3.55h2.39A6.96 6.96 0 0112 7.5c2.2 0 4.17.97 5.56 2.05h2.39C17.99 7.37 15.17 6 12 6z" },
           ].map((s) => (
-            <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/30 transition-all duration-300 hover:border-golden/30 hover:text-golden-light">
+            <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/55 transition-all duration-300 hover:border-golden/30 hover:text-golden-light">
               <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d={s.icon} /></svg>
             </a>
           ))}
@@ -68,7 +68,7 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
-    <div class="mt-14 border-t border-white/[0.06] pt-6 text-center text-xs text-white/15">
+    <div class="mt-14 border-t border-white/[0.06] pt-6 text-center text-xs text-white/50">
       &copy; {year} Krong Thai Restaurant. {i.footer.rights}
     </div>
   </div>
