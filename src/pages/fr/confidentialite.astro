@@ -102,8 +102,8 @@ const i = t(locale);
             <p class="font-bold text-white">{business.name}</p>
             <p class="mt-1">{business.address.street}</p>
             <p>{business.address.city}, {business.address.province} {business.address.postal}</p>
-            <p class="mt-2">Courriel : <a href={`mailto:${business.email}`} class="text-golden transition-colors hover:text-golden-light">{business.email}</a></p>
-            <p>Téléphone : <a href={`tel:${business.phone}`} class="text-golden transition-colors hover:text-golden-light">{business.phoneDisplay}</a></p>
+            <p class="mt-2">Courriel : <a href={`mailto:${business.email}`} class="inline-flex min-h-[44px] items-center text-golden transition-colors hover:text-golden-light">{business.email}</a></p>
+            <p>Téléphone : <a href={`tel:${business.phone}`} class="inline-flex min-h-[44px] items-center text-golden transition-colors hover:text-golden-light">{business.phoneDisplay}</a></p>
           </div>
         </div>
 
