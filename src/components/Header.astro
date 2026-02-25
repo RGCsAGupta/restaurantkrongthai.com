@@ -54,6 +54,9 @@ const altHref = localizedPath(altLocale, currentPath);
         <a href={`tel:${business.phone}`} class="flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/70 transition-all hover:border-golden/30 hover:text-golden-light">
           {i.nav.callUs}
         </a>
+        <a href={`tel:${business.phone}`} class="flex items-center gap-2 rounded-full border border-golden/30 bg-golden/10 px-4 py-2 text-sm font-bold text-golden transition-all hover:bg-golden/20 hover:text-golden-light">
+          {i.nav.reserve}
+        </a>
         <a
           href={business.orderingUrl}
           target="_blank"
@@ -91,6 +94,9 @@ const altHref = localizedPath(altLocale, currentPath);
       <div class="mt-4 space-y-2.5 border-t border-white/10 pt-4">
         <a href={business.orderingUrl} target="_blank" rel="noopener noreferrer" class="flex w-full items-center justify-center rounded-xl bg-krong-red py-3.5 font-bold text-white shadow-red">
           {i.nav.orderNow}
+        </a>
+        <a href={`tel:${business.phone}`} class="flex w-full items-center justify-center rounded-xl border border-golden/30 bg-golden/10 py-3.5 font-bold text-golden">
+          {i.nav.reserve}
         </a>
         <a href={`tel:${business.phone}`} class="flex w-full items-center justify-center rounded-xl border border-white/10 py-3.5 font-medium text-white/70">
           {business.phoneDisplay}

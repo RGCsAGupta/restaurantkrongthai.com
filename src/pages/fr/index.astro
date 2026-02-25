@@ -39,6 +39,9 @@ const i = t(locale);
     >
       {i.hero.ctaSecondary}
     </CTAButton>
+    <a href={`tel:${business.phone}`} class="inline-flex items-center justify-center rounded-full border border-golden/30 bg-golden/10 px-7 py-3 text-sm font-bold text-golden transition-all duration-300 hover:bg-golden/20 hover:text-golden-light">
+      {i.contactPage.reserveBtn}
+    </a>
   </HeroSection>
 
   <SocialProof locale={locale} />

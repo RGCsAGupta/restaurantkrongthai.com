@@ -16,13 +16,21 @@ const i = t(locale);
         <a href={`tel:${business.phone}`} class="text-sm font-semibold text-golden transition-colors hover:text-golden-light">{i.contact.phone}</a>
       </div>
     </div>
-    <a
-      href={business.directionsUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-2.5 text-sm font-bold text-white/50 transition-all duration-300 hover:border-golden/30 hover:text-golden-light"
-    >
-      {i.contact.directions}
-    </a>
+    <div class="flex items-center gap-3">
+      <a
+        href={`tel:${business.phone}`}
+        class="inline-flex items-center gap-2 rounded-full border border-golden/30 bg-golden/10 px-6 py-2.5 text-sm font-bold text-golden transition-all duration-300 hover:bg-golden/20 hover:text-golden-light"
+      >
+        {i.contactPage?.reserveBtn || (locale === "fr" ? "Réserver une table" : "Reserve a Table")}
+      </a>
+      <a
+        href={business.directionsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-2.5 text-sm font-bold text-white/50 transition-all duration-300 hover:border-golden/30 hover:text-golden-light"
+      >
+        {i.contact.directions}
+      </a>
+    </div>
   </div>
 </section>

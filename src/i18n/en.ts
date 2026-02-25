@@ -9,6 +9,7 @@ export default {
     contact: "Contact",
     orderNow: "Order Now",
     callUs: "Call Us",
+    reserve: "Reserve",
     switchLang: "Français",
     privacy: "Privacy Policy",
     accessibility: "Accessibility",
