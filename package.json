@@ -8,6 +8,9 @@
     "build": "astro build",
     "preview": "astro preview"
   },
+  "overrides": {
+    "path-to-regexp": "^6.3.0"
+  },
   "dependencies": {
     "@astrojs/sitemap": "^3.3.1",
     "@astrojs/vercel": "^9.0.4",
