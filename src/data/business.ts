@@ -14,6 +14,7 @@ export const business = {
     lat: 45.480152,
     lng: -75.6919493,
   },
+  googlePlaceId: "ChIJu476UxUbzkwRSV2u84dWyWk",
   website: "https://restaurantkrongthai.com",
   orderingUrl: "https://krongthai.order-online.ai/",
   directionsUrl:
