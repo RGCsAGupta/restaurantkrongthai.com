@@ -233,7 +233,7 @@ export default {
     message: "Nous utilisons des cookies et des analyses pour améliorer votre expérience.",
     accept: "Accepter",
     decline: "Refuser",
-    learnMore: "En savoir plus",
+    learnMore: "En savoir plus sur notre politique de confidentialité",
   },
   validation: {
     required: "Ce champ est requis.",

@@ -230,7 +230,7 @@ export default {
     message: "We use cookies and analytics to improve your experience.",
     accept: "Accept",
     decline: "Decline",
-    learnMore: "Learn more",
+    learnMore: "Learn more about our privacy policy",
   },
   validation: {
     required: "This field is required.",
