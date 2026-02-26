@@ -138,6 +138,16 @@ Contact and catering forms POST to Vercel serverless API routes:
 | SkipTheDishes | `skipthedishes.com/restaurant-krong-thai` |
 | Google Maps | Place ID `ChIJu476UxUbzkwRSV2u84dWyWk` |
 
+### Menu Strategy
+
+The website menu is currently synced 1:1 with the physical restaurant menu (68 items, 10 categories). This is **temporary**. The long-term goal is a streamlined, curated menu (~30 best sellers, 6 categories, flat pricing, no item codes).
+
+- **`docs/menu-current-pdf.md`** — Full physical restaurant menu (what's live now). Temporary.
+- **`docs/menu-old-website.md`** — Streamlined future target menu. Switch to this once the physical menu is updated to match.
+- **`src/data/menu.ts`** — Source of truth for the website. Currently contains the full PDF menu.
+
+When switching back to the streamlined menu: rewrite `menuCategories` in `menu.ts` using `docs/menu-old-website.md` as the blueprint, update prices in i18n files, and update combo banner in both menu pages.
+
 ## Conventions
 
 - All images served from `/images/` with WebP + JPG fallback
