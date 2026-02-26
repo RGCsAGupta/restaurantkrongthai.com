@@ -35,19 +35,29 @@ const perks = [
 
 const combos = [
   {
-    name: i.specials.lunchCombo,
-    desc: i.specials.lunchComboDesc,
-    price: i.specials.lunchComboPrice,
+    name: i.specials.combo1,
+    desc: i.specials.combo1Desc,
+    price: i.specials.combo1Price,
   },
   {
-    name: i.specials.dinnerCombo,
-    desc: i.specials.dinnerComboDesc,
-    price: i.specials.dinnerComboPrice,
+    name: i.specials.combo2,
+    desc: i.specials.combo2Desc,
+    price: i.specials.combo2Price,
   },
   {
-    name: i.specials.familyCombo,
-    desc: i.specials.familyComboDesc,
-    price: i.specials.familyComboPrice,
+    name: i.specials.combo3,
+    desc: i.specials.combo3Desc,
+    price: i.specials.combo3Price,
+  },
+  {
+    name: i.specials.combo4,
+    desc: i.specials.combo4Desc,
+    price: i.specials.combo4Price,
+  },
+  {
+    name: i.specials.combo5,
+    desc: i.specials.combo5Desc,
+    price: i.specials.combo5Price,
   },
 ];
 ---
@@ -80,10 +90,10 @@ const combos = [
           {i.specials.comboTitle}
         </h2>
       </div>
-      <div class="grid gap-6 md:grid-cols-3 md:gap-8">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
         {
           combos.map((c, idx) => (
-            <div class={`reveal reveal-delay-${idx + 1} rounded-3xl border border-white/[0.06] bg-night-800/60 p-8 text-center transition-all duration-500 hover:border-white/[0.12]`}>
+            <div class={`reveal reveal-delay-${(idx % 3) + 1} rounded-3xl border border-white/[0.06] bg-night-800/60 p-8 text-center transition-all duration-500 hover:border-white/[0.12]${idx >= 3 ? " sm:last:col-span-1 lg:last:col-span-1" : ""}`}>
               <h3 class="mb-3 font-display text-xl font-bold text-white">
                 {c.name}
               </h3>
@@ -103,6 +113,7 @@ const combos = [
           ))
         }
       </div>
+      <p class="reveal mt-6 text-center text-sm text-white/50">{i.specials.substitutionNote}</p>
     </div>
   </section>
 
