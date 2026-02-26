@@ -105,7 +105,7 @@ Contact and catering forms POST to Vercel serverless API routes:
 
 ### Performance
 
-- **PageSpeed scores**: Mobile 97, Desktop 89 (100/100/100 for Accessibility, Best Practices, SEO)
+- **PageSpeed scores**: Mobile 97, Desktop 100 (100/100/100 for Accessibility, Best Practices, SEO)
 - **Fonts**: Self-hosted Playfair Display + DM Sans with `font-display: swap`, preloaded in Head.astro
 - **Images**: All optimized (WebP + JPG fallback via `<picture>`), directory ~20MB total
 - **Animations**: All composited (opacity/transform only) — pulse-cta uses pseudo-element opacity, shimmer uses translateX
