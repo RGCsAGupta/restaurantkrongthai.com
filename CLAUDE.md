@@ -105,7 +105,7 @@ Contact and catering forms POST to Vercel serverless API routes:
 
 ### Performance
 
-- **PageSpeed scores**: Mobile 97, Desktop 89 (100/100/100 for Accessibility, Best Practices, SEO)
+- **PageSpeed scores**: Mobile 97, Desktop 100 (100/100/100 for Accessibility, Best Practices, SEO)
 - **Fonts**: Self-hosted Playfair Display + DM Sans with `font-display: swap`, preloaded in Head.astro
 - **Images**: All optimized (WebP + JPG fallback via `<picture>`), directory ~20MB total
 - **Animations**: All composited (opacity/transform only) — pulse-cta uses pseudo-element opacity, shimmer uses translateX
@@ -137,6 +137,16 @@ Contact and catering forms POST to Vercel serverless API routes:
 | DoorDash | `doordash.com/en-CA/store/28750609` |
 | SkipTheDishes | `skipthedishes.com/restaurant-krong-thai` |
 | Google Maps | Place ID `ChIJu476UxUbzkwRSV2u84dWyWk` |
+
+### Menu Strategy
+
+The website menu is currently synced 1:1 with the physical restaurant menu (68 items, 10 categories). This is **temporary**. The long-term goal is a streamlined, curated menu (~30 best sellers, 6 categories, flat pricing, no item codes).
+
+- **`docs/menu-current-pdf.md`** — Full physical restaurant menu (what's live now). Temporary.
+- **`docs/menu-old-website.md`** — Streamlined future target menu. Switch to this once the physical menu is updated to match.
+- **`src/data/menu.ts`** — Source of truth for the website. Currently contains the full PDF menu.
+
+When switching back to the streamlined menu: rewrite `menuCategories` in `menu.ts` using `docs/menu-old-website.md` as the blueprint, update prices in i18n files, and update combo banner in both menu pages.
 
 ## Conventions
 
