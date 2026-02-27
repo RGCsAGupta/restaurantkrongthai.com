@@ -128,7 +128,7 @@ export const menuCategories: MenuCategory[] = [
       { name: { en: "P17 · Green Curry (Gaeng Keow Warn)", fr: "P17 · Cari vert (Gaeng Keow Warn)" }, desc: { en: "Fragrant green curry with coconut milk, bamboo shoots, eggplant & basil", fr: "Cari vert parfumé au lait de coco, pousses de bambou, aubergine et basilic" }, price: "21", img: "/images/green-curry-chicken.jpg", spicy: true },
       { name: { en: "P18 · Mushroom Curry", fr: "P18 · Cari aux champignons" }, desc: { en: "Assorted mushrooms in a rich coconut curry with Thai herbs", fr: "Assortiment de champignons dans un riche cari au coco avec herbes thaïes" }, price: "21", img: "/images/mushroom-stir-fry.jpg" },
       { name: { en: "P19 · Pineapple Basil Curry", fr: "P19 · Cari ananas basilic" }, desc: { en: "Red curry with fresh pineapple, Thai basil & bell peppers in coconut milk", fr: "Cari rouge avec ananas frais, basilic thaï et poivrons dans du lait de coco" }, price: "21", spicy: true },
-      { name: { en: "P20 · Hot Chilli Curry", fr: "P20 · Cari piment fort" }, desc: { en: "Our spiciest curry — fiery chili paste with bamboo, green beans & bold Thai spices", fr: "Notre cari le plus épicé — pâte de chili ardente avec bambou, haricots verts et épices thaïes audacieuses" }, price: "21", spicy: true },
+      { name: { en: "P20 · Hot Chilli Curry", fr: "P20 · Cari piment fort" }, desc: { en: "Our spiciest curry — fiery chili paste with lemongrass, bamboo, green beans & bold Thai spices", fr: "Notre cari le plus épicé — pâte de chili ardente avec citronnelle, bambou, haricots verts et épices thaïes audacieuses" }, price: "21", spicy: true },
     ],
   },
   {
