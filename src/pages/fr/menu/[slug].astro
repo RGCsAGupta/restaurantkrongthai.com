@@ -3,7 +3,6 @@ import MarketingLayout from "../../../layouts/MarketingLayout.astro";
 import OrderCTA from "../../../components/OrderCTA.astro";
 import ContactStrip from "../../../components/ContactStrip.astro";
 import { t } from "../../../i18n/utils";
-import { dietaryTags } from "../../../data/menu";
 import { business } from "../../../data/business";
 import { getAllMenuItemSlugs, getDisplayName, getMenuItemSlug, getRelatedItems } from "../../../data/menu-utils";
 
@@ -128,17 +127,6 @@ const breadcrumbs = [
               <span class="text-xs text-white/35">{category.priceNote[locale]}</span>
             )}
           </div>
-
-          <!-- Dietary Tags -->
-          {item.tags && item.tags.length > 0 && (
-            <div class="mt-4 flex flex-wrap gap-2">
-              {item.tags.map((tag) => (
-                <span class={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${dietaryTags[tag].color}`}>
-                  {dietaryTags[tag].label[locale]}
-                </span>
-              ))}
-            </div>
-          )}
 
           <!-- Order CTA -->
           <div class="mt-6 flex flex-wrap gap-3">
