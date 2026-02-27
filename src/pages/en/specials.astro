@@ -6,12 +6,22 @@ import OrderCTA from "../../components/OrderCTA.astro";
 import ContactStrip from "../../components/ContactStrip.astro";
 import { t } from "../../i18n/utils";
 import { business } from "../../data/business";
+import { getMenuItemBySlug } from "../../data/menu-utils";
 
 const locale = "en";
 const i = t(locale);
 
 const month = new Date().getMonth();
 const season = month >= 2 && month <= 4 ? "spring" : month >= 5 && month <= 7 ? "summer" : month >= 8 && month <= 10 ? "fall" : "winter";
+
+// Seasonal dish name → detail page slug mapping
+const seasonalDishSlugs: Record<string, Record<string, string>> = {
+  winter: { "Bangkok Soup": "bangkok-soup", "Green Curry": "green-curry-gaeng-keow-warn", "Pho": "pho", "Tom Yum Koong": "tom-yum-koong" },
+  spring: { "Fresh Spring Rolls": "fresh-spring-rolls", "Mango Salad": "mango-salad", "Cambodian Salad": "cambodian-salad", "Asian Vegetables": "asian-vegetables-tofu" },
+  summer: { "Fresh Spring Rolls": "fresh-spring-rolls", "Pad Thai": "pad-thai", "Panang Tofu": "panang-tofu", "Thai Shrimps": "thai-shrimps" },
+  fall: { "Royal Nest": "royal-nest-crispy-noodles", "Red Curry": "red-curry-pa-nang", "Phnom Penh Soup": "phnom-penh-soup", "Bangkok Soup": "bangkok-soup" },
+};
+
 const seasonalData = {
   winter: { title: i.specials.winterTitle, desc: i.specials.winterDesc, dishes: i.specials.winterDishes, emoji: "🍲", img: "/images/bangkok-soup-large.jpg" },
   spring: { title: i.specials.springTitle, desc: i.specials.springDesc, dishes: i.specials.springDishes, emoji: "🌿", img: "/images/spring-rolls-fresh.jpg" },
@@ -19,11 +29,12 @@ const seasonalData = {
   fall: { title: i.specials.fallTitle, desc: i.specials.fallDesc, dishes: i.specials.fallDishes, emoji: "🍂", img: "/images/chicken-royal-nest.jpg" },
 };
 const seasonal = seasonalData[season];
+const currentDishSlugs = seasonalDishSlugs[season];
 
 const highlights = [
-  { emoji: "🍜", title: i.specials.bestSeller1, desc: i.specials.bestSeller1Desc, img: "/images/bangkok-soup-large.jpg" },
-  { emoji: "🥢", title: i.specials.bestSeller2, desc: i.specials.bestSeller2Desc, img: "/images/pad-thai.jpg" },
-  { emoji: "🥟", title: i.specials.bestSeller3, desc: i.specials.bestSeller3Desc, img: "/images/imperial-rolls.jpg" },
+  { emoji: "🍜", title: i.specials.bestSeller1, desc: i.specials.bestSeller1Desc, img: "/images/bangkok-soup-large.jpg", slug: "bangkok-soup" },
+  { emoji: "🥢", title: i.specials.bestSeller2, desc: i.specials.bestSeller2Desc, img: "/images/pad-thai.jpg", slug: "pad-thai" },
+  { emoji: "🥟", title: i.specials.bestSeller3, desc: i.specials.bestSeller3Desc, img: "/images/imperial-rolls.jpg", slug: "imperial-rolls" },
 ];
 
 const perks = [
@@ -127,7 +138,7 @@ const combos = [
       </div>
       <div class="grid gap-6 md:grid-cols-3">
         {highlights.map((item, idx) => (
-          <div class={`reveal reveal-delay-${idx + 1} group overflow-hidden rounded-3xl border border-white/[0.06] bg-night-800/60 transition-all duration-500 hover:border-golden/20`}>
+          <a href={`/${locale}/menu/${item.slug}/`} class={`reveal reveal-delay-${idx + 1} group overflow-hidden rounded-3xl border border-white/[0.06] bg-night-800/60 transition-all duration-500 hover:border-golden/20`}>
             <div class="relative aspect-[4/3] overflow-hidden">
               <picture>
                 <source srcset={item.img.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
@@ -137,10 +148,10 @@ const combos = [
               <div class="absolute bottom-4 left-4 text-3xl">{item.emoji}</div>
             </div>
             <div class="p-6">
-              <h3 class="font-display text-lg font-bold text-white">{item.title}</h3>
+              <h3 class="font-display text-lg font-bold text-white transition-colors group-hover:text-golden-light">{item.title}</h3>
               <p class="mt-2 text-sm text-white/65">{item.desc}</p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
@@ -185,9 +196,15 @@ const combos = [
           <h3 class="font-display text-2xl font-bold text-white">{seasonal.title}</h3>
           <p class="mt-3 text-sm leading-relaxed text-white/65">{seasonal.desc}</p>
           <div class="mt-6 flex flex-wrap gap-2">
-            {seasonal.dishes.split(", ").map((dish) => (
-              <span class="rounded-full border border-golden/20 bg-golden/10 px-3 py-1 text-xs font-semibold text-golden">{dish}</span>
-            ))}
+            {seasonal.dishes.split(", ").map((dish) => {
+              const dishName = dish.replace(/\s*\$[\d/$]+$/, "");
+              const slug = currentDishSlugs[dishName];
+              return slug ? (
+                <a href={`/${locale}/menu/${slug}/`} class="rounded-full border border-golden/20 bg-golden/10 px-3 py-1 text-xs font-semibold text-golden transition-colors hover:bg-golden/20 hover:text-golden-light">{dish}</a>
+              ) : (
+                <span class="rounded-full border border-golden/20 bg-golden/10 px-3 py-1 text-xs font-semibold text-golden">{dish}</span>
+              );
+            })}
           </div>
           <div class="mt-8">
             <CTAButton href={business.orderingUrl} variant="primary" size="sm" external>
