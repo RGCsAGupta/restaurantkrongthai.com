@@ -5,12 +5,15 @@ import { type Locale, t, getAlternateLocale, localizedPath } from "../i18n/utils
 interface Props {
   locale: Locale;
   currentPath?: string;
+  alternatePath?: string;
 }
 
-const { locale, currentPath = "" } = Astro.props;
+const { locale, currentPath = "", alternatePath } = Astro.props;
 const i = t(locale);
 const altLocale = getAlternateLocale(locale);
-const altHref = localizedPath(altLocale, currentPath);
+const altHref = alternatePath
+  ? `/${altLocale}/${alternatePath}/`
+  : localizedPath(altLocale, currentPath);
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50" id="site-header">
