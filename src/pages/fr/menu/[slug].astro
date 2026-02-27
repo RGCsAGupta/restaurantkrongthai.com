@@ -66,15 +66,15 @@ const breadcrumbs = [
     } : undefined,
   })} />
 
-  <article class="px-5 pt-8 pb-12 lg:px-8">
+  <article class="px-5 pt-24 pb-12 lg:px-8">
     <div class="mx-auto max-w-4xl">
       <!-- Breadcrumb -->
-      <nav class="mb-6 flex items-center gap-2 text-xs text-white/40" aria-label="Fil d'Ariane">
-        <a href={`/${locale}/`} class="transition-colors hover:text-white/70">{i.menuItem.breadcrumbHome}</a>
-        <span aria-hidden="true">/</span>
-        <a href={`/${locale}/menu/`} class="transition-colors hover:text-white/70">{i.menuItem.breadcrumbMenu}</a>
-        <span aria-hidden="true">/</span>
-        <span class="text-white/60">{displayName}</span>
+      <nav class="mb-6 text-sm text-white/60" aria-label="Fil d'Ariane">
+        <a href={`/${locale}/`} class="transition-colors hover:text-white">{i.menuItem.breadcrumbHome}</a>
+        <span class="mx-1 text-white/30" aria-hidden="true">/</span>
+        <a href={`/${locale}/menu/`} class="transition-colors hover:text-white">{i.menuItem.breadcrumbMenu}</a>
+        <span class="mx-1 text-white/30" aria-hidden="true">/</span>
+        <span class="text-white/90">{displayName}</span>
       </nav>
 
       <!-- Main content grid -->
