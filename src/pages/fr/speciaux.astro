@@ -78,6 +78,7 @@ const combos = [
   locale={locale}
   canonicalPath="speciaux"
   currentPath="specials"
+  hidePromoBanner
 >
   <HeroSection
     headline={i.specials.heroTitle}
@@ -102,25 +103,54 @@ const combos = [
       </div>
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
         {
-          combos.map((c, idx) => (
-            <div class={`reveal reveal-delay-${(idx % 3) + 1} rounded-3xl border border-white/[0.06] bg-night-800/60 p-8 text-center transition-all duration-500 hover:border-white/[0.12]${idx >= 3 ? " sm:last:col-span-1 lg:last:col-span-1" : ""}`}>
-              <h3 class="mb-3 font-display text-xl font-bold text-white">
-                {c.name}
-              </h3>
-              <p class="mb-6 text-sm leading-relaxed text-white/60">{c.desc}</p>
-              <div class="mb-6 font-display text-4xl font-bold text-white">
-                {c.price}
+          combos.map((c, idx) => {
+            const isHero = idx === 0;
+            const isGroup = idx >= 3;
+            return (
+              <div class={`reveal reveal-delay-${(idx % 3) + 1} relative rounded-3xl p-8 text-center transition-all duration-500 ${isHero ? 'border-2 border-golden/30 bg-gradient-to-br from-golden/[0.08] via-golden/[0.03] to-transparent sm:col-span-2 lg:col-span-1' : 'border border-white/[0.06] bg-night-800/60 hover:border-white/[0.12]'}`}>
+                {isHero && (
+                  <div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-golden px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-night-950 whitespace-nowrap">{i.specials.mostPopularBadge}</div>
+                )}
+                {isGroup && (
+                  <div class="mb-3 inline-block rounded-full bg-jade/15 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-jade">{i.specials.groupDealBadge}</div>
+                )}
+                <h3 class="mb-3 font-display text-xl font-bold text-white">
+                  {c.name}
+                </h3>
+                <p class="mb-4 text-sm leading-relaxed text-white/60">{c.desc}</p>
+                {isHero && (
+                  <ul class="mx-auto mb-4 max-w-xs space-y-1 text-left">
+                    <li class="flex items-center gap-2 text-xs text-white/50">
+                      <svg class="h-3.5 w-3.5 shrink-0 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                      {i.specials.comboIncludes1}
+                    </li>
+                    <li class="flex items-center gap-2 text-xs text-white/50">
+                      <svg class="h-3.5 w-3.5 shrink-0 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                      {i.specials.comboIncludes2}
+                    </li>
+                    <li class="flex items-center gap-2 text-xs text-white/50">
+                      <svg class="h-3.5 w-3.5 shrink-0 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                      {i.specials.comboIncludes3}
+                    </li>
+                  </ul>
+                )}
+                <div class={`mb-6 font-display text-4xl font-bold ${isHero ? 'text-golden' : 'text-white'}`}>
+                  {c.price}
+                </div>
+                {isHero && (
+                  <p class="mb-4 text-[11px] text-white/40">{i.specials.perPersonNote}</p>
+                )}
+                <CTAButton
+                  href={business.orderingUrl}
+                  variant="primary"
+                  size="sm"
+                  external
+                >
+                  {i.specials.cta}
+                </CTAButton>
               </div>
-              <CTAButton
-                href={business.orderingUrl}
-                variant="primary"
-                size="sm"
-                external
-              >
-                {i.specials.cta}
-              </CTAButton>
-            </div>
-          ))
+            );
+          })
         }
       </div>
       <p class="reveal mt-6 text-center text-sm text-white/50">{i.specials.substitutionNote}</p>

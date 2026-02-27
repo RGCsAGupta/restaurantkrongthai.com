@@ -2,9 +2,10 @@
 import MarketingLayout from "../../../layouts/MarketingLayout.astro";
 import OrderCTA from "../../../components/OrderCTA.astro";
 import ContactStrip from "../../../components/ContactStrip.astro";
-import { t } from "../../../i18n/utils";
+import { t, localizedPath } from "../../../i18n/utils";
 import { business } from "../../../data/business";
 import { getAllMenuItemSlugs, getDisplayName, getMenuItemSlug, getRelatedItems } from "../../../data/menu-utils";
+import { sideDishes } from "../../../data/menu";
 
 export function getStaticPaths() {
   const allItems = getAllMenuItemSlugs();
@@ -146,15 +147,56 @@ const breadcrumbs = [
         </div>
       </div>
 
-      <!-- Table d'Hôte Upsell -->
+      <!-- Table d'Hôte Upsell — Enhanced -->
       {!isTableDhote && (
-        <div class="reveal mt-12 rounded-2xl border border-golden/15 bg-golden/[0.03] p-6">
-          <div class="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <h2 class="font-display text-lg font-bold text-golden">{i.menuItem.comboUpgrade}</h2>
-              <p class="mt-1 text-xs text-white/50">{i.menuItem.comboUpgradeDesc}</p>
+        <div class="reveal mt-12 overflow-hidden rounded-2xl border-2 border-golden/20 bg-gradient-to-br from-golden/[0.06] via-golden/[0.03] to-transparent">
+          <div class="border-l-4 border-golden p-6 sm:p-8">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div class="flex-1">
+                <div class="mb-3 flex flex-wrap items-center gap-2">
+                  <span class="rounded-full bg-golden/15 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-golden">{i.menuItem.comboBadge}</span>
+                  <h2 class="font-display text-lg font-bold text-golden sm:text-xl">{i.menuItem.comboUpgrade}</h2>
+                </div>
+                <ul class="mt-3 space-y-1.5">
+                  <li class="flex items-center gap-2 text-sm text-white/60">
+                    <svg class="h-4 w-4 shrink-0 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    {i.menuItem.comboItem1}
+                  </li>
+                  <li class="flex items-center gap-2 text-sm text-white/60">
+                    <svg class="h-4 w-4 shrink-0 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    {i.menuItem.comboItem2}
+                  </li>
+                  <li class="flex items-center gap-2 text-sm text-white/60">
+                    <svg class="h-4 w-4 shrink-0 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    {i.menuItem.comboItem3}
+                  </li>
+                </ul>
+                <div class="mt-5 flex flex-wrap items-center gap-3">
+                  <a href={business.orderingUrl} class="inline-flex items-center gap-2 rounded-full bg-krong-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:brightness-110" target="_blank" rel="noopener noreferrer">
+                    {i.menuItem.comboOrderCta}
+                  </a>
+                  <a href={localizedPath(locale, "specials")} class="text-xs font-medium text-golden transition-colors hover:text-golden-light">
+                    {i.menuItem.viewAllCombos} &rarr;
+                  </a>
+                </div>
+              </div>
+              <span class="rounded-full bg-krong-red/15 px-5 py-2.5 font-display text-2xl font-bold text-krong-red-glow">{i.menuItem.comboPrice}</span>
             </div>
-            <span class="rounded-full bg-krong-red/15 px-4 py-2 font-display text-lg font-bold text-krong-red-glow">{i.menuItem.comboPrice}</span>
+          </div>
+        </div>
+      )}
+
+      <!-- Customize Your Meal — Side Dishes -->
+      {!isTableDhote && (
+        <div class="reveal mt-10">
+          <h2 class="mb-4 font-display text-lg font-bold text-white">{i.menuItem.customizeTitle}</h2>
+          <div class="grid grid-cols-2 gap-2 sm:grid-cols-3">
+            {sideDishes.map((side) => (
+              <div class="flex items-center justify-between rounded-xl border border-white/[0.06] bg-night-800/30 px-4 py-2.5">
+                <span class="text-sm text-white/70">{side.name[locale]}</span>
+                <span class="ml-2 shrink-0 font-display text-sm font-bold text-golden">{side.price} $</span>
+              </div>
+            ))}
           </div>
         </div>
       )}

@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import MobileOrderBar from "../components/MobileOrderBar.astro";
 import CookieConsent from "../components/CookieConsent.astro";
+import PromoBanner from "../components/PromoBanner.astro";
 import type { Locale } from "../i18n/utils";
 import "../styles/global.css";
 
@@ -16,9 +17,10 @@ interface Props {
   alternatePath?: string;
   breadcrumbs?: Array<{ name: string; path: string }>;
   ogImage?: string;
+  hidePromoBanner?: boolean;
 }
 
-const { title, description, locale, canonicalPath = "", currentPath = "", alternatePath, breadcrumbs, ogImage } =
+const { title, description, locale, canonicalPath = "", currentPath = "", alternatePath, breadcrumbs, ogImage, hidePromoBanner = false } =
   Astro.props;
 ---
 
@@ -42,6 +44,9 @@ const { title, description, locale, canonicalPath = "", currentPath = "", altern
     >
       Skip to main content
     </a>
+    {!hidePromoBanner && canonicalPath !== "thanks" && canonicalPath !== "merci" && (
+      <PromoBanner locale={locale} />
+    )}
     <Header locale={locale} currentPath={currentPath} alternatePath={alternatePath} />
     <main id="main">
       <slot />
