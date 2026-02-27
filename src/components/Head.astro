@@ -7,20 +7,25 @@ interface Props {
   description: string;
   locale: "en" | "fr";
   canonicalPath?: string;
+  alternatePath?: string;
+  breadcrumbs?: Array<{ name: string; path: string }>;
+  ogImage?: string;
 }
 
-const { title, description, locale, canonicalPath = "" } = Astro.props;
+const { title, description, locale, canonicalPath = "", alternatePath, breadcrumbs, ogImage } = Astro.props;
 const base = "https://restaurantkrongthai.com";
 const canonical = `${base}/${locale}/${canonicalPath}`.replace(/\/$/, "") + "/";
 const alternateLang = locale === "en" ? "fr" : "en";
 const hreflangLocale = locale === "en" ? "en-CA" : "fr-CA";
 const hreflangAlt = locale === "en" ? "fr-CA" : "en-CA";
 
-const altPath =
-  locale === "en"
+const altPath = alternatePath
+  ? alternatePath
+  : locale === "en"
     ? slugMap[canonicalPath] ?? canonicalPath
     : reverseSlugMap[canonicalPath] ?? canonicalPath;
 const alternate = `${base}/${alternateLang}/${altPath}`.replace(/\/$/, "") + "/";
+const ogImageUrl = ogImage ? `${base}${ogImage}` : `${base}/images/og-image.jpg`;
 
 // Page name for breadcrumbs
 const pageNames: Record<string, Record<string, string>> = {
@@ -47,7 +52,7 @@ const pageName = pageNames[locale]?.[localSlug];
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonical} />
-<meta property="og:image" content={`${base}/images/og-image.jpg`} />
+<meta property="og:image" content={ogImageUrl} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content={locale === "fr" ? "fr_CA" : "en_CA"} />
@@ -55,7 +60,7 @@ const pageName = pageNames[locale]?.[localSlug];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={`${base}/images/og-image.jpg`} />
+<meta name="twitter:image" content={ogImageUrl} />
 {(canonicalPath === "thanks" || canonicalPath === "merci") ? (
   <meta name="robots" content="noindex, nofollow" />
 ) : (
@@ -149,7 +154,18 @@ const pageName = pageNames[locale]?.[localSlug];
     "cssSelector": ["h1", "[data-speakable]", "meta[name='description']"]
   }
 })} />
-{pageName && (
+{breadcrumbs ? (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": crumb.name,
+      "item": `${base}${crumb.path}`
+    }))
+  })} />
+) : pageName ? (
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -158,5 +174,5 @@ const pageName = pageNames[locale]?.[localSlug];
       { "@type": "ListItem", "position": 2, "name": pageName, "item": canonical }
     ]
   })} />
-)}
+) : null}
 <!-- Clarity loaded via CookieConsent component after user consent -->
