@@ -5,6 +5,7 @@ export interface MenuItem {
   popular?: boolean;
   chefSpecial?: boolean;
   img?: string;
+  spicy?: boolean;
 }
 
 export interface MenuCategory {
@@ -25,7 +26,7 @@ export const menuCategories: MenuCategory[] = [
       { name: { en: "S1 · Bangkok Soup", fr: "S1 · Soupe Bangkok" }, desc: { en: "Our signature — rich coconut broth with shrimp, chicken, mushrooms & lemongrass", fr: "Notre signature — bouillon de coco riche avec crevettes, poulet, champignons et citronnelle" }, price: "7/16", popular: true, chefSpecial: true, img: "/images/bangkok-soup.jpg" },
       { name: { en: "S2 · Wonton Soup", fr: "S2 · Soupe Wonton" }, desc: { en: "Delicate pork and shrimp wontons in a clear, aromatic broth", fr: "Wontons délicats au porc et crevettes dans un bouillon clair et aromatique" }, price: "7/16", img: "/images/wonton-soup.jpg" },
       { name: { en: "S3 · Phnom Penh Soup", fr: "S3 · Soupe Phnom Penh" }, desc: { en: "Traditional Cambodian noodle soup with pork, shrimp & bean sprouts", fr: "Soupe cambodgienne traditionnelle aux nouilles avec porc, crevettes et fèves germées" }, price: "7/16", img: "/images/phnom-penh-soup.jpg" },
-      { name: { en: "S4 · Tom Yum Koong", fr: "S4 · Tom Yum Koong" }, desc: { en: "Hot and sour Thai shrimp soup with lemongrass, galangal & lime leaves", fr: "Soupe thaïe épicée et acidulée aux crevettes avec citronnelle, galanga et feuilles de lime" }, price: "7/16" },
+      { name: { en: "S4 · Tom Yum Koong", fr: "S4 · Tom Yum Koong" }, desc: { en: "Hot and sour Thai shrimp soup with lemongrass, galangal & lime leaves", fr: "Soupe thaïe épicée et acidulée aux crevettes avec citronnelle, galanga et feuilles de lime" }, price: "7/16", spicy: true },
       { name: { en: "S5 · Tom Kha Koong", fr: "S5 · Tom Kha Koong" }, desc: { en: "Coconut milk soup with shrimp, galangal, mushrooms & fresh herbs", fr: "Soupe au lait de coco avec crevettes, galanga, champignons et herbes fraîches" }, price: "7/16" },
       { name: { en: "S6 · Vegetable Soup", fr: "S6 · Soupe aux légumes" }, desc: { en: "Light and nourishing broth with seasonal Asian vegetables & tofu", fr: "Bouillon léger et nourrissant avec légumes asiatiques de saison et tofu" }, price: "7/16", img: "/images/vegetable-soup.jpg" },
     ],
@@ -37,7 +38,7 @@ export const menuCategories: MenuCategory[] = [
     priceNote: { en: "Chicken/Beef $18 · Shrimps $19 · Chicken & Shrimps $20", fr: "Poulet/Bœuf 18 $ · Crevettes 19 $ · Poulet & Crevettes 20 $" },
     items: [
       { name: { en: "S7 · Pho", fr: "S7 · Pho" }, desc: { en: "Traditional Vietnamese rice noodle soup with aromatic herbs", fr: "Soupe vietnamienne traditionnelle aux nouilles de riz et herbes aromatiques" }, price: "18", popular: true, img: "/images/pho-beef.jpg" },
-      { name: { en: "S8 · Spicy Soup", fr: "S8 · Soupe épicée" }, desc: { en: "Spicy broth with rice noodles and your choice of protein", fr: "Bouillon épicé avec nouilles de riz et votre choix de protéine" }, price: "18", img: "/images/pho-spicy.jpg" },
+      { name: { en: "S8 · Spicy Soup", fr: "S8 · Soupe épicée" }, desc: { en: "Spicy broth with rice noodles and your choice of protein", fr: "Bouillon épicé avec nouilles de riz et votre choix de protéine" }, price: "18", img: "/images/pho-spicy.jpg", spicy: true },
     ],
   },
   {
@@ -51,7 +52,7 @@ export const menuCategories: MenuCategory[] = [
       { name: { en: "E4 · Crispy Wontons", fr: "E4 · Wontons croustillants" }, desc: { en: "Deep-fried wontons with sweet chili sauce — crispy and golden", fr: "Wontons frits à la sauce chili sucrée — croustillants et dorés" }, price: "6", img: "/images/crispy-wontons.jpg" },
       { name: { en: "E5 · Cambodian Salad", fr: "E5 · Salade cambodgienne" }, desc: { en: "Traditional Khmer salad with fresh herbs, lime dressing & grilled protein", fr: "Salade khmère traditionnelle aux herbes fraîches, vinaigrette au lime et protéine grillée" }, price: "10" },
       { name: { en: "E6 · Fried Scallop", fr: "E6 · Pétoncle frit" }, desc: { en: "Tender scallops lightly battered and fried to golden perfection", fr: "Pétoncles tendres légèrement panés et frits à la perfection dorée" }, price: "9" },
-      { name: { en: "E7 · Mango Salad", fr: "E7 · Salade de mangue" }, desc: { en: "Refreshing green mango salad with chilies, lime & toasted peanuts", fr: "Salade rafraîchissante de mangue verte avec piments, lime et arachides grillées" }, price: "12" },
+      { name: { en: "E7 · Mango Salad", fr: "E7 · Salade de mangue" }, desc: { en: "Refreshing green mango salad with chilies, lime & toasted peanuts", fr: "Salade rafraîchissante de mangue verte avec piments, lime et arachides grillées" }, price: "12", spicy: true },
       { name: { en: "E8 · Chicken Wings", fr: "E8 · Ailes de poulet" }, desc: { en: "Marinated chicken wings fried until crispy, served with dipping sauce", fr: "Ailes de poulet marinées et frites jusqu'à ce qu'elles soient croustillantes, avec sauce" }, price: "10" },
       { name: { en: "E9 · Mini Crispy Shrimp Rolls", fr: "E9 · Mini rouleaux crevettes croustillants" }, desc: { en: "Bite-sized shrimp rolls wrapped and fried until golden and crunchy", fr: "Mini rouleaux de crevettes enroulés et frits jusqu'à ce qu'ils soient dorés et croquants" }, price: "9", img: "/images/mini-shrimp-rolls.jpg" },
       { name: { en: "E10 · Appetizer Platter", fr: "E10 · Plateau d'entrées" }, desc: { en: "A generous sampler of our most popular starters — perfect for sharing", fr: "Un généreux assortiment de nos entrées les plus populaires — parfait pour partager" }, price: "18", popular: true, img: "/images/appetizer-platter.jpg" },
@@ -92,7 +93,7 @@ export const menuCategories: MenuCategory[] = [
     items: [
       { name: { en: "P1 · Asian Vegetables (Tofu)", fr: "P1 · Légumes asiatiques (Tofu)" }, desc: { en: "Stir-fried seasonal Asian vegetables with crispy tofu in light soy sauce", fr: "Légumes asiatiques de saison sautés avec tofu croustillant dans une sauce soya légère" }, price: "19", img: "/images/asian-vegetables-stir-fry.jpg" },
       { name: { en: "P1A · Tofu & Beansprout Stir-Fry", fr: "P1A · Sauté de tofu et fèves germées" }, desc: { en: "Crispy tofu tossed with fresh bean sprouts and a savoury garlic sauce", fr: "Tofu croustillant mélangé avec fèves germées fraîches et une sauce à l'ail savoureuse" }, price: "19" },
-      { name: { en: "P1B · Panang Tofu", fr: "P1B · Panang au tofu" }, desc: { en: "Rich and creamy panang curry with tofu, peppers & Thai basil", fr: "Cari panang riche et crémeux avec tofu, poivrons et basilic thaï" }, price: "19" },
+      { name: { en: "P1B · Panang Tofu", fr: "P1B · Panang au tofu" }, desc: { en: "Rich and creamy panang curry with tofu, peppers & Thai basil", fr: "Cari panang riche et crémeux avec tofu, poivrons et basilic thaï" }, price: "19", spicy: true },
     ],
   },
   {
@@ -103,16 +104,16 @@ export const menuCategories: MenuCategory[] = [
     items: [
       { name: { en: "P2 · Broccoli", fr: "P2 · Brocoli" }, desc: { en: "Tender chicken or beef stir-fried with fresh broccoli in oyster sauce", fr: "Poulet ou bœuf tendre sauté avec brocoli frais dans une sauce aux huîtres" }, price: "21", img: "/images/broccoli-stir-fry.jpg" },
       { name: { en: "P3 · Loc Lac", fr: "P3 · Loc Lac" }, desc: { en: "Marinated beef cubes seared in a tangy lime-pepper sauce — a Cambodian classic", fr: "Cubes de bœuf marinés saisis dans une sauce lime-poivre acidulée — un classique cambodgien" }, price: "21" },
-      { name: { en: "P4 · Khmer Beef", fr: "P4 · Bœuf khmer" }, desc: { en: "Beef stir-fried with Cambodian spices, lemongrass & fresh vegetables", fr: "Bœuf sauté avec épices cambodgiennes, citronnelle et légumes frais" }, price: "21" },
+      { name: { en: "P4 · Khmer Beef", fr: "P4 · Bœuf khmer" }, desc: { en: "Beef stir-fried with Cambodian spices, lemongrass & fresh vegetables", fr: "Bœuf sauté avec épices cambodgiennes, citronnelle et légumes frais" }, price: "21", spicy: true },
       { name: { en: "P5 · 5-Spice Chicken", fr: "P5 · Poulet cinq épices" }, desc: { en: "Tender chicken marinated in aromatic five-spice blend, pan-seared to perfection", fr: "Poulet tendre mariné dans un mélange aromatique de cinq épices, poêlé à la perfection" }, price: "21" },
       { name: { en: "P6 · Beloved Skewers", fr: "P6 · Brochettes adorées" }, desc: { en: "Grilled lemongrass chicken skewers with a sweet peanut dipping sauce", fr: "Brochettes de poulet à la citronnelle grillées avec sauce aux arachides sucrée" }, price: "21" },
       { name: { en: "P7 · Khmer Chicken", fr: "P7 · Poulet khmer" }, desc: { en: "Traditional Khmer-style chicken with Cambodian herbs and light curry sauce", fr: "Poulet à la khmère traditionnel avec herbes cambodgiennes et sauce cari légère" }, price: "21" },
       { name: { en: "P8 · Asian Vegetables w/ Chicken", fr: "P8 · Légumes asiatiques au poulet" }, desc: { en: "Wok-tossed seasonal vegetables with tender chicken in garlic sauce", fr: "Légumes de saison sautés au wok avec poulet tendre dans une sauce à l'ail" }, price: "21" },
-      { name: { en: "P9 · Basil (Pad Bai Grapao)", fr: "P9 · Basilic (Pad Bai Grapao)" }, desc: { en: "Spicy Thai basil stir-fry with chilies, garlic, green beans & holy basil", fr: "Sauté épicé au basilic thaï avec piments, ail, haricots verts et basilic sacré" }, price: "21", img: "/images/thai-basil-chicken.jpg" },
+      { name: { en: "P9 · Basil (Pad Bai Grapao)", fr: "P9 · Basilic (Pad Bai Grapao)" }, desc: { en: "Spicy Thai basil stir-fry with chilies, garlic, green beans & holy basil", fr: "Sauté épicé au basilic thaï avec piments, ail, haricots verts et basilic sacré" }, price: "21", img: "/images/thai-basil-chicken.jpg", spicy: true },
       { name: { en: "P10 · Ginger (Pad Khing)", fr: "P10 · Gingembre (Pad Khing)" }, desc: { en: "Fragrant stir-fry with julienned ginger, mushrooms & onions", fr: "Sauté parfumé avec gingembre en julienne, champignons et oignons" }, price: "21" },
       { name: { en: "P11 · Cashew", fr: "P11 · Noix de cajou" }, desc: { en: "Wok-fried chicken with roasted cashews, vegetables & light chili sauce", fr: "Poulet sauté au wok avec noix de cajou grillées, légumes et sauce chili légère" }, price: "21", img: "/images/cashew-chicken.jpg" },
       { name: { en: "P12 · Peanut", fr: "P12 · Arachides" }, desc: { en: "Chicken or beef stir-fried with crushed peanuts in a savoury peanut sauce", fr: "Poulet ou bœuf sauté avec arachides concassées dans une sauce aux arachides savoureuse" }, price: "21", img: "/images/peanut-stir-fry.jpg" },
-      { name: { en: "P13 · General's Chicken", fr: "P13 · Poulet du Général" }, desc: { en: "Crispy battered chicken in our signature sweet & spicy sauce", fr: "Poulet pané croustillant dans notre sauce sucrée et épicée signature" }, price: "21", popular: true, chefSpecial: true, img: "/images/general-thai-stir-fry.jpg" },
+      { name: { en: "P13 · General's Chicken", fr: "P13 · Poulet du Général" }, desc: { en: "Crispy battered chicken in our signature sweet & spicy sauce", fr: "Poulet pané croustillant dans notre sauce sucrée et épicée signature" }, price: "21", popular: true, chefSpecial: true, img: "/images/general-thai-stir-fry.jpg", spicy: true },
     ],
   },
   {
@@ -123,11 +124,11 @@ export const menuCategories: MenuCategory[] = [
     items: [
       { name: { en: "P14 · Thai Chicken Curry", fr: "P14 · Cari thaï au poulet" }, desc: { en: "Classic yellow curry with tender chicken, potatoes & coconut milk", fr: "Cari jaune classique avec poulet tendre, pommes de terre et lait de coco" }, price: "21" },
       { name: { en: "P15 · Pineapple Curry (Gaeng Sapparod)", fr: "P15 · Cari à l'ananas (Gaeng Sapparod)" }, desc: { en: "Sweet and savoury curry with fresh pineapple chunks & coconut milk", fr: "Cari sucré-salé avec morceaux d'ananas frais et lait de coco" }, price: "21" },
-      { name: { en: "P16 · Red Curry (Pa Nang)", fr: "P16 · Cari rouge (Pa Nang)" }, desc: { en: "Creamy coconut curry with red chili paste, bamboo, peppers & Thai basil", fr: "Cari crémeux au coco avec pâte de chili rouge, bambou, poivrons et basilic thaï" }, price: "21", popular: true, chefSpecial: true, img: "/images/thai-red-curry.jpg" },
-      { name: { en: "P17 · Green Curry (Gaeng Keow Warn)", fr: "P17 · Cari vert (Gaeng Keow Warn)" }, desc: { en: "Fragrant green curry with coconut milk, bamboo shoots, eggplant & basil", fr: "Cari vert parfumé au lait de coco, pousses de bambou, aubergine et basilic" }, price: "21", img: "/images/green-curry-chicken.jpg" },
+      { name: { en: "P16 · Red Curry (Pa Nang)", fr: "P16 · Cari rouge (Pa Nang)" }, desc: { en: "Creamy coconut curry with red chili paste, bamboo, peppers & Thai basil", fr: "Cari crémeux au coco avec pâte de chili rouge, bambou, poivrons et basilic thaï" }, price: "21", popular: true, chefSpecial: true, img: "/images/thai-red-curry.jpg", spicy: true },
+      { name: { en: "P17 · Green Curry (Gaeng Keow Warn)", fr: "P17 · Cari vert (Gaeng Keow Warn)" }, desc: { en: "Fragrant green curry with coconut milk, bamboo shoots, eggplant & basil", fr: "Cari vert parfumé au lait de coco, pousses de bambou, aubergine et basilic" }, price: "21", img: "/images/green-curry-chicken.jpg", spicy: true },
       { name: { en: "P18 · Mushroom Curry", fr: "P18 · Cari aux champignons" }, desc: { en: "Assorted mushrooms in a rich coconut curry with Thai herbs", fr: "Assortiment de champignons dans un riche cari au coco avec herbes thaïes" }, price: "21", img: "/images/mushroom-stir-fry.jpg" },
-      { name: { en: "P19 · Pineapple Basil Curry", fr: "P19 · Cari ananas basilic" }, desc: { en: "Red curry with fresh pineapple, Thai basil & bell peppers in coconut milk", fr: "Cari rouge avec ananas frais, basilic thaï et poivrons dans du lait de coco" }, price: "21" },
-      { name: { en: "P20 · Hot Chilli Curry", fr: "P20 · Cari piment fort" }, desc: { en: "Our spiciest curry — fiery chili paste with bamboo, green beans & bold Thai spices", fr: "Notre cari le plus épicé — pâte de chili ardente avec bambou, haricots verts et épices thaïes audacieuses" }, price: "21" },
+      { name: { en: "P19 · Pineapple Basil Curry", fr: "P19 · Cari ananas basilic" }, desc: { en: "Red curry with fresh pineapple, Thai basil & bell peppers in coconut milk", fr: "Cari rouge avec ananas frais, basilic thaï et poivrons dans du lait de coco" }, price: "21", spicy: true },
+      { name: { en: "P20 · Hot Chilli Curry", fr: "P20 · Cari piment fort" }, desc: { en: "Our spiciest curry — fiery chili paste with bamboo, green beans & bold Thai spices", fr: "Notre cari le plus épicé — pâte de chili ardente avec bambou, haricots verts et épices thaïes audacieuses" }, price: "21", spicy: true },
     ],
   },
   {
@@ -140,9 +141,9 @@ export const menuCategories: MenuCategory[] = [
       { name: { en: "F2 · Malaca Shrimps", fr: "F2 · Crevettes Malaca" }, desc: { en: "Shrimps in a rich Malaca-style coconut curry with turmeric & spices", fr: "Crevettes dans un riche cari Malaca au coco avec curcuma et épices" }, price: "23" },
       { name: { en: "F3 · Royal Shrimps", fr: "F3 · Crevettes royales" }, desc: { en: "Shrimps served on a crispy noodle nest with stir-fried vegetables", fr: "Crevettes servies sur un nid de nouilles croustillantes avec légumes sautés" }, price: "23", img: "/images/royal-shrimp-nest.jpg" },
       { name: { en: "F4 · King's Skewers", fr: "F4 · Brochettes du roi" }, desc: { en: "Grilled shrimp skewers marinated in lemongrass and served with peanut sauce", fr: "Brochettes de crevettes grillées marinées à la citronnelle, servies avec sauce aux arachides" }, price: "23" },
-      { name: { en: "F5 · Seafood Basil", fr: "F5 · Fruits de mer au basilic" }, desc: { en: "Mixed seafood wok-tossed with chilies, garlic & fresh Thai basil", fr: "Fruits de mer assortis sautés au wok avec piments, ail et basilic thaï frais" }, price: "25" },
+      { name: { en: "F5 · Seafood Basil", fr: "F5 · Fruits de mer au basilic" }, desc: { en: "Mixed seafood wok-tossed with chilies, garlic & fresh Thai basil", fr: "Fruits de mer assortis sautés au wok avec piments, ail et basilic thaï frais" }, price: "25", spicy: true },
       { name: { en: "F6 · Seafood Bamboo", fr: "F6 · Fruits de mer au bambou" }, desc: { en: "Mixed seafood stir-fried with bamboo shoots, vegetables & savoury sauce", fr: "Fruits de mer assortis sautés avec pousses de bambou, légumes et sauce savoureuse" }, price: "26" },
-      { name: { en: "F7 · General's Shrimps", fr: "F7 · Crevettes du Général" }, desc: { en: "Crispy battered shrimps in sweet and spicy General's sauce", fr: "Crevettes panées croustillantes dans la sauce sucrée et épicée du Général" }, price: "23" },
+      { name: { en: "F7 · General's Shrimps", fr: "F7 · Crevettes du Général" }, desc: { en: "Crispy battered shrimps in sweet and spicy General's sauce", fr: "Crevettes panées croustillantes dans la sauce sucrée et épicée du Général" }, price: "23", spicy: true },
       { name: { en: "F8 · Pineapple Shrimps", fr: "F8 · Crevettes à l'ananas" }, desc: { en: "Shrimps stir-fried with fresh pineapple, peppers & a tangy sweet sauce", fr: "Crevettes sautées avec ananas frais, poivrons et sauce sucrée-acidulée" }, price: "23" },
     ],
   },
