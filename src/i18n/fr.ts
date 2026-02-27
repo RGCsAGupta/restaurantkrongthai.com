@@ -303,6 +303,11 @@ export default {
     servedWith: "Servi avec riz jasmin",
     priceLabel: "Prix",
     viewDish: "Voir les détails du plat",
+    spicy: "Épicé",
+    breadcrumbLabel: "Fil d'Ariane",
+    pageTitleSuffix: "Restaurant Krong Thai Gatineau",
+    metaDescWithDesc: "Commandez {name} au Restaurant Krong Thai, Gatineau. Cuisine authentique thaïe, vietnamienne et cambodgienne.",
+    metaDescNoDesc: "{name} — {category} authentique au Restaurant Krong Thai, Gatineau. Apportez votre vin, stationnement gratuit.",
   },
   gallery: {
     heroTitle: "Galerie & Témoignages",

@@ -299,6 +299,11 @@ export default {
     servedWith: "Served with jasmine rice",
     priceLabel: "Price",
     viewDish: "View dish details",
+    spicy: "Spicy",
+    breadcrumbLabel: "Breadcrumb",
+    pageTitleSuffix: "Krong Thai Restaurant Gatineau",
+    metaDescWithDesc: "Order {name} at Krong Thai Restaurant, Gatineau. Authentic Thai, Vietnamese & Cambodian cuisine.",
+    metaDescNoDesc: "{name} — Authentic {category} at Krong Thai Restaurant, Gatineau. BYOB, free parking. Order online or dine in.",
   },
   gallery: {
     heroTitle: "Gallery & Testimonials",

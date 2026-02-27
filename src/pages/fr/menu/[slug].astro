@@ -24,10 +24,10 @@ const related = getRelatedItems(item, category);
 const basePrice = item.price.includes("/") ? item.price.split("/")[0] : item.price;
 const isTableDhote = category.id === "table-dhote";
 
-const pageTitle = `${displayName} | Restaurant Krong Thai Gatineau`;
+const pageTitle = `${displayName} | ${i.menuItem.pageTitleSuffix}`;
 const pageDesc = item.desc
-  ? `${item.desc.fr} — Commandez ${displayName} au Restaurant Krong Thai, Gatineau. Cuisine authentique thaïe, vietnamienne et cambodgienne.`
-  : `${displayName} — ${category.name.fr} authentique au Restaurant Krong Thai, Gatineau. Apportez votre vin, stationnement gratuit.`;
+  ? `${item.desc.fr} — ${i.menuItem.metaDescWithDesc.replace("{name}", displayName)}`
+  : i.menuItem.metaDescNoDesc.replace("{name}", displayName).replace("{category}", category.name[locale]);
 
 const breadcrumbs = [
   { name: i.menuItem.breadcrumbHome, path: `/${locale}/` },
@@ -69,7 +69,7 @@ const breadcrumbs = [
   <article class="px-5 pt-24 pb-12 lg:px-8">
     <div class="mx-auto max-w-4xl">
       <!-- Breadcrumb -->
-      <nav class="mb-6 text-sm text-white/60" aria-label="Fil d'Ariane">
+      <nav class="mb-6 text-sm text-white/60" aria-label={i.menuItem.breadcrumbLabel}>
         <a href={`/${locale}/`} class="transition-colors hover:text-white">{i.menuItem.breadcrumbHome}</a>
         <span class="mx-1 text-white/30" aria-hidden="true">/</span>
         <a href={`/${locale}/menu/`} class="transition-colors hover:text-white">{i.menuItem.breadcrumbMenu}</a>
@@ -130,7 +130,7 @@ const breadcrumbs = [
 
           {item.spicy && (
             <div class="mt-4">
-              <span class="rounded-full border border-orange-500/25 bg-orange-500/15 px-2.5 py-1 text-[11px] font-medium text-orange-400">🌶️ Épicé</span>
+              <span class="rounded-full border border-orange-500/25 bg-orange-500/15 px-2.5 py-1 text-[11px] font-medium text-orange-400">🌶️ {i.menuItem.spicy}</span>
             </div>
           )}
 
