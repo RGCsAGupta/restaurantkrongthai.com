@@ -13,9 +13,12 @@ interface Props {
   locale: Locale;
   canonicalPath?: string;
   currentPath?: string;
+  alternatePath?: string;
+  breadcrumbs?: Array<{ name: string; path: string }>;
+  ogImage?: string;
 }
 
-const { title, description, locale, canonicalPath = "", currentPath = "" } =
+const { title, description, locale, canonicalPath = "", currentPath = "", alternatePath, breadcrumbs, ogImage } =
   Astro.props;
 ---
 
@@ -27,6 +30,9 @@ const { title, description, locale, canonicalPath = "", currentPath = "" } =
       description={description}
       locale={locale}
       canonicalPath={canonicalPath}
+      alternatePath={alternatePath}
+      breadcrumbs={breadcrumbs}
+      ogImage={ogImage}
     />
   </head>
   <body class="min-h-screen bg-night-950 noise">
