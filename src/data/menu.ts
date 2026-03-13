@@ -35,9 +35,8 @@ export const menuCategories: MenuCategory[] = [
     id: "meal-soups",
     name: { en: "Meal Soups", fr: "Soupes-repas" },
     icon: "🍜",
-    priceNote: { en: "Chicken/Beef $16 · Shrimp $17 · Chicken & Shrimp $18", fr: "Poulet/Bœuf 16 $ · Crevettes 17 $ · Poulet & Crevettes 18 $" },
     items: [
-      { name: { en: "S7 · Pho", fr: "S7 · Pho" }, desc: { en: "Slow-simmered chicken broth with rice noodles, bean sprouts & basil · Chicken or Beef $16 · Shrimp $17 · Chicken & Shrimp $18", fr: "Bouillon de poulet longuement mijoté avec nouilles de riz, fèves germées et basilic · Poulet ou bœuf 16 $ · Crevettes 17 $ · Poulet et crevettes 18 $" }, price: "16/17/18", popular: true, img: "/images/pho-beef.jpg" },
+      { name: { en: "S7 · Pho", fr: "S7 · Pho" }, desc: { en: "Slow-simmered chicken broth with rice noodles, bean sprouts & basil · Chicken or Beef $16 · Shrimp $17 · Chicken & Shrimp $18", fr: "Bouillon de poulet longuement mijoté avec nouilles de riz, fèves germées et basilic · Poulet ou bœuf 16 $ · Crevettes 17 $ · Poulet et crevettes 18 $" }, price: "16", popular: true, img: "/images/pho-beef.jpg" },
       { name: { en: "S8 · Spicy Soup", fr: "S8 · Soupe épicée" }, desc: { en: "Spicy Thai broth with rice noodles, shrimp, broccoli, napa cabbage & peppers", fr: "Bouillon thaï épicé avec nouilles de riz, crevettes, brocoli, choux chinois et poivron" }, price: "20", img: "/images/pho-spicy.jpg", spicy: true },
     ],
   },
