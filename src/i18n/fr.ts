@@ -15,10 +15,11 @@ export default {
     accessibility: "Accessibilité",
   },
   hero: {
-    headline: "Cuisine Authentique Thaï, Vietnamienne & Cambodgienne",
-    subheadline: "Recettes familiales perfectionnées depuis 2008",
+    headline: "Cuisine Authentique Thaï, Vietnamienne & Cambodgienne à Gatineau",
+    subheadline: "Recettes familiales depuis 2008 · Seul cambodgien de la région · Apportez votre vin · Stationnement gratuit",
     cta: "Commander maintenant",
     ctaSecondary: "Voir le traiteur",
+    ctaReserve: "Réserver une table",
   },
   social: {
     rating: "4.2",
@@ -96,7 +97,7 @@ export default {
   catering: {
     heroTitle: "Traiteur pour chaque occasion",
     heroSubtitle:
-      "Des déjeuners d'affaires aux célébrations familiales — des saveurs authentiques d'Asie du Sud-Est pour votre prochain événement.",
+      "Des déjeuners d'affaires aux célébrations familiales — traiteur thaï, vietnamien et cambodgien authentique à Gatineau, Ottawa, Hull et Aylmer.",
     servicesLabel: "Services",
     serviceTitle: "Nos services traiteur",
     corporate: "Événements corporatifs",
@@ -262,6 +263,20 @@ export default {
     invalidGuests: "Veuillez entrer au moins 1 invité.",
     messageTooShort: "Veuillez écrire au moins 10 caractères.",
   },
+  entitySummary: {
+    label: "À propos de Krong Thai",
+    text: "Le Restaurant Krong Thai est un restaurant authentique thaï, vietnamien et cambodgien situé au 205, rue Bellehumeur à Gatineau, Québec — le seul restaurant cambodgien de la région Gatineau-Ottawa. Ouvert depuis 2008 avec des recettes familiales originales, apportez votre vin sans frais de bouchon, stationnement gratuit, accessible en fauteuil roulant et commande en ligne. Ouvert du mardi au dimanche pour manger sur place, emporter, livraison via UberEats, DoorDash et SkipTheDishes, et traiteur à partir de 18 $/personne.",
+  },
+  homeFaq: {
+    title: "Réponses rapides",
+    items: [
+      { q: "Acceptez-vous les réservations ?", a: "Oui ! Appelez-nous au (819) 243-5000 pour réserver une table. Les clients sans réservation sont aussi les bienvenus." },
+      { q: "Puis-je apporter mon propre vin ou bière ?", a: "Absolument — nous sommes un restaurant apportez votre vin sans frais de bouchon." },
+      { q: "Y a-t-il du stationnement ?", a: "Oui, nous offrons un stationnement gratuit sur place pour tous nos clients." },
+      { q: "Offrez-vous la livraison ?", a: "Oui, nous livrons via UberEats, DoorDash et SkipTheDishes. Vous pouvez aussi commander pour emporter directement sur notre site web." },
+      { q: "Offrez-vous un service traiteur ?", a: "Oui, nous offrons un service traiteur pour événements corporatifs, fêtes privées et réunions familiales à Gatineau, Ottawa, Hull et Aylmer. Les forfaits débutent à 18 $ par personne." },
+    ],
+  },
   footer: {
     tagline:
       "Cuisine authentique thaï, vietnamienne et cambodgienne depuis 2008",
@@ -291,6 +306,9 @@ export default {
     whySpices: "Mélanges d'épices secrets préservés par les créateurs originaux",
     whyOnly: "Le seul restaurant cambodgien authentique de la région",
     byobBadge: "Apportez votre vin — sans frais",
+    ctaMenu: "Explorer notre menu",
+    ctaCatering: "Planifier votre événement",
+    ctaContact: "Nous contacter",
   },
   menu: {
     heroTitle: "Notre menu authentique",
