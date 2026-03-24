@@ -15,10 +15,11 @@ export default {
     accessibility: "Accessibility",
   },
   hero: {
-    headline: "Authentic Thai, Vietnamese & Cambodian Cuisine",
-    subheadline: "Family recipes perfected since 2008",
+    headline: "Authentic Thai, Vietnamese & Cambodian Cuisine in Gatineau",
+    subheadline: "Family recipes since 2008 · Only Cambodian in the region · BYOB · Free parking",
     cta: "Order Now",
     ctaSecondary: "View Catering",
+    ctaReserve: "Reserve a Table",
   },
   social: {
     rating: "4.2",
@@ -95,7 +96,7 @@ export default {
   catering: {
     heroTitle: "Catering for Every Occasion",
     heroSubtitle:
-      "From corporate lunches to family celebrations — authentic Southeast Asian flavours for your next event.",
+      "From corporate lunches to family celebrations — authentic Thai, Vietnamese & Cambodian catering across Gatineau, Ottawa, Hull & Aylmer.",
     servicesLabel: "Services",
     serviceTitle: "Our Catering Services",
     corporate: "Corporate Events",
@@ -259,6 +260,20 @@ export default {
     invalidGuests: "Please enter at least 1 guest.",
     messageTooShort: "Please write at least 10 characters.",
   },
+  entitySummary: {
+    label: "About Krong Thai",
+    text: "Krong Thai Restaurant is an authentic Thai, Vietnamese, and Cambodian restaurant at 205 Rue Bellehumeur in Gatineau, Quebec — the only Cambodian restaurant in the Gatineau-Ottawa region. Open since 2008 with original family recipes, BYOB with no corkage fee, free parking, wheelchair accessible, and direct online ordering. Open Tuesday to Sunday for dine-in, pickup, delivery via UberEats, DoorDash, and SkipTheDishes, and catering from $18/person.",
+  },
+  homeFaq: {
+    title: "Quick Answers",
+    items: [
+      { q: "Do you accept reservations?", a: "Yes! Call us at (819) 243-5000 to reserve a table. Walk-ins are also welcome." },
+      { q: "Can I bring my own wine or beer?", a: "Absolutely — we are BYOB (Bring Your Own Bottle) with no corkage fee." },
+      { q: "Is parking available?", a: "Yes, we offer free parking on-site for all guests." },
+      { q: "Do you offer delivery?", a: "Yes, we deliver via UberEats, DoorDash, and SkipTheDishes. You can also order pickup directly from our website." },
+      { q: "Do you offer catering?", a: "Yes, we cater corporate events, private parties, and family gatherings across Gatineau, Ottawa, Hull, and Aylmer. Packages start at $18 per person." },
+    ],
+  },
   footer: {
     tagline: "Authentic Thai, Vietnamese & Cambodian Cuisine since 2008",
     contactLabel: "Contact",
@@ -287,6 +302,9 @@ export default {
     whySpices: "Secret spice blends preserved by original creators",
     whyOnly: "The only authentic Cambodian restaurant in the region",
     byobBadge: "BYOB — no corkage fee",
+    ctaMenu: "Explore Our Menu",
+    ctaCatering: "Plan Your Event",
+    ctaContact: "Contact Us",
   },
   menu: {
     heroTitle: "Our Authentic Menu",
