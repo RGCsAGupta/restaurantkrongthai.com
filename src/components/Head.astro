@@ -29,8 +29,8 @@ const ogImageUrl = ogImage ? `${base}${ogImage}` : `${base}/images/og-image.jpg`
 
 // Page name for breadcrumbs
 const pageNames: Record<string, Record<string, string>> = {
-  en: { menu: "Menu", about: "About", catering: "Catering", specials: "Specials", gallery: "Gallery", contact: "Contact", privacy: "Privacy Policy", accessibility: "Accessibility", thanks: "Thank You" },
-  fr: { menu: "Menu", "a-propos": "À propos", traiteur: "Traiteur", speciaux: "Spéciaux", galerie: "Galerie", contact: "Contact", confidentialite: "Confidentialité", accessibilite: "Accessibilité", merci: "Merci" },
+  en: { menu: "Menu", about: "About", catering: "Catering", specials: "Specials", gallery: "Gallery", contact: "Contact", privacy: "Privacy Policy", accessibility: "Accessibility", areas: "Service Areas", thanks: "Thank You" },
+  fr: { menu: "Menu", "a-propos": "À propos", traiteur: "Traiteur", speciaux: "Spéciaux", galerie: "Galerie", contact: "Contact", confidentialite: "Confidentialité", accessibilite: "Accessibilité", "zones-de-service": "Zones de service", merci: "Merci" },
 };
 const localSlug = locale === "en" ? canonicalPath : (slugMap[canonicalPath] ?? canonicalPath);
 const pageName = pageNames[locale]?.[localSlug];
@@ -128,6 +128,13 @@ const pageName = pageNames[locale]?.[localSlug];
     { "@type": "AdministrativeArea", "name": "Aylmer" },
     { "@type": "AdministrativeArea", "name": "Outaouais" }
   ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.2",
+    "reviewCount": "220",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "15:00", "closes": "21:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday", "Thursday"], "opens": "11:00", "closes": "21:00" },
