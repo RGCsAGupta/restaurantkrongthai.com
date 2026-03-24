@@ -32,6 +32,7 @@ export const slugMap: Record<string, string> = {
   contact: "contact",
   privacy: "confidentialite",
   accessibility: "accessibilite",
+  areas: "zones-de-service",
 };
 
 export const reverseSlugMap = Object.fromEntries(

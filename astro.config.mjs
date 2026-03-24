@@ -17,6 +17,7 @@ const slugMap = {
   contact: "contact",
   privacy: "confidentialite",
   accessibility: "accessibilite",
+  areas: "zones-de-service",
 };
 const reverseSlugMap = Object.fromEntries(
   Object.entries(slugMap).map(([k, v]) => [v, k])
