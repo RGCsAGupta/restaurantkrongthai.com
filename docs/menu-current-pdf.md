@@ -9,14 +9,14 @@ with what customers see in-house. 68 items across 10 categories.
 
 ## Soups (S1–S6)
 
-| # | Dish | Small | Large |
-|---|------|-------|-------|
-| S1 | Bangkok Soup | $7 | $16 |
-| S2 | Wonton Soup | $7 | $16 |
-| S3 | Phnom Penh Soup | $7 | $16 |
-| S4 | Tom Yum Koong | $7 | $16 |
-| S5 | Tom Kha Koong | $7 | $16 |
-| S6 | Vegetable Soup | $7 | $16 |
+| # | Dish | Small | Large | Size difference |
+|---|------|-------|-------|-----------------|
+| S1 | Bangkok Soup | $7 | $16 | Large with chicken strips |
+| S2 | Wonton Soup | $7 | $16 | Large with 2 shrimps |
+| S3 | Phnom Penh Soup | $7 | $16 | Size only |
+| S4 | Tom Yum Koong | $7 | $16 | Small: 2 shrimps · Large: 7 shrimps |
+| S5 | Tom Kha Koong | $7 | $16 | Small: 2 shrimps · Large: 7 shrimps |
+| S6 | Vegetable Soup | $7 | $16 | Size only |
 
 ---
 
