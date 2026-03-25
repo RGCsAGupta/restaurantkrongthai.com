@@ -153,7 +153,7 @@ $3 extra for substitutions.
 | Vermicelli | $2 |
 | Peanut Sauce | $0.75 |
 | Extra Chicken/Beef | $1 |
-| Extra Shrimps | $3 |
+| Extra Shrimp (1 pc) | $1 |
 | Extra Vegetables | $3 |
 
 ---
