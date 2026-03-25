@@ -166,6 +166,6 @@ export const sideDishes: MenuItem[] = [
   { name: { en: "Vermicelli", fr: "Vermicelles" }, price: "2" },
   { name: { en: "Peanut Sauce", fr: "Sauce aux arachides" }, price: "0.75" },
   { name: { en: "Extra Chicken/Beef", fr: "Supplément poulet/bœuf" }, price: "1" },
-  { name: { en: "Extra Shrimps", fr: "Supplément crevettes" }, price: "3" },
+  { name: { en: "Extra Shrimp (1 pc)", fr: "Supplément crevette (1 mc)" }, price: "1" },
   { name: { en: "Extra Vegetables", fr: "Supplément légumes" }, price: "3" },
 ];
