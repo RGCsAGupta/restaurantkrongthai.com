@@ -56,7 +56,7 @@ export default {
       "Rouleaux dorés croustillants servis avec sauce maison.",
   },
   combo: {
-    title: "Spécial du midi",
+    title: "Table d'hôte",
     price: "10 $",
     includes: "Soupe + Entrée + Riz jasmin + Café ou Thé + Biscuits",
     cta: "Commander cette offre",
@@ -430,9 +430,9 @@ export default {
     cateringTitle: "Traiteur Thaï & Asiatique Gatineau Ottawa | Restaurant Krong Thai",
     cateringDesc:
       "Traiteur thaï, vietnamien et cambodgien à Gatineau-Ottawa. Événements corporatifs, fêtes privées, réunions familiales. Cuisine authentique à partir de 18 $/personne.",
-    specialsTitle: "Combos du Midi & Spéciaux Thaï | Restaurant Krong Thai Gatineau",
+    specialsTitle: "Table d'Hôte & Spéciaux Thaï | Restaurant Krong Thai Gatineau",
     specialsDesc:
-      "Combos du midi thaï à partir de 10 $. Soupe Bangkok, Pad Thai, Rouleaux impériaux. Menu fixe 4 personnes à 110 $. Apportez votre vin à Gatineau.",
+      "Table d'hôte thaï à partir de 10 $. Soupe Bangkok, Pad Thai, Rouleaux impériaux. Menu fixe 4 personnes à 110 $. Apportez votre vin à Gatineau.",
     aboutTitle: "À Propos | Seul Restaurant Cambodgien de Gatineau-Ottawa Depuis 1999",
     aboutDesc: "Restaurant familial thaï, vietnamien et cambodgien à Gatineau depuis 1999. La seule cuisine cambodgienne authentique de la région Ottawa-Gatineau.",
     menuTitle: "Menu | Restaurant Krong Thai Gatineau — Plats Thaïs, Vietnamiens & Cambodgiens",
@@ -453,7 +453,7 @@ export default {
     heroMenu: "Riz frit thaï — menu authentique d'Asie du Sud-Est au Restaurant Krong Thai Gatineau",
     heroAbout: "Nid Royal au poulet — plat signature du Restaurant Krong Thai Gatineau",
     heroCatering: "Service traiteur thaï et cambodgien pour événements — Restaurant Krong Thai Gatineau",
-    heroSpecials: "Pad Thai — spéciaux du midi au Restaurant Krong Thai Gatineau",
+    heroSpecials: "Pad Thai — spéciaux Table d'hôte au Restaurant Krong Thai Gatineau",
     heroGallery: "Plateau d'entrées au Restaurant Krong Thai Gatineau — cuisine thaï, vietnamienne et cambodgienne",
     heroContact: "Intérieur du Restaurant Krong Thai Gatineau — apportez votre vin, stationnement gratuit, accessible",
     chefCooking: "Chef familial préparant une cuisine thaïe authentique au Restaurant Krong Thai depuis 1999",
