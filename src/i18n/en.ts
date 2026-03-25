@@ -55,7 +55,7 @@ export default {
       "Crispy golden rolls served with house-made dipping sauce.",
   },
   combo: {
-    title: "Lunch Special",
+    title: "Table d'Hôte",
     price: "$10",
     includes: "Soup + Appetizer + Jasmine Rice + Coffee or Tea + Cookies",
     cta: "Order This Deal",
@@ -426,9 +426,9 @@ export default {
     cateringTitle: "Thai & Asian Catering Gatineau Ottawa | Krong Thai Restaurant",
     cateringDesc:
       "Thai, Vietnamese & Cambodian catering in Gatineau-Ottawa. Corporate events, private parties, family gatherings. Authentic Southeast Asian food from $18/person.",
-    specialsTitle: "Thai Lunch Combos & Specials | Krong Thai Restaurant Gatineau",
+    specialsTitle: "Table d'Hôte Combos & Specials | Krong Thai Restaurant Gatineau",
     specialsDesc:
-      "Daily Thai lunch combos from $10. Bangkok Soup, Pad Thai, Imperial Rolls. Family feast for 4 at $110. BYOB, free parking in Gatineau.",
+      "Table d'Hôte combos from $10. Bangkok Soup, Pad Thai, Imperial Rolls. Family feast for 4 at $110. BYOB, free parking in Gatineau.",
     aboutTitle: "About Krong Thai | Only Cambodian Restaurant in Gatineau-Ottawa Since 1999",
     aboutDesc: "Family-run Thai, Vietnamese & Cambodian restaurant in Gatineau since 1999. The only authentic Cambodian cuisine in the Ottawa-Gatineau region.",
     menuTitle: "Menu | Krong Thai Restaurant Gatineau — Thai, Vietnamese & Cambodian Dishes",
@@ -449,7 +449,7 @@ export default {
     heroMenu: "Thai fried rice — authentic Southeast Asian menu at Krong Thai Restaurant Gatineau",
     heroAbout: "Chicken Royal Nest — signature dish at Krong Thai Restaurant Gatineau",
     heroCatering: "Thai and Cambodian catering spread for events — Krong Thai Restaurant Gatineau",
-    heroSpecials: "Pad Thai noodles — lunch specials at Krong Thai Restaurant Gatineau",
+    heroSpecials: "Pad Thai noodles — Table d'Hôte specials at Krong Thai Restaurant Gatineau",
     heroGallery: "Appetizer platter at Krong Thai Restaurant Gatineau — Thai, Vietnamese & Cambodian cuisine",
     heroContact: "Restaurant interior at Krong Thai Gatineau — BYOB, free parking, wheelchair accessible",
     chefCooking: "Family chef cooking authentic Thai recipes at Krong Thai Restaurant since 1999",
