@@ -16,7 +16,7 @@ export default {
   },
   hero: {
     headline: "Cuisine Authentique Thaï, Vietnamienne & Cambodgienne à Gatineau",
-    subheadline: "Recettes familiales depuis 2008 · Seul cambodgien de la région · Apportez votre vin · Stationnement gratuit",
+    subheadline: "Recettes familiales depuis 1999 · Seul cambodgien de la région · Apportez votre vin · Stationnement gratuit",
     cta: "Commander maintenant",
     ctaSecondary: "Voir le traiteur",
     ctaReserve: "Réserver une table",
@@ -33,7 +33,7 @@ export default {
     headline: "L'authenticité depuis ",
     familyTitle: "Recettes familiales originales",
     familyDesc:
-      "Les mêmes membres de la famille qui ont commencé à cuisiner en 2008 sont toujours en cuisine aujourd'hui.",
+      "Les mêmes membres de la famille qui ont commencé à cuisiner en 1999 sont toujours en cuisine aujourd'hui.",
     cambodianTitle: "Le seul cambodgien de la région",
     cambodianDesc:
       "Le seul restaurant offrant une cuisine cambodgienne authentique dans la région Gatineau-Ottawa.",
@@ -265,7 +265,7 @@ export default {
   },
   entitySummary: {
     label: "À propos de Krong Thai",
-    text: "Le Restaurant Krong Thai est un restaurant authentique thaï, vietnamien et cambodgien situé au 205, rue Bellehumeur à Gatineau, Québec — le seul restaurant cambodgien de la région Gatineau-Ottawa. Ouvert depuis 2008 avec des recettes familiales originales, apportez votre vin sans frais de bouchon, stationnement gratuit, accessible en fauteuil roulant et commande en ligne. Ouvert du mardi au dimanche pour manger sur place, emporter, livraison via UberEats, DoorDash et SkipTheDishes, et traiteur à partir de 18 $/personne.",
+    text: "Le Restaurant Krong Thai est un restaurant authentique thaï, vietnamien et cambodgien situé au 205, rue Bellehumeur à Gatineau, Québec — le seul restaurant cambodgien de la région Gatineau-Ottawa. Ouvert depuis 1999 avec des recettes familiales originales, apportez votre vin sans frais de bouchon, stationnement gratuit, accessible en fauteuil roulant et commande en ligne. Ouvert du mardi au dimanche pour manger sur place, emporter, livraison via UberEats, DoorDash et SkipTheDishes, et traiteur à partir de 18 $/personne.",
   },
   homeFaq: {
     title: "Réponses rapides",
@@ -279,7 +279,7 @@ export default {
   },
   footer: {
     tagline:
-      "Cuisine authentique thaï, vietnamienne et cambodgienne depuis 2008",
+      "Cuisine authentique thaï, vietnamienne et cambodgienne depuis 1999",
     contactLabel: "Contact",
     linksLabel: "Liens",
     rights: "Tous droits réservés.",
@@ -287,17 +287,17 @@ export default {
   about: {
     heroTitle: "Notre histoire authentique",
     heroSubtitle: "Découvrez le patrimoine familial qui fait de Krong Thai le seul restaurant cambodgien authentique de la région de Gatineau.",
-    sinceLabel: "Depuis 2008",
+    sinceLabel: "Depuis 1999",
     storyTitle: "Une tradition familiale",
-    storyText: "En 2008, une famille cambodgienne a apporté ses recettes précieuses à Gatineau — des plats transmis de génération en génération au Cambodge. Aujourd'hui, ces mêmes traditions perdurent dans chaque Soupe Bangkok, chaque pâte de cari et chaque mélange d'épices préparé à partir de zéro. Sous nouvelle direction depuis mai 2024, nous honorons cet héritage tout en ouvrant un nouveau chapitre.",
-    familyBadge: "Recettes familiales depuis 2008",
+    storyText: "En 1999, une famille cambodgienne a apporté ses recettes précieuses à Gatineau — des plats transmis de génération en génération au Cambodge. Aujourd'hui, ces mêmes traditions perdurent dans chaque Soupe Bangkok, chaque pâte de cari et chaque mélange d'épices préparé à partir de zéro. Sous nouvelle direction depuis mai 2024, nous honorons cet héritage tout en ouvrant un nouveau chapitre.",
+    familyBadge: "Recettes familiales depuis 1999",
     heritageLabel: "Patrimoine",
     cambodianTitle: "Patrimoine cambodgien",
     cambodianText: "Nous sommes le seul restaurant cambodgien authentique dans un rayon de plus de 2 heures. Nos plats khmers traditionnels — dont la Soupe Phnom Penh et le Banh Hoi — sont préparés avec des mélanges d'épices secrets préservés par la famille d'origine. Chaque recette raconte l'histoire du riche patrimoine culinaire du Cambodge.",
     cambodianBadge: "Seul cambodgien de la région",
     journeyLabel: "Parcours",
     timelineTitle: "Notre parcours",
-    timeline2008: "Fondation — Ouverture du premier restaurant cambodgien authentique de la région",
+    timeline1999: "Fondation — Ouverture du premier restaurant cambodgien authentique de la région",
     timeline2015: "Reconnaissance — Établi comme pilier culinaire de la communauté Gatineau-Ottawa",
     timeline2024: "Nouveau chapitre — Nouvelle direction qui honore les recettes originales tout en élargissant la vision",
     experienceLabel: "Expérience",
@@ -405,7 +405,7 @@ export default {
     heroTitle: "Livraison & Zones de Service",
     heroSubtitle: "Cuisine authentique thaïe, vietnamienne et cambodgienne — sur place, pour emporter ou livrée chez vous dans la région Ottawa-Gatineau.",
     gatineauTitle: "Restaurant Thaï à Gatineau",
-    gatineauText: "Situé au 205, rue Bellehumeur au cœur de Gatineau, Krong Thai est la référence du quartier pour la cuisine authentique d'Asie du Sud-Est depuis 2008. À quelques minutes de la Maison de la Culture de Gatineau, avec stationnement gratuit sur place. Dînez sur place, commandez pour emporter ou faites-vous livrer via UberEats, DoorDash et SkipTheDishes.",
+    gatineauText: "Situé au 205, rue Bellehumeur au cœur de Gatineau, Krong Thai est la référence du quartier pour la cuisine authentique d'Asie du Sud-Est depuis 1999. À quelques minutes de la Maison de la Culture de Gatineau, avec stationnement gratuit sur place. Dînez sur place, commandez pour emporter ou faites-vous livrer via UberEats, DoorDash et SkipTheDishes.",
     hullTitle: "Livraison de Cuisine Thaïe à Hull",
     hullText: "Résidents de Hull — nous sommes à seulement 10 minutes en voiture et livrons directement chez vous. Que vous ayez envie de Pad Thai après le travail ou de Soupe Bangkok par une soirée froide, commandez en ligne pour une livraison rapide à Hull, incluant le centre-ville, le secteur du Parc Jacques-Cartier et le quartier du Casino du Lac-Leamy.",
     aylmerTitle: "Restaurant Thaï Près d'Aylmer",
@@ -425,15 +425,15 @@ export default {
     homeTitle:
       "Restaurant Krong Thai Gatineau | Cuisine Thaï, Vietnamienne & Cambodgienne Authentique",
     homeDesc:
-      "Meilleur restaurant thaï, vietnamien et cambodgien à Gatineau depuis 2008. Seul restaurant cambodgien de la région Ottawa-Gatineau. Apportez votre vin, stationnement gratuit.",
+      "Meilleur restaurant thaï, vietnamien et cambodgien à Gatineau depuis 1999. Seul restaurant cambodgien de la région Ottawa-Gatineau. Apportez votre vin, stationnement gratuit.",
     cateringTitle: "Traiteur Thaï & Asiatique Gatineau Ottawa | Restaurant Krong Thai",
     cateringDesc:
       "Traiteur thaï, vietnamien et cambodgien à Gatineau-Ottawa. Événements corporatifs, fêtes privées, réunions familiales. Cuisine authentique à partir de 18 $/personne.",
     specialsTitle: "Combos du Midi & Spéciaux Thaï | Restaurant Krong Thai Gatineau",
     specialsDesc:
       "Combos du midi thaï à partir de 10 $. Soupe Bangkok, Pad Thai, Rouleaux impériaux. Menu fixe 4 personnes à 110 $. Apportez votre vin à Gatineau.",
-    aboutTitle: "À Propos | Seul Restaurant Cambodgien de Gatineau-Ottawa Depuis 2008",
-    aboutDesc: "Restaurant familial thaï, vietnamien et cambodgien à Gatineau depuis 2008. La seule cuisine cambodgienne authentique de la région Ottawa-Gatineau.",
+    aboutTitle: "À Propos | Seul Restaurant Cambodgien de Gatineau-Ottawa Depuis 1999",
+    aboutDesc: "Restaurant familial thaï, vietnamien et cambodgien à Gatineau depuis 1999. La seule cuisine cambodgienne authentique de la région Ottawa-Gatineau.",
     menuTitle: "Menu | Restaurant Krong Thai Gatineau — Plats Thaïs, Vietnamiens & Cambodgiens",
     menuDesc: "Pad Thai, Soupe Bangkok, Cari vert, Rouleaux impériaux et plus. Menu authentique thaï, vietnamien et cambodgien à Gatineau. Prix de 6 $ à 26 $.",
     galleryTitle: "Galerie | Restaurant Krong Thai Gatineau",
@@ -455,7 +455,7 @@ export default {
     heroSpecials: "Pad Thai — spéciaux du midi au Restaurant Krong Thai Gatineau",
     heroGallery: "Plateau d'entrées au Restaurant Krong Thai Gatineau — cuisine thaï, vietnamienne et cambodgienne",
     heroContact: "Intérieur du Restaurant Krong Thai Gatineau — apportez votre vin, stationnement gratuit, accessible",
-    chefCooking: "Chef familial préparant une cuisine thaïe authentique au Restaurant Krong Thai depuis 2008",
+    chefCooking: "Chef familial préparant une cuisine thaïe authentique au Restaurant Krong Thai depuis 1999",
     phnomPenhSoup: "Soupe Phnom Penh cambodgienne authentique — seul restaurant cambodgien à Gatineau",
     restaurantDining: "Expérience culinaire au Restaurant Krong Thai Gatineau — apportez votre vin",
     galleryBangkokSoup: "Soupe Bangkok — soupe signature primée au Restaurant Krong Thai Gatineau",
@@ -463,7 +463,7 @@ export default {
     galleryImperialRolls: "Rouleaux impériaux croustillants — entrée vietnamienne chez Krong Thai Gatineau",
     galleryGreenCurry: "Cari vert au poulet — cari thaï authentique chez Krong Thai",
     galleryFriedRice: "Riz frit thaï — plat principal populaire au Restaurant Krong Thai",
-    galleryChef: "Chef familial préparant une cuisine authentique d'Asie du Sud-Est depuis 2008",
+    galleryChef: "Chef familial préparant une cuisine authentique d'Asie du Sud-Est depuis 1999",
     galleryPhoBoeuf: "Pho au boeuf — soupe vietnamienne traditionnelle chez Krong Thai Gatineau",
     galleryWontons: "Wontons croustillants — entrée thaïe au Restaurant Krong Thai",
     galleryDining: "Expérience culinaire au Restaurant Krong Thai Gatineau — apportez votre vin",

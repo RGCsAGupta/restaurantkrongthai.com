@@ -68,12 +68,12 @@ Ensure every field is filled:
 
 **GBP Description (EN) -- 750 characters max:**
 ```
-Krong Thai is Gatineau's only authentic Thai, Vietnamese & Cambodian restaurant, serving family recipes since 2008. Our original family cooks are still in the kitchen today, preparing signature dishes like our award-winning Bangkok Soup (93% approval), Pad Thai (95% approval), and traditional Cambodian Phnom Penh Soup. We are the only restaurant offering authentic Cambodian cuisine in the Ottawa-Gatineau region. BYOB welcome with no corkage fee. Free on-site parking. We cater corporate events, private parties, and family gatherings with packages starting at $18/person. Order online for pickup or delivery via UberEats, DoorDash, and SkipTheDishes. Located at 205 Rue Bellehumeur in Gatineau, just minutes from Ottawa.
+Krong Thai is Gatineau's only authentic Thai, Vietnamese & Cambodian restaurant, serving family recipes since 1999. Our original family cooks are still in the kitchen today, preparing signature dishes like our award-winning Bangkok Soup (93% approval), Pad Thai (95% approval), and traditional Cambodian Phnom Penh Soup. We are the only restaurant offering authentic Cambodian cuisine in the Ottawa-Gatineau region. BYOB welcome with no corkage fee. Free on-site parking. We cater corporate events, private parties, and family gatherings with packages starting at $18/person. Order online for pickup or delivery via UberEats, DoorDash, and SkipTheDishes. Located at 205 Rue Bellehumeur in Gatineau, just minutes from Ottawa.
 ```
 
 **GBP Description (FR):**
 ```
-Krong Thai est le seul restaurant thaïlandais, vietnamien et cambodgien authentique de Gatineau, servant des recettes familiales depuis 2008. Nos cuisiniers familiaux originaux sont toujours en cuisine, preparant des plats signatures comme notre soupe Bangkok primee (93% d'approbation) et notre Pad Thai (95% d'approbation). Nous sommes le seul restaurant offrant une cuisine cambodgienne authentique dans la region Ottawa-Gatineau. Apportez votre vin sans frais de bouchon. Stationnement gratuit. Service traiteur pour evenements corporatifs et fetes privees a partir de 18$/personne. Commande en ligne via UberEats, DoorDash et SkipTheDishes.
+Krong Thai est le seul restaurant thaïlandais, vietnamien et cambodgien authentique de Gatineau, servant des recettes familiales depuis 1999. Nos cuisiniers familiaux originaux sont toujours en cuisine, preparant des plats signatures comme notre soupe Bangkok primee (93% d'approbation) et notre Pad Thai (95% d'approbation). Nous sommes le seul restaurant offrant une cuisine cambodgienne authentique dans la region Ottawa-Gatineau. Apportez votre vin sans frais de bouchon. Stationnement gratuit. Service traiteur pour evenements corporatifs et fetes privees a partir de 18$/personne. Commande en ligne via UberEats, DoorDash et SkipTheDishes.
 ```
 
 ### 1.4 Photos Strategy
@@ -353,7 +353,7 @@ Train staff to say after clearing plates (during the 5-10 minute peak satisfacti
 **Positive reviews (4-5 stars):**
 ```
 Thank you so much, [Name]! We're thrilled you enjoyed the [dish name if mentioned].
-Our family has been cooking these recipes since 2008, and it means the world when
+Our family has been cooking these recipes since 1999, and it means the world when
 our guests appreciate the authenticity. We hope to welcome you back soon!
 -- The Krong Thai Family
 ```
@@ -368,7 +368,7 @@ Please call us at (819) 243-5000 so we can discuss this personally.
 
 **Key rules:**
 - Always personalize (mention specific dish or detail from the review)
-- Include keywords naturally ("authentic Thai", "Gatineau", "family recipes since 2008")
+- Include keywords naturally ("authentic Thai", "Gatineau", "family recipes since 1999")
 - Never argue or get defensive
 - Take negative conversations offline (phone/email)
 - Respond in the same language the reviewer used (EN or FR)
@@ -401,13 +401,13 @@ Hi [Name],
 
 I'm reaching out about a unique local food story. Krong Thai Restaurant in Gatineau
 is the only restaurant in the entire Ottawa-Gatineau region serving authentic
-Cambodian cuisine -- and has been since 2008. The original family members who
+Cambodian cuisine -- and has been since 1999. The original family members who
 started cooking are still in the kitchen today, preserving traditional Cambodian,
 Thai, and Vietnamese recipes.
 
 What makes this interesting:
 - Only Cambodian restaurant in the region (verifiable -- no competitors)
-- Family-operated since 2008 with original cooks
+- Family-operated since 1999 with original cooks
 - BYOB with no corkage fee (unique in the area)
 - 220+ Google reviews, 4.2 stars
 - Signature Bangkok Soup has 93% approval rating
@@ -434,7 +434,7 @@ Best regards,
 **Outreach approach:**
 - Invite for a complimentary tasting experience (2 people, full menu sampling)
 - Ask for honest review -- do NOT pay for reviews
-- Provide talking points: only Cambodian in region, BYOB, family since 2008
+- Provide talking points: only Cambodian in region, BYOB, family since 1999
 - Ask them to tag @krongthairestaurant and link to the website
 
 ### 5.3 Business Associations & Community Links
@@ -640,7 +640,7 @@ The site already has:
 - **Bullet points and numbered lists** (AI can parse structured content)
 - **Tables** comparing dishes, prices, or options
 - **FAQ format** with schema markup
-- **Statistics and data points** (e.g., "93% approval rating", "since 2008", "220+ reviews")
+- **Statistics and data points** (e.g., "93% approval rating", "since 1999", "220+ reviews")
 - **Consistent entity mentions** (always "Krong Thai Restaurant" not "the restaurant")
 
 ---
@@ -655,7 +655,7 @@ As of **July 10, 2025**, Google now crawls and indexes public content from profe
 
 **Account setup:**
 - Switch to Professional/Business account (required for indexing)
-- Bio: "Gatineau's only Thai, Vietnamese & Cambodian restaurant | Since 2008 | BYOB | (819) 243-5000"
+- Bio: "Gatineau's only Thai, Vietnamese & Cambodian restaurant | Since 1999 | BYOB | (819) 243-5000"
 - Link in bio: restaurantkrongthai.com
 - Location: Always tag "Gatineau, Quebec"
 
@@ -817,7 +817,7 @@ Ensure each page's `<html>` tag has the correct `lang` attribute (`lang="en-CA"`
 Headline 1: Best Thai Food in Gatineau
 Headline 2: Only Cambodian Restaurant in Region
 Headline 3: BYOB + Free Parking
-Description: Authentic Thai, Vietnamese & Cambodian cuisine since 2008.
+Description: Authentic Thai, Vietnamese & Cambodian cuisine since 1999.
 Family recipes, 4.2 stars. Order online or dine in. Lunch combos from $10.95.
 ```
 
