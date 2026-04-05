@@ -1,0 +1,32 @@
+---
+import { type Locale, t } from "../i18n/utils";
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const i = t(locale);
+---
+
+<section class="reveal border-t border-white/[0.06] px-5 py-16 lg:px-8" aria-labelledby="faq-heading">
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 text-center text-xs font-bold uppercase tracking-[0.2em] text-golden/70">
+      {locale === "fr" ? "Réponses rapides" : "Quick Answers"}
+    </p>
+    <h2 id="faq-heading" class="mb-10 text-center font-display text-2xl font-bold text-white sm:text-3xl">
+      {locale === "fr" ? "Questions fréquentes" : "Frequently Asked Questions"}
+    </h2>
+
+    <div class="space-y-4">
+      {i.contactPage.faq.map((item) => (
+        <details class="group rounded-xl border border-white/[0.08] bg-white/[0.03] px-6 py-4 transition-colors hover:border-golden/20">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-white/90 [&::-webkit-details-marker]:hidden">
+            <span itemprop="name">{item.q}</span>
+            <span class="flex-shrink-0 text-golden/60 transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <div class="mt-3 text-sm leading-relaxed text-white/65" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <p itemprop="text">{item.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

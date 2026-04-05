@@ -10,6 +10,8 @@ import OrderCTA from "../../components/OrderCTA.astro";
 import Testimonials from "../../components/Testimonials.astro";
 import BYOBSection from "../../components/BYOBSection.astro";
 import ContactStrip from "../../components/ContactStrip.astro";
+import OurStory from "../../components/OurStory.astro";
+import LatestNews from "../../components/LatestNews.astro";
 import { t, localizedPath } from "../../i18n/utils";
 import { business } from "../../data/business";
 
@@ -60,6 +62,7 @@ const i = t(locale);
   <FeaturedDishes locale={locale} />
   <ComboSpecial locale={locale} />
   <BYOBSection locale={locale} />
+  <OurStory locale={locale} />
   <Testimonials locale={locale} />
   <OrderCTA locale={locale} />
 
@@ -97,5 +100,6 @@ const i = t(locale);
     }))
   })} />
 
+  <LatestNews locale={locale} />
   <ContactStrip locale={locale} />
 </MarketingLayout>

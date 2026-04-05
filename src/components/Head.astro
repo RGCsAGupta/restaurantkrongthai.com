@@ -1,5 +1,5 @@
 ---
-import { slugMap, reverseSlugMap } from "../i18n/utils";
+import { slugMap, reverseSlugMap, t } from "../i18n/utils";
 import { business } from "../data/business";
 
 interface Props {
@@ -13,6 +13,8 @@ interface Props {
 }
 
 const { title, description, locale, canonicalPath = "", alternatePath, breadcrumbs, ogImage } = Astro.props;
+const i = t(locale);
+const isHomepage = canonicalPath === "";
 const base = "https://restaurantkrongthai.com";
 const canonical = `${base}/${locale}/${canonicalPath}`.replace(/\/$/, "") + "/";
 const alternateLang = locale === "en" ? "fr" : "en";
@@ -56,7 +58,7 @@ const pageName = pageNames[locale]?.[localSlug];
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content={locale === "fr" ? "fr_CA" : "en_CA"} />
-<meta property="og:site_name" content="Krong Thai Restaurant" />
+<meta property="og:site_name" content="Restaurant Krong Thai" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
@@ -80,9 +82,17 @@ const pageName = pageNames[locale]?.[localSlug];
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Restaurant",
-  "name": "Krong Thai Restaurant",
+  "@id": "https://restaurantkrongthai.com/#restaurant",
+  "name": "Restaurant Krong Thai",
   "image": `${base}/images/hero.jpg`,
   "url": "https://restaurantkrongthai.com",
+  "foundingDate": "1999",
+  "dateModified": "2026-04-04",
+  "founder": {
+    "@type": "Person",
+    "name": "Sothea Say",
+    "jobTitle": locale === "fr" ? "Fondatrice" : "Founder"
+  },
   "telephone": "+18192435000",
   "address": {
     "@type": "PostalAddress",
@@ -110,7 +120,47 @@ const pageName = pageNames[locale]?.[localSlug];
   "hasMenu": {
     "@type": "Menu",
     "url": `${base}/${locale}/menu/`,
-    "name": locale === "fr" ? "Menu du restaurant" : "Restaurant Menu"
+    "name": locale === "fr" ? "Menu du restaurant" : "Restaurant Menu",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": locale === "fr" ? "Les favoris" : "Fan Favourites",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": locale === "fr" ? "Soupe Bangkok" : "Bangkok Soup",
+            "description": locale === "fr"
+              ? "Soupe signature la plus populaire — plébiscitée à 93 % par nos clients Google."
+              : "Most popular signature soup — 93% customer approval on Google.",
+            "offers": { "@type": "Offer", "priceCurrency": "CAD" }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Pad Thai",
+            "description": locale === "fr"
+              ? "Nouilles de riz sautées classiques avec votre choix de protéine — approbation de 95 %."
+              : "Classic stir-fried rice noodles with your choice of protein — 95% customer approval.",
+            "offers": { "@type": "Offer", "priceCurrency": "CAD" }
+          },
+          {
+            "@type": "MenuItem",
+            "name": locale === "fr" ? "Rouleaux impériaux" : "Imperial Rolls",
+            "description": locale === "fr"
+              ? "Rouleaux dorés croustillants servis avec sauce maison."
+              : "Crispy golden rolls served with house-made dipping sauce.",
+            "offers": { "@type": "Offer", "priceCurrency": "CAD" }
+          },
+          {
+            "@type": "MenuItem",
+            "name": locale === "fr" ? "Spécial du midi (Table d'hôte)" : "Lunch Special (Table d'hôte)",
+            "description": locale === "fr"
+              ? "Soupe + entrée + riz jasmin + café ou thé + biscuits aux amandes."
+              : "Soup + appetizer + jasmine rice + coffee or tea + almond cookies.",
+            "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "CAD", "priceValidUntil": "2025-12-31" }
+          }
+        ]
+      }
+    ]
   },
   "potentialAction": {
     "@type": "OrderAction",
@@ -145,22 +195,39 @@ const pageName = pageNames[locale]?.[localSlug];
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Krong Thai Restaurant",
+  "name": "Restaurant Krong Thai",
   "url": base,
   "inLanguage": [locale === "fr" ? "fr-CA" : "en-CA"],
-  "publisher": { "@type": "Restaurant", "name": "Krong Thai Restaurant" }
+  "publisher": { "@type": "Organization", "name": "Restaurant Krong Thai", "url": base }
 })} />
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": title,
   "description": description,
+  "url": canonical,
   "inLanguage": locale === "fr" ? "fr-CA" : "en-CA",
+  "datePublished": "2024-01-01",
+  "dateModified": "2026-04-04",
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": ["h1", "[data-speakable]", "meta[name='description']"]
   }
 })} />
+{isHomepage && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": i.contactPage.faq.map((item) => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    }))
+  })} />
+)}
 {breadcrumbs ? (
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",

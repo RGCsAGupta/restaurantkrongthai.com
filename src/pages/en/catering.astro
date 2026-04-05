@@ -133,6 +133,57 @@ const menus = [
     </div>
   </section>
 
+  <!-- Catering FAQ -->
+  <section class="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32" aria-labelledby="catering-faq-heading">
+    <div class="divider-gold mx-auto mb-24 max-w-xs"></div>
+    <div class="mx-auto max-w-3xl">
+      <div class="reveal mb-12 text-center">
+        <h2 id="catering-faq-heading" class="font-display text-2xl font-bold text-white sm:text-3xl">{i.catering.faqTitle}</h2>
+      </div>
+      <div class="space-y-4">
+        {i.catering.faq.map((item, idx) => (
+          <details class={`reveal reveal-delay-${(idx % 4) + 1} group rounded-2xl border border-white/[0.06] bg-night-800/40`}>
+            <summary class="flex cursor-pointer items-center justify-between px-6 py-4 text-sm font-semibold text-white/70 transition-colors hover:text-white [&::-webkit-details-marker]:hidden">
+              <span>{item.q}</span>
+              <svg class="h-4 w-4 shrink-0 text-white/50 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+            <div class="border-t border-white/[0.04] px-6 py-4 text-sm leading-relaxed text-white/65">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": i.catering.faq.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": { "@type": "Answer", "text": item.a }
+    }))
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "@id": "https://restaurantkrongthai.com/#catering",
+    "name": "Restaurant Krong Thai — Catering Service",
+    "url": "https://restaurantkrongthai.com/en/catering/",
+    "telephone": "+18192435000",
+    "servesCuisine": ["Thai", "Vietnamese", "Cambodian"],
+    "priceRange": "$$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Catering Packages",
+      "itemListElement": [
+        { "@type": "Offer", "name": "Appetizer Platter — Basic Catering", "price": "18.00", "priceCurrency": "CAD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "18.00", "priceCurrency": "CAD", "unitText": "per person" } },
+        { "@type": "Offer", "name": "Main Course Package — Standard Catering", "price": "25.00", "priceCurrency": "CAD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "25.00", "priceCurrency": "CAD", "unitText": "per person" } },
+        { "@type": "Offer", "name": "Premium Selection — Premium Catering", "price": "35.00", "priceCurrency": "CAD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "35.00", "priceCurrency": "CAD", "unitText": "per person" } }
+      ]
+    }
+  })} />
+
   <CateringForm locale={locale} />
   <ContactStrip locale={locale} />
 </MarketingLayout>

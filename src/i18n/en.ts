@@ -25,6 +25,7 @@ export default {
     rating: "4.2",
     reviewCount: "220+",
     reviewLabel: "reviews",
+    ratingDate: "March 2025",
     badge: "Best Thai Restaurant in Gatineau",
     cambodianBadge: "Only Cambodian in the region",
   },
@@ -46,7 +47,7 @@ export default {
     title: "Fan Favourites",
     tag: "Fan Fav",
     bangkokSoup: "Bangkok Soup",
-    bangkokSoupDesc: "Our award-winning signature soup — 93% approval rating.",
+    bangkokSoupDesc: "Our most popular signature soup — 93% customer approval on Google.",
     padThai: "Pad Thai",
     padThaiDesc:
       "Classic stir-fried rice noodles with your choice of protein — 95% approval.",
@@ -66,6 +67,7 @@ export default {
     originalPrice: "$15.95",
     savings: "Save $5",
     readyNote: "Ready in 15-20 min · Freshly prepared",
+    priceValidNote: "Prices in effect since January 2025",
   },
   orderCta: {
     label: "Order",
@@ -148,6 +150,15 @@ export default {
     policyServing: "Buffet-style in disposable containers, serving utensils included",
     policyPayment: "We accept cash, credit card, and Interac e-Transfer",
     policyCustom: "Custom menus available — tell us about your event",
+    faqTitle: "Catering FAQ",
+    faq: [
+      { q: "What is the minimum number of guests for catering?", a: "The minimum is 10 guests for all catering orders." },
+      { q: "How much does catering cost?", a: "Packages start at $18/person for the appetizer platter, $25/person for the main course package, and $35/person for the premium selection." },
+      { q: "How far in advance do I need to book?", a: "Please book at least 5 business days in advance. A 50% deposit is required to confirm your reservation." },
+      { q: "Do you deliver to our location?", a: "Yes, we serve Gatineau, Ottawa, Hull, Aylmer and surrounding areas. Contact us to confirm availability for your address." },
+      { q: "Do you offer vegetarian or gluten-free options?", a: "Yes, we offer vegetarian, gluten-free, and allergy-adapted options on request. Please mention it in your inquiry." },
+      { q: "What is your cancellation policy?", a: "Cancellation is free up to 72 hours before the event. The 50% deposit is retained for late cancellations." },
+    ],
   },
   specials: {
     heroTitle: "Specials & Promotions",
@@ -233,9 +244,9 @@ export default {
     title: "What Our Customers Say",
     cta: "Leave a Review",
     reviews: [
-      { name: "Kathy S.", text: "Best restaurant I've been to in Gatineau. Food is super flavourful. Texture is great, rice was perfect, big portion size. Everybody gave us amazing service. The chef even came out to greet us during our meal. Will definitely be back again.", rating: 5 },
-      { name: "Mike L.", text: "Best Tom Yum Soup I've ever had. The owner greeted me warmly and asked if I wanted coconut milk in my soup. The broth was infused with fresh lemongrass and coriander root, giving it a vibrant, layered flavor. A true hidden gem!", rating: 5 },
-      { name: "Lynne L.", text: "Simple flare restaurant. Bring your own wine with no extra fee for corking. Table d'hôte is main course + $10 or you pick from the menu. Great value for authentic Thai food.", rating: 4 },
+      { name: "Kathy S.", text: "Best restaurant I've been to in Gatineau. Food is super flavourful. Texture is great, rice was perfect, big portion size. Everybody gave us amazing service. The chef even came out to greet us during our meal. Will definitely be back again.", rating: 5, date: "2025-01-15", source: "Google" },
+      { name: "Mike L.", text: "Best Tom Yum Soup I've ever had. The owner greeted me warmly and asked if I wanted coconut milk in my soup. The broth was infused with fresh lemongrass and coriander root, giving it a vibrant, layered flavor. A true hidden gem!", rating: 5, date: "2024-11-08", source: "Google" },
+      { name: "Lynne L.", text: "Simple flare restaurant. Bring your own wine with no extra fee for corking. Table d'hôte is main course + $10 or you pick from the menu. Great value for authentic Thai food.", rating: 4, date: "2024-09-22", source: "Google" },
     ],
   },
   byobSection: {
@@ -274,6 +285,28 @@ export default {
       { q: "Do you offer catering?", a: "Yes, we cater corporate events, private parties, and family gatherings across Gatineau, Ottawa, Hull, and Aylmer. Packages start at $18 per person." },
     ],
   },
+  news: {
+    label: "Updates",
+    title: "Restaurant News",
+    readMore: "Learn more",
+    items: [
+      {
+        date: "2026-04-01",
+        title: "Spring 2026 Menu Now Available",
+        summary: "Discover our new seasonal dishes inspired by Cambodian and Thai flavours. Available now for dine-in, takeout, and delivery.",
+      },
+      {
+        date: "2025-12-15",
+        title: "Holiday Hours 2025–2026",
+        summary: "Restaurant Krong Thai is open through the holidays. Book early for group meals — catering available for family gatherings from $18/person.",
+      },
+      {
+        date: "2025-09-01",
+        title: "New: Direct Online Ordering",
+        summary: "Order directly from our website via krongthai.order-online.ai — no third-party app needed for pickup. Available 7 days a week.",
+      },
+    ],
+  },
   footer: {
     tagline: "Authentic Thai, Vietnamese & Cambodian Cuisine since 1999",
     contactLabel: "Contact",
@@ -285,7 +318,7 @@ export default {
     heroSubtitle: "Discover the family heritage that makes Krong Thai the only authentic Cambodian restaurant in the Gatineau region.",
     sinceLabel: "Since 1999",
     storyTitle: "A Family Tradition",
-    storyText: "In 1999, a Cambodian family brought their treasured recipes to Les Promenades de l'Outaouais in Gatineau — dishes passed down through generations in Cambodia. After nearly a decade at the mall, they moved to 205 Rue Bellehumeur in 2009, where those same traditions live on in every Bangkok Soup, every curry paste, and every spice blend made from scratch. Under new management since May 2024, we honour this legacy while welcoming a new chapter for the restaurant.",
+    storyText: "In 1999, Sothea Say founded Restaurant Krong Thai at Les Promenades de l'Outaouais in Gatineau, bringing treasured recipes passed down through generations in Cambodia. Sothea and her family — sisters Sochinda and Sobramey Say, and Vanthan Top — have cooked these authentic dishes from day one. After nearly a decade at the mall, they moved to 205 Rue Bellehumeur in 2009, where those same traditions live on in every Bangkok Soup, every curry paste, and every spice blend made from scratch.",
     familyBadge: "Family recipes since 1999",
     heritageLabel: "Heritage",
     cambodianTitle: "Cambodian Heritage",
@@ -388,6 +421,8 @@ export default {
       { q: "Do you offer delivery?", a: "Yes, we deliver via UberEats, DoorDash, and SkipTheDishes. You can also order pickup directly from our website." },
       { q: "Is the restaurant wheelchair accessible?", a: "Yes, our restaurant is fully wheelchair accessible." },
       { q: "What are your hours of operation?", a: "Tuesday 3-9 PM, Wednesday-Thursday 11 AM-9 PM, Friday-Saturday 11 AM-10 PM, Sunday 3-9 PM. Closed Monday." },
+      { q: "Do you offer vegetarian options?", a: "Yes, most dishes can be prepared with vegetables and tofu on request. Please note our house sauces are not vegan. Let your server know or add a note when ordering online." },
+      { q: "What is Cambodian cuisine?", a: "Cambodian (Khmer) cuisine is known for balanced flavours built around lemongrass, galangal, and kaffir lime — distinct from Thai and Vietnamese cooking. We are the only restaurant in the Ottawa-Gatineau region serving authentic Khmer dishes, including Phnom Penh Soup and Banh Hoi." },
     ],
   },
   privacy: {

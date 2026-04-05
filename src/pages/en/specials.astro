@@ -247,4 +247,20 @@ const combos = [
 
   <OrderCTA locale={locale} />
   <ContactStrip locale={locale} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Table d'hôte Combos — Restaurant Krong Thai",
+    "description": "Combo deals and set menus at Restaurant Krong Thai, Gatineau",
+    "url": "https://restaurantkrongthai.com/en/specials/",
+    "numberOfItems": 5,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "MenuItem", "name": "1-Person Lunch Special (Table d'hôte)", "description": "Add to any main: choice of soup, appetizer, jasmine rice, coffee or tea, almond cookies", "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "CAD", "priceValidUntil": "2025-12-31" } } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "MenuItem", "name": "2-Person Set Menu", "offers": { "@type": "Offer", "price": "60.00", "priceCurrency": "CAD" } } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "MenuItem", "name": "2-Person Eternal Garden", "offers": { "@type": "Offer", "price": "60.00", "priceCurrency": "CAD" } } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "MenuItem", "name": "3-Person Set Menu", "offers": { "@type": "Offer", "price": "85.00", "priceCurrency": "CAD" } } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "MenuItem", "name": "4-Person Set Menu", "offers": { "@type": "Offer", "price": "110.00", "priceCurrency": "CAD" } } }
+    ]
+  })} />
 </MarketingLayout>

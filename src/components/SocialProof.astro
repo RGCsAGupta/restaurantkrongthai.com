@@ -1,5 +1,6 @@
 ---
 import { type Locale, t } from "../i18n/utils";
+import { business } from "../data/business";
 
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
@@ -9,7 +10,7 @@ const i = t(locale);
 <div class="reveal relative overflow-hidden border-b border-white/[0.04] bg-night-900 px-5 py-6">
   <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-8 sm:gap-12">
     <!-- Stars + Rating — links to Google review -->
-    <a href={locale === "fr" ? "/avis" : "/review"} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition-opacity hover:opacity-80">
+    <a href={locale === "fr" ? "/avis" : "/review"} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 transition-opacity hover:opacity-80" aria-label={`${i.social.rating} ${locale === "fr" ? "étoiles sur Google" : "stars on Google"} (${i.social.reviewCount} ${i.social.reviewLabel})`}>
       <div class="flex gap-0.5" aria-hidden="true">
         {Array.from({ length: 5 }).map((_, idx) => (
           <svg class:list={["h-4 w-4", idx < 4 ? "text-golden" : "text-golden/25"]} fill="currentColor" viewBox="0 0 20 20">
@@ -18,8 +19,17 @@ const i = t(locale);
         ))}
       </div>
       <span class="text-sm font-bold text-white">{i.social.rating}</span>
-      <span class="text-sm text-white/55">({i.social.reviewCount})</span>
+      <span class="text-sm text-white/55">({i.social.reviewCount} {i.social.reviewLabel} Google · {i.social.ratingDate})</span>
     </a>
+
+    <span class="hidden h-4 w-px bg-white/10 sm:block"></span>
+
+    <!-- External review platform links -->
+    <div class="flex items-center gap-4">
+      <a href={business.social.tripadvisor} target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-white/50 transition-colors hover:text-golden-light">TripAdvisor</a>
+      <span class="text-white/20">·</span>
+      <a href={business.social.yelp} target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-white/50 transition-colors hover:text-golden-light">Yelp</a>
+    </div>
 
     <span class="hidden h-4 w-px bg-white/10 sm:block"></span>
     <span class="text-sm font-semibold text-golden-light">{i.social.badge}</span>
