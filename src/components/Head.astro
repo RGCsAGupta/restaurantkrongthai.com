@@ -1,5 +1,5 @@
 ---
-import { slugMap, reverseSlugMap, t } from "../i18n/utils";
+import { slugMap, reverseSlugMap } from "../i18n/utils";
 import { business } from "../data/business";
 
 interface Props {
@@ -214,20 +214,6 @@ const pageName = pageNames[locale]?.[localSlug];
     "cssSelector": ["h1", "[data-speakable]", "meta[name='description']"]
   }
 })} />
-{isHomepage && (
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": i.contactPage.faq.map((item) => ({
-      "@type": "Question",
-      "name": item.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.a
-      }
-    }))
-  })} />
-)}
 {breadcrumbs ? (
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
