@@ -13,8 +13,6 @@ interface Props {
 }
 
 const { title, description, locale, canonicalPath = "", alternatePath, breadcrumbs, ogImage } = Astro.props;
-const i = t(locale);
-const isHomepage = canonicalPath === "";
 const base = "https://restaurantkrongthai.com";
 const canonical = `${base}/${locale}/${canonicalPath}`.replace(/\/$/, "") + "/";
 const alternateLang = locale === "en" ? "fr" : "en";
