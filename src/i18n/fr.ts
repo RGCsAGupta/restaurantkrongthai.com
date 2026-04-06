@@ -25,6 +25,7 @@ export default {
     rating: "4.2",
     reviewCount: "220+",
     reviewLabel: "avis",
+    ratingDate: "mars 2025",
     badge: "Meilleur restaurant thaï à Gatineau",
     cambodianBadge: "Seul cambodgien de la région",
   },
@@ -47,7 +48,7 @@ export default {
     tag: "Favori",
     bangkokSoup: "Soupe Bangkok",
     bangkokSoupDesc:
-      "Notre soupe signature primée — taux d'approbation de 93 %.",
+      "Notre soupe signature la plus populaire — plébiscitée à 93 % par nos clients Google.",
     padThai: "Pad Thai",
     padThaiDesc:
       "Nouilles de riz sautées classiques avec votre choix de protéine — approbation de 95 %.",
@@ -67,6 +68,7 @@ export default {
     originalPrice: "15,95 $",
     savings: "Économisez 5 $",
     readyNote: "Prêt en 15-20 min · Fraîchement préparé",
+    priceValidNote: "Prix en vigueur depuis janvier 2025",
   },
   orderCta: {
     label: "Commander",
@@ -151,6 +153,15 @@ export default {
     policyServing: "Service buffet en contenants jetables, ustensiles de service inclus",
     policyPayment: "Nous acceptons comptant, carte de crédit et virement Interac",
     policyCustom: "Menus personnalisés disponibles — parlez-nous de votre événement",
+    faqTitle: "Questions fréquentes — Traiteur",
+    faq: [
+      { q: "Quel est le nombre minimum d'invités pour un service traiteur ?", a: "Le minimum est de 10 invités pour toutes les commandes traiteur." },
+      { q: "Quel est le prix du service traiteur ?", a: "Les forfaits débutent à 18 $ par personne pour le plateau d'entrées, 25 $ pour le forfait plats principaux et 35 $ pour la sélection premium." },
+      { q: "Combien de temps à l'avance faut-il réserver ?", a: "Veuillez réserver au moins 5 jours ouvrables à l'avance. Un dépôt de 50 % est requis pour confirmer votre réservation." },
+      { q: "Livrez-vous à domicile pour les événements ?", a: "Oui, nous desservons Gatineau, Ottawa, Hull, Aylmer et les environs. Contactez-nous pour confirmer la disponibilité pour votre adresse." },
+      { q: "Proposez-vous des options végétariennes ou sans gluten ?", a: "Oui, nous offrons des options végétariennes, sans gluten et des adaptations pour allergies sur demande. Mentionnez-le dans votre demande." },
+      { q: "Quelle est la politique d'annulation ?", a: "L'annulation est gratuite jusqu'à 72 heures avant l'événement. Le dépôt de 50 % est retenu pour les annulations tardives." },
+    ],
   },
   specials: {
     heroTitle: "Spéciaux & Promotions",
@@ -236,9 +247,9 @@ export default {
     title: "Ce que disent nos clients",
     cta: "Laisser un avis",
     reviews: [
-      { name: "Kathy S.", text: "Le meilleur restaurant que j'ai visité à Gatineau. La nourriture est super savoureuse. La texture est parfaite, le riz impeccable, de grosses portions. Le chef est même venu nous saluer pendant notre repas. On y retourne certainement.", rating: 5 },
-      { name: "Mike L.", text: "La meilleure soupe Tom Yum que j'ai jamais goûtée. Le propriétaire m'a accueilli chaleureusement et m'a demandé si je voulais du lait de coco. Le bouillon était infusé de citronnelle fraîche et de racine de coriandre. Un vrai bijou caché !", rating: 5 },
-      { name: "Lynne L.", text: "Restaurant à l'ambiance simple. Apportez votre vin sans frais de bouchon. La table d'hôte est le plat principal + 10 $ ou vous choisissez du menu. Excellent rapport qualité-prix pour de la cuisine thaïe authentique.", rating: 4 },
+      { name: "Kathy S.", text: "Le meilleur restaurant que j'ai visité à Gatineau. La nourriture est super savoureuse. La texture est parfaite, le riz impeccable, de grosses portions. Le chef est même venu nous saluer pendant notre repas. On y retourne certainement.", rating: 5, date: "2025-01-15", source: "Google" },
+      { name: "Mike L.", text: "La meilleure soupe Tom Yum que j'ai jamais goûtée. Le propriétaire m'a accueilli chaleureusement et m'a demandé si je voulais du lait de coco. Le bouillon était infusé de citronnelle fraîche et de racine de coriandre. Un vrai bijou caché !", rating: 5, date: "2024-11-08", source: "Google" },
+      { name: "Lynne L.", text: "Restaurant à l'ambiance simple. Apportez votre vin sans frais de bouchon. La table d'hôte est le plat principal + 10 $ ou vous choisissez du menu. Excellent rapport qualité-prix pour de la cuisine thaïe authentique.", rating: 4, date: "2024-09-22", source: "Google" },
     ],
   },
   byobSection: {
@@ -277,6 +288,28 @@ export default {
       { q: "Offrez-vous un service traiteur ?", a: "Oui, nous offrons un service traiteur pour événements corporatifs, fêtes privées et réunions familiales à Gatineau, Ottawa, Hull et Aylmer. Les forfaits débutent à 18 $ par personne." },
     ],
   },
+  news: {
+    label: "Actualités",
+    title: "Nouveautés du restaurant",
+    readMore: "En savoir plus",
+    items: [
+      {
+        date: "2026-04-01",
+        title: "Menu de printemps 2026 disponible",
+        summary: "Découvrez nos nouveaux plats saisonniers inspirés des saveurs cambodgiennes et thaïes. Disponible dès maintenant pour dîner sur place, à emporter et en livraison.",
+      },
+      {
+        date: "2025-12-15",
+        title: "Heures des Fêtes 2025–2026",
+        summary: "Le Restaurant Krong Thai reste ouvert durant les Fêtes. Réservez tôt pour les repas de groupe — service traiteur disponible pour les réunions familiales à partir de 18 $/personne.",
+      },
+      {
+        date: "2025-09-01",
+        title: "Nouveau : commande en ligne directe",
+        summary: "Commandez directement sur notre site via krongthai.order-online.ai — plus besoin de passer par une application tierce pour la collecte. Disponible 7 jours sur 7.",
+      },
+    ],
+  },
   footer: {
     tagline:
       "Cuisine authentique thaï, vietnamienne et cambodgienne depuis 1999",
@@ -289,7 +322,7 @@ export default {
     heroSubtitle: "Découvrez le patrimoine familial qui fait de Krong Thai le seul restaurant cambodgien authentique de la région de Gatineau.",
     sinceLabel: "Depuis 1999",
     storyTitle: "Une tradition familiale",
-    storyText: "En 1999, une famille cambodgienne a apporté ses recettes précieuses aux Promenades de l'Outaouais à Gatineau — des plats transmis de génération en génération au Cambodge. Après près d'une décennie au centre commercial, la famille s'est installée au 205, rue Bellehumeur en 2009, où ces mêmes traditions perdurent dans chaque Soupe Bangkok, chaque pâte de cari et chaque mélange d'épices préparé à partir de zéro. Sous nouvelle direction depuis mai 2024, nous honorons cet héritage tout en ouvrant un nouveau chapitre.",
+    storyText: "En 1999, Sothea Say a fondé le Restaurant Krong Thai aux Promenades de l'Outaouais à Gatineau, apportant des recettes précieuses transmises de génération en génération au Cambodge. Sothea et sa famille — ses sœurs Sochinda et Sobramey Say, ainsi que Vanthan Top — ont cuisiné ces plats authentiques depuis le premier jour. Après près d'une décennie au centre commercial, la famille s'est installée au 205, rue Bellehumeur en 2009, où ces mêmes traditions perdurent dans chaque Soupe Bangkok, chaque pâte de cari et chaque mélange d'épices préparé à partir de zéro.",
     familyBadge: "Recettes familiales depuis 1999",
     heritageLabel: "Patrimoine",
     cambodianTitle: "Patrimoine cambodgien",
@@ -392,6 +425,8 @@ export default {
       { q: "Offrez-vous la livraison ?", a: "Oui, nous livrons via UberEats, DoorDash et SkipTheDishes. Vous pouvez aussi commander pour emporter directement sur notre site web." },
       { q: "Le restaurant est-il accessible en fauteuil roulant ?", a: "Oui, notre restaurant est entièrement accessible en fauteuil roulant." },
       { q: "Quelles sont vos heures d'ouverture ?", a: "Mardi 15h-21h, mercredi-jeudi 11h-21h, vendredi-samedi 11h-22h, dimanche 15h-21h. Fermé le lundi." },
+      { q: "Proposez-vous des options végétariennes ?", a: "Oui, la plupart de nos plats peuvent être préparés avec des légumes et du tofu sur demande. Notez que nos sauces maison ne sont pas végétaliennes (vegan). Mentionnez-le au serveur ou dans les notes de commande en ligne." },
+      { q: "Qu'est-ce que la cuisine cambodgienne ?", a: "La cuisine cambodgienne (khmère) se distingue par ses saveurs équilibrées entre citronnelle, galanga et feuilles de combava — distincte de la cuisine thaïe et vietnamienne. Nous sommes le seul restaurant de la région Ottawa-Gatineau à servir des plats khmers authentiques, dont la Soupe Phnom Penh et le Banh Hoi." },
     ],
   },
   privacy: {

@@ -27,7 +27,13 @@ const reviewUrl = `https://search.google.com/local/writereview?placeid=${busines
             ))}
           </div>
           <p class="text-sm leading-relaxed text-white/65">"{review.text}"</p>
-          <p class="mt-4 text-xs font-bold text-white/65">— {review.name}</p>
+          <div class="mt-4 flex items-center justify-between gap-2">
+            <p class="text-xs font-bold text-white/65">— {review.name}</p>
+            <div class="flex items-center gap-1.5 text-right">
+              {review.source && <span class="text-xs text-white/35">via {review.source}</span>}
+              {review.date && <span class="text-xs text-white/25">· {new Date(review.date).toLocaleDateString(locale === 'fr' ? 'fr-CA' : 'en-CA', { year: 'numeric', month: 'short' })}</span>}
+            </div>
+          </div>
         </div>
       ))}
     </div>
